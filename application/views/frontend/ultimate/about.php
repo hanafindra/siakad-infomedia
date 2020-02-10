@@ -7,7 +7,7 @@
       <!-- Title -->
       <div class="w-md-80 w-lg-50 mx-auto mb-5">
         <h1 class="h1 text-white">
-          <span class="font-weight-semi-bold">About Us</span>
+          <span class="font-weight-semi-bold">About Novelia</span>
         </h1>
       </div>
       <!-- End Title -->
