@@ -212,7 +212,7 @@
       $("#btn_masuk").click(function(){
         $.ajax({
             type: "POST",
-            url: <?php base_url();?>'/siakad/login/validate_login',
+            url: <?php base_url();?>'/login/validate_login',
             data: $("#form_login").serialize(),
             dataType: 'json',
             beforeSend: function(){
