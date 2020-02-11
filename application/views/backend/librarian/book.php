@@ -6,11 +6,11 @@
         <ul class="nav nav-tabs bordered">
             <li class="active">
                 <a href="#list" data-toggle="tab"><i class="entypo-menu"></i>
-                    <?php echo get_phrase('book_list');?>
+                    <?php echo get_phrase('daftar_buku');?>
                         </a></li>
             <li>
                 <a href="#add" data-toggle="tab"><i class="entypo-plus-circled"></i>
-                    <?php echo get_phrase('add_book');?>
+                    <?php echo get_phrase('tambah_buku');?>
                         </a></li>
         </ul>
         <!---CONTROL TABS END-->
@@ -24,15 +24,15 @@
                 <table cellpadding="0" cellspacing="0" border="0" class="table table-bordered" id="books">
                     <thead>
                         <tr>
-                            <th width="40"><div><?php echo get_phrase('book_id');?></div></th>
-                            <th><div><?php echo get_phrase('name');?></div></th>
-                            <th><div><?php echo get_phrase('author');?></div></th>
-                            <th><div><?php echo get_phrase('description');?></div></th>
-                            <th><div><?php echo get_phrase('price');?></div></th>
-                            <th><div><?php echo get_phrase('class');?></div></th>
+                            <th width="40"><div><?php echo get_phrase('id_buku');?></div></th>
+                            <th><div><?php echo get_phrase('nama');?></div></th>
+                            <th><div><?php echo get_phrase('penulis');?></div></th>
+                            <th><div><?php echo get_phrase('deskripsi');?></div></th>
+                            <th><div><?php echo get_phrase('harga');?></div></th>
+                            <th><div><?php echo get_phrase('kelas');?></div></th>
                             <!--<th><div><?php echo get_phrase('status');?></div></th>-->
-                            <th><div><?php echo get_phrase('download');?></div></th>
-                            <th><div><?php echo get_phrase('options');?></div></th>
+                            <th><div><?php echo get_phrase('unduh');?></div></th>
+                            <th><div><?php echo get_phrase('opsi');?></div></th>
                         </tr>
                     </thead>
                 </table>

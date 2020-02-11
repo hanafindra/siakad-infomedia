@@ -23,7 +23,7 @@ $issued_copies = $result[0]->issued_copies;
             <div class="num" data-start="0" data-end="<?php echo $this->db->count_all('book');?>" 
             		data-postfix="" data-duration="1500" data-delay="0">0</div>
             
-            <h3><?php echo get_phrase('total_books');?></h3>
+            <h3><?php echo get_phrase('total_buku');?></h3>
         </div>
         
     </div>
@@ -35,7 +35,7 @@ $issued_copies = $result[0]->issued_copies;
             <div class="num" data-start="0" data-end="<?php echo $pending_book_requests; ?>" 
             		data-postfix="" data-duration="800" data-delay="0">0</div>
             
-            <h3><?php echo get_phrase('pending_book_requests');?></h3>
+            <h3><?php echo get_phrase('permintaan_buku_yang_tertunda');?></h3>
         </div>
         
     </div>
@@ -47,7 +47,7 @@ $issued_copies = $result[0]->issued_copies;
             <div class="num" data-start="0" data-end="<?php echo $total_copies; ?>" 
             		data-postfix="" data-duration="500" data-delay="0">0</div>
             
-            <h3><?php echo get_phrase('total_copies');?></h3>
+            <h3><?php echo get_phrase('jumlah_salinan');?></h3>
         </div>
         
     </div>
@@ -59,7 +59,7 @@ $issued_copies = $result[0]->issued_copies;
             <div class="num" data-start="0" data-end="<?php echo $issued_copies; ?>" 
         		data-postfix="" data-duration="500" data-delay="0">0</div>
             
-            <h3><?php echo get_phrase('issued_copies');?></h3>
+            <h3><?php echo get_phrase('salinan_yang_diterbitkan');?></h3>
         </div>
         
     </div>

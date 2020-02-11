@@ -2,13 +2,13 @@
 <?php echo form_open(site_url('teacher/attendance_selector/'));?>
 <div class="panel panel-primary">
     <div class="panel-heading">
-        <h3 class="panel-title"><?php echo get_phrase('attendance_of') ?></h3>
+        <h3 class="panel-title"><?php echo get_phrase('kehadiran_dari') ?></h3>
     </div>
     <div class="panel-body">
 		<div class="row">
 			<div class="col-md-3 col-sm-offset-2">
 				<div class="form-group">
-				<label class="control-label" style="margin-bottom: 5px;"><?php echo get_phrase('date');?></label>
+				<label class="control-label" style="margin-bottom: 5px;"><?php echo get_phrase('tanggal');?></label>
 					<input type="text" class="form-control datepicker" name="timestamp" data-format="dd-mm-yyyy"
 						value="<?php echo date("d-m-Y");?>"/>
 				</div>
@@ -35,7 +35,7 @@
 			<input type="hidden" name="year" value="<?php echo $running_year;?>">
 
 			<div class="col-md-3" style="margin-top: 20px;">
-				<button type="submit" class="btn btn-info"><?php echo get_phrase('manage_attendance');?></button>
+				<button type="submit" class="btn btn-info"><?php echo get_phrase('kelola_kehadiran');?></button>
 			</div>
 
 		</div>

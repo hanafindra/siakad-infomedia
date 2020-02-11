@@ -42,7 +42,7 @@ class Accountant extends CI_Controller
         if ($this->session->userdata('accountant_login') != 1)
             redirect(base_url(), 'refresh');
         $page_data['page_name']  = 'dashboard';
-        $page_data['page_title'] = get_phrase('accountant_dashboard');
+        $page_data['page_title'] = get_phrase('dashboard_akuntan');
         $this->load->view('backend/index', $page_data);
     }
 
@@ -83,7 +83,7 @@ class Accountant extends CI_Controller
 
             $this->db->insert('payment' , $data2);
 
-            $this->session->set_flashdata('flash_message' , get_phrase('data_added_successfully'));
+            $this->session->set_flashdata('flash_message' , get_phrase('penambahan_data_berhasil'));
             redirect(site_url('accountant/student_payment'), 'refresh');
         }
 
@@ -120,7 +120,7 @@ class Accountant extends CI_Controller
                 $this->db->insert('payment' , $data2);
             }
 
-            $this->session->set_flashdata('flash_message' , get_phrase('data_added_successfully'));
+            $this->session->set_flashdata('flash_message' , get_phrase('penambahan_data_berhasil'));
             redirect(site_url('accountant/student_payment'), 'refresh');
         }
 
@@ -136,7 +136,7 @@ class Accountant extends CI_Controller
 
             $this->db->where('invoice_id', $param2);
             $this->db->update('invoice', $data);
-            $this->session->set_flashdata('flash_message' , get_phrase('data_updated'));
+            $this->session->set_flashdata('flash_message' , get_phrase('data_diperbarui'));
             redirect(site_url('accountant/income'), 'refresh');
         } else if ($param1 == 'edit') {
             $page_data['edit_data'] = $this->db->get_where('invoice', array(
@@ -168,18 +168,18 @@ class Accountant extends CI_Controller
             $this->db->set('due', 'due - ' . $data2['amount_paid'], FALSE);
             $this->db->update('invoice');
 
-            $this->session->set_flashdata('flash_message' , get_phrase('payment_successfull'));
+            $this->session->set_flashdata('flash_message' , get_phrase('pembayaran_berhasil'));
             redirect(site_url('accountant/income'), 'refresh');
         }
 
         if ($param1 == 'delete') {
             $this->db->where('invoice_id', $param2);
             $this->db->delete('invoice');
-            $this->session->set_flashdata('flash_message' , get_phrase('data_deleted'));
+            $this->session->set_flashdata('flash_message' , get_phrase('data_dihapus'));
             redirect(site_url('accountant/income'), 'refresh');
         }
         $page_data['page_name']  = 'invoice';
-        $page_data['page_title'] = get_phrase('manage_invoice/payment');
+        $page_data['page_title'] = get_phrase('atur_faktur/pembayaran');
         $this->db->order_by('creation_timestamp', 'desc');
         $page_data['invoices'] = $this->db->get('invoice')->result_array();
         $this->load->view('backend/index', $page_data);
@@ -192,7 +192,7 @@ class Accountant extends CI_Controller
 
         $page_data['page_name'] = 'income';
         $page_data['inner'] = $param1;
-        $page_data['page_title'] = get_phrase('student_payments');
+        $page_data['page_title'] = get_phrase('pembayaran_siswa');
         $this->load->view('backend/index', $page_data);
     }
 
@@ -234,16 +234,16 @@ class Accountant extends CI_Controller
             foreach ($invoices as $row) {
 
                 if ($row->due == 0) {
-                    $status = '<button class="btn btn-success btn-xs">'.get_phrase('paid').'</button>';
+                    $status = '<button class="btn btn-success btn-xs">'.get_phrase('bayar').'</button>';
                     $payment_option = '';
                 } else {
-                    $status = '<button class="btn btn-danger btn-xs">'.get_phrase('unpaid').'</button>';
-                    $payment_option = '<li><a href="#" onclick="invoice_pay_modal('.$row->invoice_id.')"><i class="entypo-bookmarks"></i>&nbsp;'.get_phrase('take_payment').'</a></li><li class="divider"></li>';
+                    $status = '<button class="btn btn-danger btn-xs">'.get_phrase('belum_dibayar').'</button>';
+                    $payment_option = '<li><a href="#" onclick="invoice_pay_modal('.$row->invoice_id.')"><i class="entypo-bookmarks"></i>&nbsp;'.get_phrase('ambil_pembayaran').'</a></li><li class="divider"></li>';
                 }
 
 
                 $options = '<div class="btn-group"><button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown">
-                                    Action <span class="caret"></span></button><ul class="dropdown-menu dropdown-default pull-right" role="menu">'.$payment_option.'<li><a href="#" onclick="invoice_view_modal('.$row->invoice_id.')"><i class="entypo-credit-card"></i>&nbsp;'.get_phrase('view_invoice').'</a></li><li class="divider"></li><li><a href="#" onclick="invoice_edit_modal('.$row->invoice_id.')"><i class="entypo-pencil"></i>&nbsp;'.get_phrase('edit').'</a></li><li class="divider"></li><li><a href="#" onclick="invoice_delete_confirm('.$row->invoice_id.')"><i class="entypo-trash"></i>&nbsp;'.get_phrase('delete').'</a></li></ul></div>';
+                                    Action <span class="caret"></span></button><ul class="dropdown-menu dropdown-default pull-right" role="menu">'.$payment_option.'<li><a href="#" onclick="invoice_view_modal('.$row->invoice_id.')"><i class="entypo-credit-card"></i>&nbsp;'.get_phrase('lihat_faktur').'</a></li><li class="divider"></li><li><a href="#" onclick="invoice_edit_modal('.$row->invoice_id.')"><i class="entypo-pencil"></i>&nbsp;'.get_phrase('edit').'</a></li><li class="divider"></li><li><a href="#" onclick="invoice_delete_confirm('.$row->invoice_id.')"><i class="entypo-trash"></i>&nbsp;'.get_phrase('hapus').'</a></li></ul></div>';
 
                 $nestedData['invoice_id'] = $row->invoice_id;
                 $nestedData['student'] = $this->crud_model->get_type_name_by_id('student',$row->student_id);
@@ -306,18 +306,18 @@ class Accountant extends CI_Controller
             foreach ($payments as $row) {
 
                 if ($row->method == 1)
-                    $method = get_phrase('cash');
+                    $method = get_phrase('tunai');
                 else if ($row->method == 2)
-                    $method = get_phrase('cheque');
+                    $method = get_phrase('cek');
                 else if ($row->method == 3)
-                    $method = get_phrase('card');
+                    $method = get_phrase('kartu_kredit');
                 else if ($row->method == 'Paypal')
                     $method = 'Paypal';
                 else
                     $method = 'Stripe';
 
 
-                $options = '<a href="#" onclick="invoice_view_modal('.$row->invoice_id.')"><i class="entypo-credit-card"></i>&nbsp;'.get_phrase('view_invoice').'</a>';
+                $options = '<a href="#" onclick="invoice_view_modal('.$row->invoice_id.')"><i class="entypo-credit-card"></i>&nbsp;'.get_phrase('lihat_faktur').'</a>';
 
                 $nestedData['payment_id'] = $row->payment_id;
                 $nestedData['title'] = $row->title;
@@ -347,7 +347,7 @@ class Accountant extends CI_Controller
         if ($this->session->userdata('accountant_login') != 1)
             redirect('login', 'refresh');
         $page_data['page_name']  = 'student_payment';
-        $page_data['page_title'] = get_phrase('create_student_payment');
+        $page_data['page_title'] = get_phrase('buat_pembayaran_siswa');
         $this->load->view('backend/index', $page_data);
     }
 
@@ -368,7 +368,7 @@ class Accountant extends CI_Controller
             $data['timestamp']           =   strtotime($this->input->post('timestamp'));
             $data['year']                =   $this->db->get_where('settings' , array('type' => 'running_year'))->row()->description;
             $this->db->insert('payment' , $data);
-            $this->session->set_flashdata('flash_message' , get_phrase('data_added_successfully'));
+            $this->session->set_flashdata('flash_message' , get_phrase('penambahan_data_berhasil'));
             redirect(site_url('accountant/expense'), 'refresh');
         }
 
@@ -385,19 +385,19 @@ class Accountant extends CI_Controller
             $data['year']                =   $this->db->get_where('settings' , array('type' => 'running_year'))->row()->description;
             $this->db->where('payment_id' , $param2);
             $this->db->update('payment' , $data);
-            $this->session->set_flashdata('flash_message' , get_phrase('data_updated'));
+            $this->session->set_flashdata('flash_message' , get_phrase('data_diperbarui'));
             redirect(site_url('accountant/expense'), 'refresh');
         }
 
         if ($param1 == 'delete') {
             $this->db->where('payment_id' , $param2);
             $this->db->delete('payment');
-            $this->session->set_flashdata('flash_message' , get_phrase('data_deleted'));
+            $this->session->set_flashdata('flash_message' , get_phrase('data_dihapus'));
             redirect(site_url('accountant/expense'), 'refresh');
         }
 
         $page_data['page_name']  = 'expense';
-        $page_data['page_title'] = get_phrase('expenses');
+        $page_data['page_title'] = get_phrase('biaya');
         $this->load->view('backend/index', $page_data);
     }
 
@@ -408,25 +408,25 @@ class Accountant extends CI_Controller
         if ($param1 == 'create') {
             $data['name']   =   html_escape($this->input->post('name'));
             $this->db->insert('expense_category' , $data);
-            $this->session->set_flashdata('flash_message' , get_phrase('data_added_successfully'));
+            $this->session->set_flashdata('flash_message' , get_phrase('penambahan_data_berhasil'));
             redirect(site_url('accountant/expense_category'), 'refresh');
         }
         if ($param1 == 'edit') {
             $data['name']   =   html_escape($this->input->post('name'));
             $this->db->where('expense_category_id' , $param2);
             $this->db->update('expense_category' , $data);
-            $this->session->set_flashdata('flash_message' , get_phrase('data_updated'));
+            $this->session->set_flashdata('flash_message' , get_phrase('data_diperbarui'));
             redirect(site_url('accountant/expense_category'), 'refresh');
         }
         if ($param1 == 'delete') {
             $this->db->where('expense_category_id' , $param2);
             $this->db->delete('expense_category');
-            $this->session->set_flashdata('flash_message' , get_phrase('data_deleted'));
+            $this->session->set_flashdata('flash_message' , get_phrase('data_dihapus'));
             redirect(site_url('accountant/expense_category'), 'refresh');
         }
 
         $page_data['page_name']  = 'expense_category';
-        $page_data['page_title'] = get_phrase('expense_category');
+        $page_data['page_title'] = get_phrase('kategori_biaya');
         $this->load->view('backend/index', $page_data);
     }
 
@@ -443,10 +443,10 @@ class Accountant extends CI_Controller
             if ($validation == 1) {
                 $this->db->where('accountant_id', $this->session->userdata('accountant_id'));
                 $this->db->update('accountant', $data);
-                $this->session->set_flashdata('flash_message', get_phrase('account_updated'));
+                $this->session->set_flashdata('flash_message', get_phrase('akun_diperbarui'));
             }
             else{
-                $this->session->set_flashdata('error_message', get_phrase('this_email_id_is_not_available'));
+                $this->session->set_flashdata('error_message', get_phrase('email_ini_tidak_tersedia'));
             }
             redirect(site_url('accountant/manage_profile'), 'refresh');
         }
@@ -464,15 +464,15 @@ class Accountant extends CI_Controller
                 $this->db->update('accountant', array(
                     'password' => $data['new_password']
                 ));
-                $this->session->set_flashdata('flash_message', get_phrase('password_updated'));
+                $this->session->set_flashdata('flash_message', get_phrase('password_diperbarui'));
             } else {
-                $this->session->set_flashdata('flash_message', get_phrase('password_mismatch'));
+                $this->session->set_flashdata('flash_message', get_phrase('password_tidak_cocok'));
             }
             redirect(site_url('accountant/manage_profile'), 'refresh');
         }
 
         $page_data['page_name']  = 'manage_profile';
-        $page_data['page_title'] = get_phrase('manage_profile');
+        $page_data['page_title'] = get_phrase('atur_profil');
         $page_data['edit_data']  = $this->db->get_where('accountant', array(
             'accountant_id' => $this->session->userdata('accountant_id')
         ))->result_array();
@@ -516,13 +516,13 @@ class Accountant extends CI_Controller
             foreach ($expenses as $row) {
                 $category = $this->db->get_where('expense_category', array('expense_category_id' => $row->expense_category_id))->row()->name;
                 if ($row->method == 1)
-                    $method = get_phrase('cash');
+                    $method = get_phrase('tunai');
                 else if ($row->method == 2)
-                    $method = get_phrase('cheque');
+                    $method = get_phrase('cek');
                 else
-                    $method = get_phrase('card');
+                    $method = get_phrase('kartu_kredit');
                 $options = '<div class="btn-group"><button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown">
-                                    Action <span class="caret"></span></button><ul class="dropdown-menu dropdown-default pull-right" role="menu"><li><a href="#" onclick="expense_edit_modal('.$row->payment_id.')"><i class="entypo-pencil"></i>&nbsp;'.get_phrase('edit').'</a></li><li class="divider"></li><li><a href="#" onclick="expense_delete_confirm('.$row->payment_id.')"><i class="entypo-trash"></i>&nbsp;'.get_phrase('delete').'</a></li></ul></div>';
+                                    Action <span class="caret"></span></button><ul class="dropdown-menu dropdown-default pull-right" role="menu"><li><a href="#" onclick="expense_edit_modal('.$row->payment_id.')"><i class="entypo-pencil"></i>&nbsp;'.get_phrase('edit').'</a></li><li class="divider"></li><li><a href="#" onclick="expense_delete_confirm('.$row->payment_id.')"><i class="entypo-trash"></i>&nbsp;'.get_phrase('hapus').'</a></li></ul></div>';
 
                 $nestedData['payment_id'] = $row->payment_id;
                 $nestedData['title'] = $row->title;

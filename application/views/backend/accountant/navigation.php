@@ -1,3 +1,4 @@
+
 <div class="sidebar-menu">
     <header class="logo-env" >
         <!-- logo -->
@@ -57,27 +58,27 @@
         ?> ">
             <a href="#">
                 <i class="entypo-suitcase"></i>
-                <span><?php echo get_phrase('accounting'); ?></span>
+                <span><?php echo get_phrase('catatan_akuntansi'); ?></span>
             </a>
             <ul>
                 <li class="<?php if ($page_name == 'student_payment') echo 'active'; ?> ">
                     <a href="<?php echo site_url('accountant/student_payment'); ?>">
-                        <span><i class="entypo-dot"></i> <?php echo get_phrase('create_student_payment'); ?></span>
+                        <span><i class="entypo-dot"></i> <?php echo get_phrase('tambah_pembayaran_siswa'); ?></span>
                     </a>
                 </li>
                 <li class="<?php if ($page_name == 'income') echo 'active'; ?> ">
                     <a href="<?php echo site_url('accountant/income'); ?>">
-                        <span><i class="entypo-dot"></i> <?php echo get_phrase('student_payments'); ?></span>
+                        <span><i class="entypo-dot"></i> <?php echo get_phrase('pembayaran_mahasiswa'); ?></span>
                     </a>
                 </li>
                 <li class="<?php if ($page_name == 'expense') echo 'active'; ?> ">
                     <a href="<?php echo site_url('accountant/expense'); ?>">
-                        <span><i class="entypo-dot"></i> <?php echo get_phrase('expense'); ?></span>
+                        <span><i class="entypo-dot"></i> <?php echo get_phrase('biaya'); ?></span>
                     </a>
                 </li>
                 <li class="<?php if ($page_name == 'expense_category') echo 'active'; ?> ">
                     <a href="<?php echo site_url('accountant/expense_category'); ?>">
-                        <span><i class="entypo-dot"></i> <?php echo get_phrase('expense_category'); ?></span>
+                        <span><i class="entypo-dot"></i> <?php echo get_phrase('kategori_biaya'); ?></span>
                     </a>
                 </li>
             </ul>
@@ -87,7 +88,7 @@
         <li class="<?php if ($page_name == 'manage_profile') echo 'active'; ?> ">
             <a href="<?php echo site_url('accountant/manage_profile'); ?>">
                 <i class="entypo-lock"></i>
-                <span><?php echo get_phrase('account'); ?></span>
+                <span><?php echo get_phrase('Akun_saya'); ?></span>
             </a>
         </li>
 

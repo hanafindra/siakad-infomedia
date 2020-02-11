@@ -44,14 +44,14 @@ foreach($student_info as $row):?>
                 
                     <?php if($row['class_id'] != ''):?>
                     <tr>
-                        <td><?php echo get_phrase('class');?></td>
+                        <td><?php echo get_phrase('kelas');?></td>
                         <td><b><?php echo $this->crud_model->get_class_name($row['class_id']);?></b></td>
                     </tr>
                     <?php endif;?>
 
                     <?php if($row['section_id'] != '' && $row['section_id'] != 0):?>
                     <tr>
-                        <td><?php echo get_phrase('section');?></td>
+                        <td><?php echo get_phrase('bagian');?></td>
                         <td><b><?php echo $this->db->get_where('section' , array('section_id' => $row['section_id']))->row()->name;?></b></td>
                     </tr>
                     <?php endif;?>
@@ -63,15 +63,15 @@ foreach($student_info as $row):?>
                     </tr>
 
                     <tr>
-                        <td><?php echo get_phrase('birthday');?></td>
+                        <td><?php echo get_phrase('tanggal_lahir');?></td>
                         <td><b><?php echo $this->db->get_where('student' , array('student_id' => $row['student_id']))->row()->birthday;?></b></td>
                     </tr>
                     <tr>
-                        <td><?php echo get_phrase('gender');?></td>
+                        <td><?php echo get_phrase('jenis_kelamin');?></td>
                         <td><b><?php echo $this->db->get_where('student' , array('student_id' => $row['student_id']))->row()->sex;?></b></td>
                     </tr>
                     <tr>
-                        <td><?php echo get_phrase('phone');?></td>
+                        <td><?php echo get_phrase('telepon');?></td>
                         <td><b><?php echo $this->db->get_where('student' , array('student_id' => $row['student_id']))->row()->phone;?></b></td>
                     </tr>
                     <tr>
@@ -79,12 +79,12 @@ foreach($student_info as $row):?>
                         <td><b><?php echo $this->db->get_where('student' , array('student_id' => $row['student_id']))->row()->email;?></b></td>
                     </tr>
                     <tr>
-                        <td><?php echo get_phrase('address');?></td>
+                        <td><?php echo get_phrase('alamat');?></td>
                         <td><b><?php echo $this->db->get_where('student' , array('student_id' => $row['student_id']))->row()->address;?></b>
                         </td>
                     </tr>
                     <tr>
-                        <td><?php echo get_phrase('parent');?></td>
+                        <td><?php echo get_phrase('orang_tua');?></td>
                         <td>
                             <b>
                                 <?php 
@@ -95,7 +95,7 @@ foreach($student_info as $row):?>
                         </td>
                     </tr>
                     <tr>
-                        <td><?php echo get_phrase('parent_phone');?></td>
+                        <td><?php echo get_phrase('telepon_orang_tua');?></td>
                         <td><b><?php echo $this->db->get_where('parent' , array('parent_id' => $parent_id))->row()->phone;?></b></td>
                     </tr>
                     

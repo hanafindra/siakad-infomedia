@@ -8,7 +8,7 @@
             <li class="active">
                 <a href="#home" data-toggle="tab">
                     <span class="visible-xs"><i class="entypo-users"></i></span>
-                    <span class="hidden-xs"><?php echo get_phrase('all_students');?></span>
+                    <span class="hidden-xs"><?php echo get_phrase('semua_siswa');?></span>
                 </a>
             </li>
         <?php
@@ -20,7 +20,7 @@
             <li>
                 <a href="#<?php echo $row['section_id'];?>" data-toggle="tab">
                     <span class="visible-xs"><i class="entypo-user"></i></span>
-                    <span class="hidden-xs"><?php echo get_phrase('section');?> <?php echo $row['name'];?> ( <?php echo $row['nick_name'];?> )</span>
+                    <span class="hidden-xs"><?php echo get_phrase('bagian');?> <?php echo $row['name'];?> ( <?php echo $row['nick_name'];?> )</span>
                 </a>
             </li>
         <?php endforeach;?>
@@ -34,12 +34,12 @@
                 <table class="table table-bordered datatable">
                     <thead>
                         <tr>
-                            <th width="80"><div><?php echo get_phrase('id_no');?></div></th>
-                            <th width="80"><div><?php echo get_phrase('photo');?></div></th>
-                            <th><div><?php echo get_phrase('name');?></div></th>
-                            <th class="span3"><div><?php echo get_phrase('address');?></div></th>
+                            <th width="80"><div><?php echo get_phrase('nomor id');?></div></th>
+                            <th width="80"><div><?php echo get_phrase('foto');?></div></th>
+                            <th><div><?php echo get_phrase('nama');?></div></th>
+                            <th class="span3"><div><?php echo get_phrase('alamat');?></div></th>
                             <th><div><?php echo get_phrase('email').'/'.get_phrase('username');?></div></th>
-                            <th><div><?php echo get_phrase('options');?></div></th>
+                            <th><div><?php echo get_phrase('pilihan');?></div></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -86,7 +86,7 @@
                                         <li>
                                             <a href="<?php echo site_url('teacher/student_marksheet/'.$row['student_id']);?>">
                                                 <i class="entypo-chart-bar"></i>
-                                                    <?php echo get_phrase('mark_sheet');?>
+                                                    <?php echo get_phrase('lembar_nilai');?>
                                                 </a>
                                         </li>
 
@@ -95,7 +95,7 @@
                                         <li>
                                             <a href="<?php echo site_url('teacher/student_profile/'.$row['student_id']);?>">
                                                 <i class="entypo-user"></i>
-                                                    <?php echo get_phrase('profile');?>
+                                                    <?php echo get_phrase('profil');?>
                                                 </a>
                                         </li>
 
@@ -121,12 +121,12 @@
                 <table class="table table-bordered datatable">
                     <thead>
                         <tr>
-                            <th width="80"><div><?php echo get_phrase('id');?></div></th>
-                            <th width="80"><div><?php echo get_phrase('photo');?></div></th>
-                            <th><div><?php echo get_phrase('name');?></div></th>
-                            <th class="span3"><div><?php echo get_phrase('address');?></div></th>
+                            <th width="80"><div><?php echo get_phrase('nomor id');?></div></th>
+                            <th width="80"><div><?php echo get_phrase('foto');?></div></th>
+                            <th><div><?php echo get_phrase('nama');?></div></th>
+                            <th class="span3"><div><?php echo get_phrase('alamat');?></div></th>
                             <th><div><?php echo get_phrase('email').'/'.get_phrase('username');?></div></th>
-                            <th><div><?php echo get_phrase('options');?></div></th>
+                            <th><div><?php echo get_phrase('pilihan');?></div></th>
                         </tr>
                     </thead>
                     <tbody>

@@ -51,19 +51,19 @@
         <li class="<?php if ($page_name == 'book' || $page_name == 'book_request') echo 'opened active';?> ">
             <a href="#">
                 <i class="entypo-book"></i>
-                <span><?php echo get_phrase('library'); ?></span>
+                <span><?php echo get_phrase('pustaka'); ?></span>
             </a>
             <ul>
                 <li class="<?php if ($page_name == 'book') echo 'active'; ?> ">
                     <a href="<?php echo site_url('librarian/book'); ?>">
                         <i class="entypo-dot"></i>
-                        <span><?php echo get_phrase('book_list'); ?></span>
+                        <span><?php echo get_phrase('daftar_buku'); ?></span>
                     </a>
                 </li>
                 <li class="<?php if ($page_name == 'book_request') echo 'active'; ?> ">
                     <a href="<?php echo site_url('librarian/book_request'); ?>">
                         <i class="entypo-dot"></i>
-                        <span><?php echo get_phrase('book_requests'); ?></span>
+                        <span><?php echo get_phrase('permintaan_buku'); ?></span>
                     </a>
                 </li>
             </ul>
@@ -73,7 +73,7 @@
         <li class="<?php if ($page_name == 'manage_profile') echo 'active'; ?> ">
             <a href="<?php echo site_url('librarian/manage_profile'); ?>">
                 <i class="entypo-lock"></i>
-                <span><?php echo get_phrase('account'); ?></span>
+                <span><?php echo get_phrase('akun'); ?></span>
             </a>
         </li>
 

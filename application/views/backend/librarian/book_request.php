@@ -2,12 +2,12 @@
     <thead>
         <tr>
             <th style="width: 60px;">#</th>
-            <th><?php echo get_phrase('requested_book');?></th>
-            <th><?php echo get_phrase('requested_by');?></th>
-            <th><?php echo get_phrase('issue_starting_date');?></th>
-            <th><?php echo get_phrase('issue_ending_date');?></th>
-            <th><?php echo get_phrase('request_status');?></th>
-            <th><?php echo get_phrase('options');?></th>
+            <th><?php echo get_phrase('buku_yang_diminta');?></th>
+            <th><?php echo get_phrase('diminta_oleh');?></th>
+            <th><?php echo get_phrase('tanggal_pinjam');?></th>
+            <th><?php echo get_phrase('tanggal_kembali');?></th>
+            <th><?php echo get_phrase('status_permintaan');?></th>
+            <th><?php echo get_phrase('opsi');?></th>
         </tr>
     </thead>
 

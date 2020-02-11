@@ -4,13 +4,13 @@
 			<thead>
         		<tr>
         			<th width="40"><div><?php echo get_phrase('id');?></div></th>
-            		<th><div><?php echo get_phrase('student');?></div></th>
-            		<th><div><?php echo get_phrase('title');?></div></th>
+            		<th><div><?php echo get_phrase('siswa');?></div></th>
+            		<th><div><?php echo get_phrase('judul');?></div></th>
                     <th><div><?php echo get_phrase('total');?></div></th>
-                    <th><div><?php echo get_phrase('paid');?></div></th>
+                    <th><div><?php echo get_phrase('bayar');?></div></th>
                     <th><div><?php echo get_phrase('status');?></div></th>
-            		<th><div><?php echo get_phrase('date');?></div></th>
-            		<th><div><?php echo get_phrase('options');?></div></th>
+            		<th><div><?php echo get_phrase('tanggal');?></div></th>
+            		<th><div><?php echo get_phrase('pilihan');?></div></th>
 				</tr>
 			</thead>
 		</table>

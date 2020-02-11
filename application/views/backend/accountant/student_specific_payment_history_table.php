@@ -7,12 +7,12 @@
 	<thead>
         <tr>
             <th width="40"><div><?php echo get_phrase('id');?></div></th>
-            <th><div><?php echo get_phrase('title');?></div></th>
-            <th><div><?php echo get_phrase('description');?></div></th>
-            <th><div><?php echo get_phrase('method');?></div></th>
-            <th><div><?php echo get_phrase('amount');?></div></th>
-            <th><div><?php echo get_phrase('date');?></div></th>
-            <th><div><?php echo get_phrase('options');?></div></th>
+            <th><div><?php echo get_phrase('judul');?></div></th>
+            <th><div><?php echo get_phrase('deskripsi');?></div></th>
+            <th><div><?php echo get_phrase('metode_pembayaran');?></div></th>
+            <th><div><?php echo get_phrase('jumlah');?></div></th>
+            <th><div><?php echo get_phrase('tanggal');?></div></th>
+            <th><div><?php echo get_phrase('pilihan');?></div></th>
         </tr>
     </thead>
     <tbody>
@@ -44,7 +44,7 @@
 	            <td><?php echo date('d M,Y', $row['timestamp']);?></td>
 	            <td align="center">
 	            	<a href="#" onclick="showAjaxModal('<?php echo site_url('modal/popup/modal_view_invoice/'.$row['invoice_id']);?>')">
-	            			<i class="entypo-credit-card"></i>&nbsp;<?php echo get_phrase('view_invoice');?>
+	            			<i class="entypo-credit-card"></i>&nbsp;<?php echo get_phrase('lihat_faktur');?>
 	            	</a>
 	            </td>
 	        </tr>

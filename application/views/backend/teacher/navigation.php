@@ -55,14 +55,14 @@
         ?> ">
             <a href="#">
                 <i class="fa fa-group"></i>
-                <span><?php echo get_phrase('student'); ?></span>
+                <span><?php echo get_phrase('siswa'); ?></span>
             </a>
             <ul>
 
                 <!-- STUDENT INFORMATION -->
                 <li class="<?php if ($page_name == 'student_information' || $page_name == 'student_marksheet' || $page_name == 'student_profile') echo 'opened active'; ?> ">
                     <a href="#">
-                        <span><i class="entypo-dot"></i> <?php echo get_phrase('student_information'); ?></span>
+                        <span><i class="entypo-dot"></i> <?php echo get_phrase('informasi_siswa'); ?></span>
                     </a>
                     <ul>
                         <?php
@@ -71,7 +71,7 @@
                             ?>
                             <li class="<?php if ($page_name == 'student_information' && $class_id == $row['class_id']) echo 'active'; ?>">
                                 <a href="<?php echo site_url($account_type.'/student_information/'.$row['class_id']); ?>">
-                                    <span><?php echo get_phrase('class'); ?><?php echo $row['name']; ?></span>
+                                    <span><?php echo get_phrase('kelas'); ?><?php echo $row['name']; ?></span>
                                 </a>
                             </li>
                         <?php endforeach; ?>
@@ -85,7 +85,7 @@
         <li class="<?php if ($page_name == 'teacher') echo 'active'; ?> ">
             <a href="<?php echo site_url($account_type.'/teacher_list'); ?>">
                 <i class="entypo-users"></i>
-                <span><?php echo get_phrase('teacher'); ?></span>
+                <span><?php echo get_phrase('guru'); ?></span>
             </a>
         </li>
 
@@ -94,7 +94,7 @@
         <li class="<?php if ($page_name == 'subject') echo 'opened active'; ?> ">
             <a href="#">
                 <i class="entypo-docs"></i>
-                <span><?php echo get_phrase('subject'); ?></span>
+                <span><?php echo get_phrase('mata pelajaran'); ?></span>
             </a>
             <ul>
                 <?php $classes = $this->db->get('class')->result_array();
@@ -102,7 +102,7 @@
                     ?>
                     <li class="<?php if ($page_name == 'subject' && $class_id == $row['class_id']) echo 'active'; ?>">
                         <a href="<?php echo site_url($account_type.'/subject/'.$row['class_id']); ?>">
-                            <span><?php echo get_phrase('class'); ?><?php echo $row['name']; ?></span>
+                            <span><?php echo get_phrase('kelas'); ?><?php echo $row['name']; ?></span>
                         </a>
                     </li>
                 <?php endforeach; ?>
@@ -115,7 +115,7 @@
             echo 'opened active'; ?> ">
             <a href="#">
                 <i class="entypo-target"></i>
-                <span><?php echo get_phrase('class_routine'); ?></span>
+                <span><?php echo get_phrase('pembagian_kelas'); ?></span>
             </a>
             <ul>
                 <?php
@@ -124,7 +124,7 @@
                     ?>
                     <li class="<?php if ($page_name == 'class_routine' && $class_id == $row['class_id']) echo 'active'; ?>">
                         <a href="<?php echo site_url($account_type.'/class_routine/'.$row['class_id']); ?>">
-                            <span><?php echo get_phrase('class'); ?><?php echo $row['name']; ?></span>
+                            <span><?php echo get_phrase('kelas'); ?><?php echo $row['name']; ?></span>
                         </a>
                     </li>
                 <?php endforeach; ?>
@@ -135,7 +135,7 @@
         <li class="<?php if ($page_name == 'study_material') echo 'active'; ?> ">
             <a href="<?php echo site_url($account_type.'/study_material'); ?>">
                 <i class="entypo-book-open"></i>
-                <span><?php echo get_phrase('study_material'); ?></span>
+                <span><?php echo get_phrase('bahan_pengajar'); ?></span>
             </a>
         </li>
 
@@ -143,7 +143,7 @@
         <li class="<?php if ($page_name == 'academic_syllabus') echo 'active'; ?> ">
             <a href="<?php echo site_url($account_type.'/academic_syllabus'); ?>">
                 <i class="entypo-doc"></i>
-                <span><?php echo get_phrase('academic_syllabus'); ?></span>
+                <span><?php echo get_phrase('silabus_akademik'); ?></span>
             </a>
         </li>
 
@@ -153,7 +153,7 @@
             echo 'opened active'; ?> ">
             <a href="#">
                 <i class="entypo-chart-area"></i>
-                <span><?php echo get_phrase('daily_attendance'); ?></span>
+                <span><?php echo get_phrase('presensi_kehadiran'); ?></span>
             </a>
             <ul>
                 <?php
@@ -162,7 +162,7 @@
                     ?>
                     <li class="<?php if (($page_name == 'manage_attendance' || $page_name == 'manage_attendance_view') && $class_id == $row['class_id']) echo 'active'; ?>">
                         <a href="<?php echo site_url($account_type.'/manage_attendance/'.$row['class_id']); ?>">
-                            <span><?php echo get_phrase('class'); ?><?php echo $row['name']; ?></span>
+                            <span><?php echo get_phrase('kelas'); ?><?php echo $row['name']; ?></span>
                         </a>
                     </li>
                 <?php endforeach; ?>
@@ -173,17 +173,17 @@
         <li class="<?php if ($page_name == 'marks_manage' || $page_name == 'marks_manage_view' || $page_name == 'question_paper') echo 'opened active'; ?> ">
             <a href="#">
                 <i class="entypo-graduation-cap"></i>
-                <span><?php echo get_phrase('exam'); ?></span>
+                <span><?php echo get_phrase('ujian'); ?></span>
             </a>
             <ul>
                 <li class="<?php if ($page_name == 'marks_manage' || $page_name == 'marks_manage_view') echo 'active'; ?> ">
                     <a href="<?php echo site_url($account_type.'/marks_manage'); ?>">
-                        <span><i class="entypo-dot"></i> <?php echo get_phrase('manage_marks'); ?></span>
+                        <span><i class="entypo-dot"></i> <?php echo get_phrase('Kelola_nilai'); ?></span>
                     </a>
                 </li>
                 <li class="<?php if ($page_name == 'question_paper') echo 'active'; ?> ">
                     <a href="<?php echo site_url($account_type.'/question_paper'); ?>">
-                        <span><i class="entypo-dot"></i> <?php echo get_phrase('question_paper'); ?></span>
+                        <span><i class="entypo-dot"></i> <?php echo get_phrase('lembar_pertanyaan'); ?></span>
                     </a>
                 </li>
             </ul>
@@ -193,7 +193,7 @@
         <li class="<?php if ($page_name == 'book') echo 'active'; ?> ">
             <a href="<?php echo site_url($account_type.'/book'); ?>">
                 <i class="entypo-book"></i>
-                <span><?php echo get_phrase('library'); ?></span>
+                <span><?php echo get_phrase('perpustakaan'); ?></span>
             </a>
         </li>
 
@@ -201,7 +201,7 @@
         <li class="<?php if ($page_name == 'transport') echo 'active'; ?> ">
             <a href="<?php echo site_url($account_type.'/transport'); ?>">
                 <i class="entypo-location"></i>
-                <span><?php echo get_phrase('transport'); ?></span>
+                <span><?php echo get_phrase('transportasi'); ?></span>
             </a>
         </li>
 
@@ -209,7 +209,7 @@
         <li class="<?php if ($page_name == 'noticeboard') echo 'active'; ?> ">
             <a href="<?php echo site_url($account_type.'/noticeboard'); ?>">
                 <i class="entypo-doc-text-inv"></i>
-                <span><?php echo get_phrase('noticeboard'); ?></span>
+                <span><?php echo get_phrase('pengumuman'); ?></span>
             </a>
         </li>
 
@@ -217,7 +217,7 @@
         <li class="<?php if ($page_name == 'message' || $page_name == 'group_message') echo 'active'; ?> ">
             <a href="<?php echo site_url($account_type.'/message'); ?>">
                 <i class="entypo-mail"></i>
-                <span><?php echo get_phrase('message'); ?></span>
+                <span><?php echo get_phrase('pesan'); ?></span>
             </a>
         </li>
 
@@ -225,7 +225,7 @@
         <li class="<?php if ($page_name == 'manage_profile') echo 'active'; ?> ">
             <a href="<?php echo site_url($account_type.'/manage_profile'); ?>">
                 <i class="entypo-lock"></i>
-                <span><?php echo get_phrase('account'); ?></span>
+                <span><?php echo get_phrase('akun'); ?></span>
             </a>
         </li>
 

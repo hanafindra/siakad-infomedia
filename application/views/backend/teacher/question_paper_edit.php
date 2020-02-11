@@ -8,7 +8,7 @@ foreach ($edit_data as $row) { ?>
                 <div class="panel-heading">
                     <div class="panel-title" >
                         <i class="entypo-plus-circled"></i>
-                        <?php echo get_phrase('edit_question_paper');?>
+                        <?php echo get_phrase('ubah_lembar_pertanyaan');?>
                     </div>
                 </div>
 
@@ -27,10 +27,10 @@ foreach ($edit_data as $row) { ?>
                         </div>
 
                         <div class="form-group">
-                            <label class="col-sm-3 control-label"><?php echo get_phrase('class'); ?></label>
+                            <label class="col-sm-3 control-label"><?php echo get_phrase('kelas'); ?></label>
                             <div class="col-sm-6">
                                 <select name="class_id" class="form-control selectboxit" required>
-                                    <option value=""><?php echo get_phrase('select_a_class'); ?></option>
+                                    <option value=""><?php echo get_phrase('pilih_kelas'); ?></option>
                                     <?php
                                     $classes = $this->db->get('class')->result_array();
                                     foreach ($classes as $row2) { ?>
@@ -43,10 +43,10 @@ foreach ($edit_data as $row) { ?>
                         </div>
 
                         <div class="form-group">
-                            <label class="col-sm-3 control-label"><?php echo get_phrase('exam'); ?></label>
+                            <label class="col-sm-3 control-label"><?php echo get_phrase('ujian'); ?></label>
                             <div class="col-sm-6">
                                 <select name="exam_id" class="form-control selectboxit" required>
-                                    <option value=""><?php echo get_phrase('select_an_exam'); ?></option>
+                                    <option value=""><?php echo get_phrase('pilih_ujian'); ?></option>
                                     <?php 
                                     $exams = $this->db->get('exam')->result_array();
                                     foreach ($exams as $row2) { ?>
@@ -59,7 +59,7 @@ foreach ($edit_data as $row) { ?>
                         </div>
                     
                         <div class="form-group">
-                            <label for="field-2" class="col-sm-3 control-label"><?php echo get_phrase('question_paper');?></label>
+                            <label for="field-2" class="col-sm-3 control-label"><?php echo get_phrase('lembar_pertanyaan');?></label>
                             
                             <div class="col-sm-9">
                                 <textarea class="form-control wysihtml5" data-stylesheet-url="assets/css/wysihtml5-color.css" name="question_paper"><?php echo $row['question_paper']; ?></textarea>
@@ -68,7 +68,7 @@ foreach ($edit_data as $row) { ?>
                         
                         <div class="form-group">
                             <div class="col-sm-offset-3 col-sm-5">
-                                <button type="submit" class="btn btn-info"><?php echo get_phrase('update');?></button>
+                                <button type="submit" class="btn btn-info"><?php echo get_phrase('ubah');?></button>
                             </div>
                         </div>
 

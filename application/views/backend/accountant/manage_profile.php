@@ -7,7 +7,7 @@
 
             <li class="active">
                 <a href="#list" data-toggle="tab"><i class="entypo-user"></i> 
-                    <?php echo get_phrase('manage_profile');?>
+                    <?php echo get_phrase('ubah_profil');?>
                 </a>
             </li>
         </ul>
@@ -25,7 +25,7 @@
                         <?php echo form_open(site_url('accountant/manage_profile/update_profile_info') , array('class' => 'form-horizontal form-groups-bordered validate','target'=>'_top' , 'enctype' => 'multipart/form-data'));?>
                             
                             <div class="form-group">
-                                <label class="col-sm-3 control-label"><?php echo get_phrase('name');?></label>
+                                <label class="col-sm-3 control-label"><?php echo get_phrase('nama');?></label>
                                 <div class="col-sm-5">
                                     <input type="text" class="form-control" name="name" value="<?php echo $row['name'];?>" required/>
                                 </div>
@@ -40,7 +40,7 @@
 
                             <div class="form-group">
                               <div class="col-sm-offset-3 col-sm-5">
-                                  <button type="submit" class="btn btn-info"><?php echo get_phrase('update_profile');?></button>
+                                  <button type="submit" class="btn btn-info"><?php echo get_phrase('perbarui_profil');?></button>
                               </div>
                                 </div>
                         </form>
@@ -65,7 +65,7 @@
 
             <li class="active">
                 <a href="#list" data-toggle="tab"><i class="entypo-lock"></i> 
-                    <?php echo get_phrase('change_password');?>
+                    <?php echo get_phrase('ganti_password');?>
                         </a></li>
         </ul>
         
@@ -79,26 +79,26 @@
                         ?>
                         <?php echo form_open(site_url('accountant/manage_profile/change_password') , array('class' => 'form-horizontal form-groups-bordered validate','target'=>'_top'));?>
                             <div class="form-group">
-                                <label class="col-sm-3 control-label"><?php echo get_phrase('current_password');?></label>
+                                <label class="col-sm-3 control-label"><?php echo get_phrase('password_sekarang');?></label>
                                 <div class="col-sm-5">
                                     <input type="password" class="form-control" name="password" value="" required/>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-sm-3 control-label"><?php echo get_phrase('new_password');?></label>
+                                <label class="col-sm-3 control-label"><?php echo get_phrase('password_baru');?></label>
                                 <div class="col-sm-5">
                                     <input type="password" class="form-control" name="new_password" value="" required/>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-sm-3 control-label"><?php echo get_phrase('confirm_new_password');?></label>
+                                <label class="col-sm-3 control-label"><?php echo get_phrase('kofirmasi_password_baru');?></label>
                                 <div class="col-sm-5">
                                     <input type="password" class="form-control" name="confirm_new_password" value="" required/>
                                 </div>
                             </div>
                             <div class="form-group">
                               <div class="col-sm-offset-3 col-sm-5">
-                                  <button type="submit" class="btn btn-info"><?php echo get_phrase('update_profile');?></button>
+                                  <button type="submit" class="btn btn-info"><?php echo get_phrase('perbarui_profil');?></button>
                               </div>
                                 </div>
                         </form>

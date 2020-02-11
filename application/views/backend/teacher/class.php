@@ -22,10 +22,10 @@
                 	<thead>
                 		<tr>
                     		<th><div>#</div></th>
-                    		<th><div><?php echo get_phrase('class_name');?></div></th>
-                    		<th><div><?php echo get_phrase('numeric_name');?></div></th>
-                    		<th><div><?php echo get_phrase('teacher');?></div></th>
-                    		<th><div><?php echo get_phrase('options');?></div></th>
+                    		<th><div><?php echo get_phrase('nama_kelas');?></div></th>
+                    		<th><div><?php echo get_phrase('nomor');?></div></th>
+                    		<th><div><?php echo get_phrase('guru');?></div></th>
+                    		<th><div><?php echo get_phrase('pilihan');?></div></th>
 						</tr>
 					</thead>
                     <tbody>

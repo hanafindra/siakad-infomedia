@@ -2,19 +2,19 @@
 <a href="javascript:;" onclick="showAjaxModal('<?php echo site_url('modal/popup/expense_add/');?>');"
 class="btn btn-primary pull-right">
 <i class="entypo-plus-circled"></i>
-<?php echo get_phrase('add_new_expense');?>
+<?php echo get_phrase('tambah_biaya');?>
 </a>
 <br><br>
 <table class="table table-bordered" id="expenses">
     <thead>
         <tr>
-            <th width="40"><div><?php echo get_phrase('payment_id');?></div></th>
-            <th><div><?php echo get_phrase('title');?></div></th>
-            <th><div><?php echo get_phrase('category');?></div></th>
-            <th><div><?php echo get_phrase('method');?></div></th>
-            <th><div><?php echo get_phrase('amount');?></div></th>
-            <th><div><?php echo get_phrase('date');?></div></th>
-            <th><div><?php echo get_phrase('options');?></div></th>
+            <th width="40"><div><?php echo get_phrase('id_pembayaran');?></div></th>
+            <th><div><?php echo get_phrase('judul');?></div></th>
+            <th><div><?php echo get_phrase('kategori');?></div></th>
+            <th><div><?php echo get_phrase('metode_pembayaran');?></div></th>
+            <th><div><?php echo get_phrase('jumlah');?></div></th>
+            <th><div><?php echo get_phrase('tanggal');?></div></th>
+            <th><div><?php echo get_phrase('pilihan');?></div></th>
         </tr>
     </thead>
 </table>

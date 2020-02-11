@@ -10,7 +10,7 @@
 }
 </style>
 <div class="pull-right" style="text-align: right; margin-top: -30px;">
-  <a href="<?php echo site_url('teacher/message'); ?>" class="btn btn-blue"><i class="fa fa-comment" aria-hidden="true"></i> <?php echo get_phrase('private_message'); ?></a>
+  <a href="<?php echo site_url('teacher/message'); ?>" class="btn btn-blue"><i class="fa fa-comment" aria-hidden="true"></i> <?php echo get_phrase('pesan_pribadi'); ?></a>
 </div>
 <hr />
 <div class="mail-env">
@@ -26,7 +26,7 @@
     <div class="mail-sidebar" style="min-height: 800px;">
         <!-- message user inbox list -->
         <div class="mail-sidebar-row hidden-xs" style="text-align: center;">
-          <button type="button" name="button" class="btn btn-primary btn-block"><?php echo get_phrase('list_of_groups'); ?></button>
+          <button type="button" name="button" class="btn btn-primary btn-block"><?php echo get_phrase('daftar_group'); ?></button>
         </div>
         <ul class="mail-menu">
 
@@ -53,7 +53,7 @@
             <?php endforeach;
             if ($flag == 0):?>
             <div class="col-sm-12" style="text-align: center; margin-top: 25px; color: #607D8B; font-size: 13px;">
-              <?php echo '( '.get_phrase('no_group_was_created').' )'; ?>
+              <?php echo '( '.get_phrase('tidak_ada_pesan_group_yang_dibuat').' )'; ?>
             </div>
             <?php endif; ?>
         </ul>
