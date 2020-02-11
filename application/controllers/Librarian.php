@@ -40,7 +40,7 @@ class Librarian extends CI_Controller
             redirect(base_url(), 'refresh');
 
         $page_data['page_name']  = 'dashboard';
-        $page_data['page_title'] = get_phrase('librarian_dashboard');
+        $page_data['page_title'] = get_phrase('dashboard_pustakawan');
         $this->load->view('backend/index', $page_data);
     }
 
@@ -72,7 +72,7 @@ class Librarian extends CI_Controller
                 move_uploaded_file($_FILES["file_name"]["tmp_name"], "uploads/document/" . $_FILES["file_name"]["name"]);
             }
 
-            $this->session->set_flashdata('flash_message', get_phrase('data_added_successfully'));
+            $this->session->set_flashdata('flash_message', get_phrase('data_berhasil_ditambahkan'));
             redirect(site_url('librarian/book'), 'refresh');
         }
 
@@ -114,7 +114,7 @@ class Librarian extends CI_Controller
                 move_uploaded_file($_FILES["file_name"]["tmp_name"], "uploads/document/" . $_FILES["file_name"]["name"]);
             }
 
-            $this->session->set_flashdata('flash_message' , get_phrase('data_updated'));
+            $this->session->set_flashdata('flash_message' , get_phrase('data_diperbarui'));
             redirect(site_url('librarian/book'), 'refresh');
         } else if ($param1 == 'edit') {
             $page_data['edit_data'] = $this->db->get_where('book', array('book_id' => $param2))->result_array();
@@ -124,13 +124,13 @@ class Librarian extends CI_Controller
             $this->db->where('book_id', $param2);
             $this->db->delete('book');
 
-            $this->session->set_flashdata('flash_message' , get_phrase('data_deleted'));
+            $this->session->set_flashdata('flash_message' , get_phrase('data_terhapus'));
             redirect(site_url('librarian/book'), 'refresh');
         }
 
         $page_data['books']      = $this->db->get('book')->result_array();
         $page_data['page_name']  = 'book';
-        $page_data['page_title'] = get_phrase('manage_library_books');
+        $page_data['page_title'] = get_phrase('kelola_buku_pustaka');
         $this->load->view('backend/index', $page_data);
     }
 
@@ -157,7 +157,7 @@ class Librarian extends CI_Controller
 
             $this->db->update('book', $data2, array('book_id' => $book_id));
 
-            $this->session->set_flashdata('flash_message', get_phrase('request_accepted_successfully'));
+            $this->session->set_flashdata('flash_message', get_phrase('permintaan_berhasil_diterima'));
             redirect(site_url('librarian/book_request'), 'refresh');
         }
 
@@ -167,12 +167,12 @@ class Librarian extends CI_Controller
 
             $this->db->update('book_request', $data, array('book_request_id' => $param2));
 
-            $this->session->set_flashdata('flash_message', get_phrase('request_rejected_successfully'));
+            $this->session->set_flashdata('flash_message', get_phrase('permintaan_berhasil_ditolak'));
             redirect(site_url('librarian/book_request'), 'refresh');
         }
 
         $data['page_name']  = 'book_request';
-        $data['page_title'] = get_phrase('book_request');
+        $data['page_title'] = get_phrase('permintaan_buku');
         $this->load->view('backend/index', $data);
     }
 
@@ -190,10 +190,10 @@ class Librarian extends CI_Controller
             if($validation == 1){
                 $this->db->where('librarian_id', $this->session->userdata('librarian_id'));
                 $this->db->update('librarian', $data);
-                $this->session->set_flashdata('flash_message', get_phrase('account_updated'));
+                $this->session->set_flashdata('flash_message', get_phrase('akun_diperbarui'));
             }
             else{
-                $this->session->set_flashdata('error_message', get_phrase('this_email_id_is_not_available'));
+                $this->session->set_flashdata('error_message', get_phrase('id_email_ini_tidak_tersedia'));
             }
             redirect(site_url('librarian/manage_profile'), 'refresh');
         }
@@ -211,15 +211,15 @@ class Librarian extends CI_Controller
                 $this->db->update('librarian', array(
                     'password' => $data['new_password']
                 ));
-                $this->session->set_flashdata('flash_message', get_phrase('password_updated'));
+                $this->session->set_flashdata('flash_message', get_phrase('password_diperbarui'));
             } else {
-                $this->session->set_flashdata('flash_message', get_phrase('password_mismatch'));
+                $this->session->set_flashdata('flash_message', get_phrase('password_tidak_cocok'));
             }
             redirect(site_url('librarian/manage_profile'), 'refresh');
         }
 
         $page_data['page_name']  = 'manage_profile';
-        $page_data['page_title'] = get_phrase('manage_profile');
+        $page_data['page_title'] = get_phrase('kelola_profil');
         $page_data['edit_data']  = $this->db->get_where('librarian', array(
             'librarian_id' => $this->session->userdata('librarian_id')
         ))->result_array();
@@ -265,10 +265,10 @@ class Librarian extends CI_Controller
                 if ($row->file_name == null)
                     $download = '';
                 else
-                    $download = '<a href="'.site_url("uploads/document/$row->file_name").'" class="btn btn-blue btn-icon icon-left"><i class="entypo-download"></i>'.get_phrase('download').'</a>';
+                    $download = '<a href="'.site_url("uploads/document/$row->file_name").'" class="btn btn-blue btn-icon icon-left"><i class="entypo-download"></i>'.get_phrase('unduh').'</a>';
 
                 $options = '<div class="btn-group"><button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown">
-                                    Action <span class="caret"></span></button><ul class="dropdown-menu dropdown-default pull-right" role="menu"><li><a href="#" onclick="book_edit_modal('.$row->book_id.')"><i class="entypo-pencil"></i>&nbsp;'.get_phrase('edit').'</a></li><li class="divider"></li><li><a href="#" onclick="book_delete_confirm('.$row->book_id.')"><i class="entypo-trash"></i>&nbsp;'.get_phrase('delete').'</a></li></ul></div>';
+                                    Aksi <span class="caret"></span></button><ul class="dropdown-menu dropdown-default pull-right" role="menu"><li><a href="#" onclick="book_edit_modal('.$row->book_id.')"><i class="entypo-pencil"></i>&nbsp;'.get_phrase('edit').'</a></li><li class="divider"></li><li><a href="#" onclick="book_delete_confirm('.$row->book_id.')"><i class="entypo-trash"></i>&nbsp;'.get_phrase('hapus').'</a></li></ul></div>';
 
                 $nestedData['book_id'] = $row->book_id;
                 $nestedData['name'] = $row->name;
