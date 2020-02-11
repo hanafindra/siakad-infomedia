@@ -22,7 +22,7 @@
 		<ul class="nav nav-tabs bordered">
 			<li class="active">
             	<a href="#list" data-toggle="tab"><i class="entypo-menu"></i>
-					<?php echo get_phrase('invoice/payment_list');?>
+					<?php echo get_phrase('faktur/Daftar_pembyaran');?>
                     	</a></li>
 		</ul>
     	<!------CONTROL TABS END------>
@@ -33,14 +33,14 @@
                 <table  class="table table-bordered datatable" id="table_export">
                 	<thead>
                 		<tr>
-                    		<th><div><?php echo get_phrase('student');?></div></th>
-                    		<th><div><?php echo get_phrase('title');?></div></th>
-                    		<th><div><?php echo get_phrase('description');?></div></th>
-                    		<th><div><?php echo get_phrase('amount');?></div></th>
-                            <th><div><?php echo get_phrase('amount_paid');?></div></th>
+                    		<th><div><?php echo get_phrase('siswa');?></div></th>
+                    		<th><div><?php echo get_phrase('judul');?></div></th>
+                    		<th><div><?php echo get_phrase('deskripsi');?></div></th>
+                    		<th><div><?php echo get_phrase('jumlah');?></div></th>
+                            <th><div><?php echo get_phrase('jumlah_yang_dibayarkan');?></div></th>
                     		<th><div><?php echo get_phrase('status');?></div></th>
-                    		<th><div><?php echo get_phrase('date');?></div></th>
-                    		<th><div><?php echo get_phrase('options');?></div></th>
+                    		<th><div><?php echo get_phrase('tanggal');?></div></th>
+                    		<th><div><?php echo get_phrase('pilihan');?></div></th>
 						</tr>
 					</thead>
                     <tbody>

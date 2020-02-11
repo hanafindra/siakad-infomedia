@@ -10,12 +10,12 @@
         <thead>
             <tr>
                 <th>#</th>
-                <th><?php echo get_phrase('title'); ?></th>
-                <th><?php echo get_phrase('description'); ?></th>
-                <th><?php echo get_phrase('subject');?></th>
-                <th><?php echo get_phrase('uploader'); ?></th>
-                <th><?php echo get_phrase('date'); ?></th>
-                <th><?php echo get_phrase('file'); ?></th>
+                <th><?php echo get_phrase('judul'); ?></th>
+                <th><?php echo get_phrase('deskripsi'); ?></th>
+                <th><?php echo get_phrase('subyek');?></th>
+                <th><?php echo get_phrase('pengunggah'); ?></th>
+                <th><?php echo get_phrase('tanggal'); ?></th>
+                <th><?php echo get_phrase('mengajukan'); ?></th>
                 <th></th>
             </tr>
         </thead>

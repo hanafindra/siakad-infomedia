@@ -44,7 +44,7 @@ class Parents extends CI_Controller
         if ($this->session->userdata('parent_login') != 1)
             redirect(base_url(), 'refresh');
         $page_data['page_name']  = 'dashboard';
-        $page_data['page_title'] = get_phrase('parent_dashboard');
+        $page_data['page_title'] = get_phrase('dashboard_wali_murid');
         $this->load->view('backend/index', $page_data);
     }
 
@@ -60,7 +60,7 @@ class Parents extends CI_Controller
         }
         $page_data['teachers']   = $this->db->get('teacher')->result_array();
         $page_data['page_name']  = 'teacher';
-        $page_data['page_title'] = get_phrase('manage_teacher');
+        $page_data['page_title'] = get_phrase('kelola_guru');
         $this->load->view('backend/index', $page_data);
     }
 
@@ -72,7 +72,7 @@ class Parents extends CI_Controller
             redirect(base_url(), 'refresh');
 
         $page_data['page_name']  = 'academic_syllabus';
-        $page_data['page_title'] = get_phrase('academic_syllabus');
+        $page_data['page_title'] = get_phrase('silabus_akademik');
         $page_data['student_id']   = $student_id;
         $this->load->view('backend/index', $page_data);
     }
@@ -129,7 +129,7 @@ class Parents extends CI_Controller
 
         $page_data['student_id'] = $param1;
         $page_data['page_name']  = 'marks';
-        $page_data['page_title'] = get_phrase('manage_marks');
+        $page_data['page_title'] = get_phrase('kelola_tanda');
         $this->load->view('backend/index', $page_data);
     }
 
@@ -156,7 +156,7 @@ class Parents extends CI_Controller
 
         $page_data['student_id'] = $param1;
         $page_data['page_name']  = 'class_routine';
-        $page_data['page_title'] = get_phrase('manage_class_routine');
+        $page_data['page_title'] = get_phrase('mengatur_rutinitas_kelas');
         $this->load->view('backend/index', $page_data);
     }
 
@@ -235,7 +235,7 @@ class Parents extends CI_Controller
         ))->row();
         $page_data['student_id'] = $student_id;
         $page_data['page_name']  = 'invoice';
-        $page_data['page_title'] = get_phrase('manage_invoice/payment');
+        $page_data['page_title'] = get_phrase('mengelola_faktur/pembayaran');
         $this->load->view('backend/index', $page_data);
     }
 
@@ -288,7 +288,7 @@ class Parents extends CI_Controller
 
         $page_data['books']      = $this->db->get('book')->result_array();
         $page_data['page_name']  = 'book';
-        $page_data['page_title'] = get_phrase('manage_library_books');
+        $page_data['page_title'] = get_phrase('kelola_buku_pustaka');
         $this->load->view('backend/index', $page_data);
 
     }
@@ -300,7 +300,7 @@ class Parents extends CI_Controller
 
         $page_data['transports'] = $this->db->get('transport')->result_array();
         $page_data['page_name']  = 'transport';
-        $page_data['page_title'] = get_phrase('manage_transport');
+        $page_data['page_title'] = get_phrase('kelola_transportasi');
         $this->load->view('backend/index', $page_data);
 
     }
@@ -325,7 +325,7 @@ class Parents extends CI_Controller
 
         $page_data['notices']    = $this->db->get_where('noticeboard',array('status'=>1))->result_array();
         $page_data['page_name']  = 'noticeboard';
-        $page_data['page_title'] = get_phrase('noticeboard');
+        $page_data['page_title'] = get_phrase('papan_pengumuman');
         $this->load->view('backend/index', $page_data);
 
     }
@@ -391,7 +391,7 @@ class Parents extends CI_Controller
             }
 
             $this->crud_model->send_reply_message($param2);  //$param2 = message_thread_code
-            $this->session->set_flashdata('flash_message', get_phrase('message_sent!'));
+            $this->session->set_flashdata('flash_message', get_phrase('pesan_terkirim!'));
             redirect(site_url('parents/message/message_read/'. $param2), 'refresh');
         }
 
@@ -402,7 +402,7 @@ class Parents extends CI_Controller
 
         $page_data['message_inner_page_name']   = $param1;
         $page_data['page_name']                 = 'message';
-        $page_data['page_title']                = get_phrase('private_messaging');
+        $page_data['page_title']                = get_phrase('pesan_');
         $this->load->view('backend/index', $page_data);
     }
 
@@ -437,7 +437,7 @@ class Parents extends CI_Controller
       }
       $page_data['message_inner_page_name']   = $param1;
       $page_data['page_name']                 = 'group_message';
-      $page_data['page_title']                = get_phrase('group_messaging');
+      $page_data['page_title']                = get_phrase('pesan_group');
       $this->load->view('backend/index', $page_data);
     }
 
@@ -453,7 +453,7 @@ class Parents extends CI_Controller
             if ($validation == 1) {
                 $this->db->where('parent_id', $this->session->userdata('parent_id'));
                 $this->db->update('parent', $data);
-                $this->session->set_flashdata('flash_message', get_phrase('account_updated'));
+                $this->session->set_flashdata('flash_message', get_phrase('pembaruan_akun'));
             }
             else{
                 $this->session->set_flashdata('error_message', get_phrase('this_email_id_is_not_available'));
@@ -473,14 +473,14 @@ class Parents extends CI_Controller
                 $this->db->update('parent', array(
                     'password' => $data['new_password']
                 ));
-                $this->session->set_flashdata('flash_message', get_phrase('password_updated'));
+                $this->session->set_flashdata('flash_message', get_phrase('pembaruan_password'));
             } else {
                 $this->session->set_flashdata('error_message', get_phrase('password_mismatch'));
             }
             redirect(site_url('parents/manage_profile/'), 'refresh');
         }
         $page_data['page_name']  = 'manage_profile';
-        $page_data['page_title'] = get_phrase('manage_profile');
+        $page_data['page_title'] = get_phrase('kelola_profil');
         $page_data['edit_data']  = $this->db->get_where('parent', array(
             'parent_id' => $this->session->userdata('parent_id')
         ))->result_array();
@@ -502,7 +502,7 @@ class Parents extends CI_Controller
       $page_data['student_id']        = $student_id;
       $page_data['month']             = date('m');
       $page_data['page_name']         = 'attendance_report';
-      $page_data['page_title']        = get_phrase('attendance_report_of_') . ' ' . $student_name . ' : ';
+      $page_data['page_title']        = get_phrase('laporan_kehadiran_') . ' ' . $student_name . ' : ';
       $this->load->view('backend/index', $page_data);
     }
   }
@@ -540,7 +540,7 @@ class Parents extends CI_Controller
      $page_data['month']             = $month;
      $page_data['sessional_year']    = $sessional_year;
      $page_data['page_name']         = 'attendance_report_view';
-     $page_data['page_title']        = get_phrase('attendance_report_of') . ' '.$student_name;
+     $page_data['page_title']        = get_phrase('laporan') . ' '.$student_name;
      $this->load->view('backend/index', $page_data);
   }
   function attendance_report_print_view($class_id ='' , $section_id = '' , $month = '', $sessional_year = '', $student_id = '') {
@@ -649,7 +649,7 @@ class Parents extends CI_Controller
                 if ($row->file_name == null)
                     $download = '';
                 else
-                    $download = '<a href="'.site_url("uploads/document/$row->file_name").'" class="btn btn-blue btn-icon icon-left"><i class="entypo-download"></i>'.get_phrase('download').'</a>';
+                    $download = '<a href="'.site_url("uploads/document/$row->file_name").'" class="btn btn-blue btn-icon icon-left"><i class="entypo-download"></i>'.get_phrase('unduh').'</a>';
 
                 $nestedData['book_id'] = $row->book_id;
                 $nestedData['name'] = $row->name;

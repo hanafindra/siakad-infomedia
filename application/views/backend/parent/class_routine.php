@@ -26,7 +26,7 @@
                     <?php echo get_phrase('section');?> - <?php echo $this->db->get_where('section' , array('section_id' => $row['section_id']))->row()->name;?>
                     <a href="<?php echo site_url('parents/class_routine_print_view/'.$class_id.'/'.$row['section_id']);?>" 
                         class="btn btn-primary btn-xs pull-right" target="_blank">
-                            <i class="entypo-print"></i> <?php echo get_phrase('print');?>
+                            <i class="entypo-print"></i> <?php echo get_phrase('cetak');?>
                     </a>
                 </div>
             </div>
@@ -37,13 +37,13 @@
                         <?php 
                         for($d=1;$d<=7;$d++):
                         
-                        if($d==1)$day='sunday';
-                        else if($d==2)$day='monday';
-                        else if($d==3)$day='tuesday';
-                        else if($d==4)$day='wednesday';
-                        else if($d==5)$day='thursday';
-                        else if($d==6)$day='friday';
-                        else if($d==7)$day='saturday';
+                        if($d==1)$day='minggu';
+                        else if($d==2)$day='senin';
+                        else if($d==3)$day='selasa';
+                        else if($d==4)$day='rabu';
+                        else if($d==5)$day='kamis';
+                        else if($d==6)$day='jumat';
+                        else if($d==7)$day='sabtu';
                         ?>
                         <tr class="gradeA">
                             <td width="100"><?php echo strtoupper($day);?></td>
