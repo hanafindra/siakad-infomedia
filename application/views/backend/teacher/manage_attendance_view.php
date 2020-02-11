@@ -1,13 +1,13 @@
 <?php echo form_open(site_url('teacher/attendance_selector/'));?>
 <div class="panel panel-primary">
     <div class="panel-heading">
-        <h3 class="panel-title"><?php echo get_phrase('attendance_of') ?></h3>
+        <h3 class="panel-title"><?php echo get_phrase('kehadiran dari') ?></h3>
     </div>
     <div class="panel-body">
 		<div class="row">
 			<div class="col-md-3 col-md-offset-2">
 				<div class="form-group">
-				<label class="control-label" style="margin-bottom: 5px;"><?php echo get_phrase('date');?></label>
+				<label class="control-label" style="margin-bottom: 5px;"><?php echo get_phrase('tanggal');?></label>
 					<input type="text" class="form-control datepicker" name="timestamp" data-format="dd-mm-yyyy"
 						value="<?php echo date("d-m-Y" , $timestamp);?>"/>
 				</div>
@@ -35,7 +35,7 @@
 			<input type="hidden" name="year" value="<?php echo $running_year;?>">
 
 			<div class="col-md-3" style="margin-top: 20px;">
-				<button type="submit" class="btn btn-info"><?php echo get_phrase('manage_attendance');?></button>
+				<button type="submit" class="btn btn-info"><?php echo get_phrase('kelola_kehadiran');?></button>
 			</div>
 
 		</div>
@@ -55,9 +55,9 @@
 		<div class="tile-stats tile-white">
 			<div class="icon"><i class="entypo-chart-area"></i></div>
 
-			<h3 style="color: #696969;"><?php echo get_phrase('attendance_for_class');?> <?php echo $this->db->get_where('class' , array('class_id' => $class_id))->row()->name;?></h3>
+			<h3 style="color: #696969;"><?php echo get_phrase('kehadiran_untuk_kelas');?> <?php echo $this->db->get_where('class' , array('class_id' => $class_id))->row()->name;?></h3>
 			<h4 style="color: #696969;">
-				<?php echo get_phrase('section');?> <?php echo $this->db->get_where('section' , array('section_id' => $section_id))->row()->name;?>
+				<?php echo get_phrase('bagian');?> <?php echo $this->db->get_where('section' , array('section_id' => $section_id))->row()->name;?>
 			</h4>
 			<h4 style="color: #696969;">
 				<?php echo date("d M Y" , $timestamp);?>
@@ -69,10 +69,10 @@
 
 <center>
     <a class="btn btn-default" onclick="mark_all_present()">
-        <i class="entypo-check"></i> <?php echo get_phrase('mark_all_present'); ?>
+        <i class="entypo-check"></i> <?php echo get_phrase('rekap_kehadiran'); ?>
     </a>
     <a class="btn btn-default"  onclick="mark_all_absent()">
-        <i class="entypo-cancel"></i> <?php echo get_phrase('mark_all_absent'); ?>
+        <i class="entypo-cancel"></i> <?php echo get_phrase('rekap_absen'); ?>
     </a>
 </center>
 <br>
@@ -87,7 +87,7 @@
 		<div id="attendance_update">
 			<div class="panel panel-primary">
 			    <div class="panel-heading">
-			        <h3 class="panel-title"><?php echo get_phrase('marks_manager') ?></h3>
+			        <h3 class="panel-title"><?php echo get_phrase('kelola_manajer') ?></h3>
 			    </div>
 			    <div class="panel-body">
 					<table class="table table-bordered">
@@ -95,7 +95,7 @@
 							<tr>
 								<th>#</th>
 								<th><?php echo get_phrase('id');?></th>
-								<th><?php echo get_phrase('name');?></th>
+								<th><?php echo get_phrase('nama');?></th>
 								<th><?php echo get_phrase('status');?></th>
 							</tr>
 						</thead>
@@ -135,7 +135,7 @@
 
 		<center>
 			<button type="submit" class="btn btn-success" id="submit_button">
-				<i class="entypo-thumbs-up"></i> <?php echo get_phrase('save_changes');?>
+				<i class="entypo-thumbs-up"></i> <?php echo get_phrase('simpan_perubahan');?>
 			</button>
 		</center>
 		<?php echo form_close();?>

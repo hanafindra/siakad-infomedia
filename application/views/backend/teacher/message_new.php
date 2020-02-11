@@ -1,7 +1,7 @@
 <div class="mail-header" style="padding-bottom: 27px ;">
     <!-- title -->
     <h3 class="mail-title">
-        <?php echo get_phrase('write_new_message'); ?>
+        <?php echo get_phrase('tulis_pesan_baru'); ?>
     </h3>
 </div>
 
@@ -11,11 +11,11 @@
 
 
     <div class="form-group">
-        <label for="subject"><?php echo get_phrase('recipient'); ?>:</label>
+        <label for="subject"><?php echo get_phrase('penerima'); ?>:</label>
         <br><br>
         <select class="form-control select2" name="reciever" required>
 
-            <option value=""><?php echo get_phrase('select_a_user'); ?></option>
+            <option value=""><?php echo get_phrase('pilih_pengguna'); ?></option>
             <optgroup label="<?php echo get_phrase('admin'); ?>">
                 <?php
                 $admins = $this->db->get('admin')->result_array();
@@ -27,7 +27,7 @@
 
                 <?php endforeach; ?>
             </optgroup>
-            <optgroup label="<?php echo get_phrase('student'); ?>">
+            <optgroup label="<?php echo get_phrase('siswa'); ?>">
                 <?php
                 $students = $this->db->get('student')->result_array();
                 foreach ($students as $row):
@@ -38,7 +38,7 @@
 
                 <?php endforeach; ?>
             </optgroup>
-            <optgroup label="<?php echo get_phrase('parent'); ?>">
+            <optgroup label="<?php echo get_phrase('orang_tua'); ?>">
                 <?php
                 $parents = $this->db->get('parent')->result_array();
                 foreach ($parents as $row):
@@ -55,7 +55,7 @@
 
     <div class="compose-message-editor">
         <textarea row="5" class="form-control wysihtml5" data-stylesheet-url="assets/css/wysihtml5-color.css"
-            name="message" placeholder="<?php echo get_phrase('write_your_message'); ?>"
+            name="message" placeholder="<?php echo get_phrase('tulis_pesan_kamu'); ?>"
             id="sample_wysiwyg" required></textarea>
     </div>
 
@@ -68,7 +68,7 @@
 
     <hr>
     <button type="submit" class="btn btn-success pull-right">
-        <?php echo get_phrase('send'); ?>
+        <?php echo get_phrase('kirim'); ?>
     </button>
 </form>
 

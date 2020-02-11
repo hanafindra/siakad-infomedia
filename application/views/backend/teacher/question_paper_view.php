@@ -7,7 +7,7 @@ foreach ($question_paper as $row) { ?>
         <div class="panel panel-primary" data-collapsed="0">
                 
             <div class="panel-heading">
-                <div class="panel-title"><?php echo get_phrase('question_paper_details');?></div>
+                <div class="panel-title"><?php echo get_phrase('detail_lembar_pertanyaan');?></div>
             </div>
             
             <div id="qp_print">
@@ -23,7 +23,7 @@ foreach ($question_paper as $row) { ?>
         </div>
 
         <a onClick="PrintElem('#qp_print')" class="btn btn-primary btn-icon icon-left hidden-print">
-            <?php echo get_phrase('print_question_paper'); ?>
+            <?php echo get_phrase('print_lembar_pertanyaan'); ?>
             <i class="entypo-doc-text"></i>
         </a>
         <br><br>

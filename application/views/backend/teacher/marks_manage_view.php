@@ -26,7 +26,7 @@
 				<div class="form-group">
 				<label class="control-label" style="margin-bottom: 5px;"><?php echo get_phrase('class');?></label>
 					<select name="class_id" class="form-control selectboxit" onchange="get_class_subject(this.value)">
-						<option value=""><?php echo get_phrase('select_class');?></option>
+						<option value=""><?php echo get_phrase('pilih_kelas');?></option>
 						<?php
 							$classes = $this->db->get('class')->result_array();
 							foreach($classes as $row):
@@ -41,7 +41,7 @@
 			<div id="subject_holder">
 				<div class="col-md-2">
 					<div class="form-group">
-					<label class="control-label" style="margin-bottom: 5px;"><?php echo get_phrase('section');?></label>
+					<label class="control-label" style="margin-bottom: 5px;"><?php echo get_phrase('bagian');?></label>
 						<select name="section_id" id="section_id" class="form-control selectboxit">
 							<?php
 								$sections = $this->db->get_where('section' , array(
@@ -59,7 +59,7 @@
 				</div>
 				<div class="col-md-3">
 					<div class="form-group">
-					<label class="control-label" style="margin-bottom: 5px;"><?php echo get_phrase('subject');?></label>
+					<label class="control-label" style="margin-bottom: 5px;"><?php echo get_phrase('mata_pelajaran');?></label>
 						<select name="subject_id" id="subject_id" class="form-control selectboxit">
 							<?php
 								$subjects = $this->db->get_where('subject' , array(
@@ -122,9 +122,9 @@
 							<tr>
 								<th>#</th>
 								<th><?php echo get_phrase('id');?></th>
-								<th><?php echo get_phrase('name');?></th>
-								<th><?php echo get_phrase('marks_obtained');?></th>
-								<th><?php echo get_phrase('comment');?></th>
+								<th><?php echo get_phrase('nama');?></th>
+								<th><?php echo get_phrase('nilai_yang_diperoleh');?></th>
+								<th><?php echo get_phrase('komentar');?></th>
 							</tr>
 						</thead>
 						<tbody>
@@ -164,7 +164,7 @@
 
 		<center>
 			<button type="submit" class="btn btn-success" id="submit_button">
-				<i class="entypo-check"></i> <?php echo get_phrase('save_changes');?>
+				<i class="entypo-check"></i> <?php echo get_phrase('simpan_perubahan');?>
 			</button>
 		</center>
 		<?php echo form_close();?>

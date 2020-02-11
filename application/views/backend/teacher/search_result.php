@@ -5,12 +5,12 @@
       <table class="table table-bordered datatable" id="table_export">
           <thead>
               <tr>
-                  <th width="80"><div><?php echo get_phrase('id_no');?></div></th>
-                  <th width="80"><div><?php echo get_phrase('photo');?></div></th>
-                  <th><div><?php echo get_phrase('name');?></div></th>
-                  <th class="span3"><div><?php echo get_phrase('address');?></div></th>
+                  <th width="80"><div><?php echo get_phrase('nomor_id');?></div></th>
+                  <th width="80"><div><?php echo get_phrase('foroo');?></div></th>
+                  <th><div><?php echo get_phrase('nama');?></div></th>
+                  <th class="span3"><div><?php echo get_phrase('alamat');?></div></th>
                   <th><div><?php echo get_phrase('email').'/'.get_phrase('username');?></div></th>
-                  <th><div><?php echo get_phrase('options');?></div></th>
+                  <th><div><?php echo get_phrase('pilihan');?></div></th>
               </tr>
           </thead>
           <tbody>

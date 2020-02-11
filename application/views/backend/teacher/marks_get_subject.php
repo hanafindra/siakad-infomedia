@@ -33,7 +33,7 @@
 
 <div class="col-md-2" style="margin-top: 20px;">
 	<center>
-		<button type="submit" class="btn btn-info"><?php echo get_phrase('manage_marks');?></button>
+		<button type="submit" class="btn btn-info"><?php echo get_phrase('kelola_nilai');?></button>
 	</center>
 </div>
 

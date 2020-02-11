@@ -2,13 +2,13 @@
 <?php echo form_open(site_url('teacher/marks_selector'));?>
 <div class="panel panel-primary">
     <div class="panel-heading">
-        <h3 class="panel-title"><?php echo get_phrase('marks_manager') ?></h3>
+        <h3 class="panel-title"><?php echo get_phrase('pengelolaan_nilai') ?></h3>
     </div>
     <div class="panel-body">
 		<div class="row">
 			<div class="col-md-2">
 				<div class="form-group">
-				<label class="control-label" style="margin-bottom: 5px;"><?php echo get_phrase('exam');?></label>
+				<label class="control-label" style="margin-bottom: 5px;"><?php echo get_phrase('ujian');?></label>
 					<select name="exam_id" class="form-control selectboxit">
 						<?php
 							$exams = $this->db->get_where('exam' , array('year' => $running_year))->result_array();
@@ -22,9 +22,9 @@
 
 			<div class="col-md-2">
 				<div class="form-group">
-				<label class="control-label" style="margin-bottom: 5px;"><?php echo get_phrase('class');?></label>
+				<label class="control-label" style="margin-bottom: 5px;"><?php echo get_phrase('kelas');?></label>
 					<select name="class_id" class="form-control selectboxit" onchange="get_class_subject(this.value)">
-						<option value=""><?php echo get_phrase('select_class');?></option>
+						<option value=""><?php echo get_phrase('pilih_kelas');?></option>
 						<?php
 		                $classes = $this->db->get('class')->result_array();
 							foreach($classes as $row):
@@ -38,23 +38,23 @@
 			<div id="subject_holder">
 				<div class="col-md-3">
 					<div class="form-group">
-					<label class="control-label" style="margin-bottom: 5px;"><?php echo get_phrase('section');?></label>
+					<label class="control-label" style="margin-bottom: 5px;"><?php echo get_phrase('bagian');?></label>
 						<select name="" id="" class="form-control selectboxit" disabled="disabled">
-							<option value=""><?php echo get_phrase('select_class_first');?></option>		
+							<option value=""><?php echo get_phrase('pilih_kelas_terlebih_dahulu');?></option>		
 						</select>
 					</div>
 				</div>
 				<div class="col-md-3">
 					<div class="form-group">
-					<label class="control-label" style="margin-bottom: 5px;"><?php echo get_phrase('subject');?></label>
+					<label class="control-label" style="margin-bottom: 5px;"><?php echo get_phrase('mata_pelajaran');?></label>
 						<select name="" id="" class="form-control selectboxit" disabled="disabled">
-							<option value=""><?php echo get_phrase('select_class_first');?></option>		
+							<option value=""><?php echo get_phrase('pilih_kelas_dan_bagian_terlebih_dahulu');?></option>		
 						</select>
 					</div>
 				</div>
 				<div class="col-md-2" style="margin-top: 20px;">
 					<center>
-						<button type="submit" class="btn btn-info" id = "submit"><?php echo get_phrase('manage_marks');?></button>
+						<button type="submit" class="btn btn-info" id = "submit"><?php echo get_phrase('kelola nilai');?></button>
 					</center>
 				</div>
 			</div>

@@ -4,7 +4,7 @@
             <div class="panel-heading">
                 <div class="panel-title" >
                     <i class="entypo-plus-circled"></i>
-                    <?php echo get_phrase('add_question_paper');?>
+                    <?php echo get_phrase('tambah_lembar_pertanyaan');?>
                 </div>
             </div>
 
@@ -13,7 +13,7 @@
                 <?php echo form_open(site_url('teacher/question_paper/create') , array('class' => 'form-horizontal form-groups-bordered validate', 'enctype' => 'multipart/form-data'));?>
     
                     <div class="form-group">
-                        <label for="field-1" class="col-sm-3 control-label"><?php echo get_phrase('title');?></label>
+                        <label for="field-1" class="col-sm-3 control-label"><?php echo get_phrase('judul');?></label>
                         
                         <div class="col-sm-6">
                             <input type="text" class="form-control" name="title" data-validate="required" data-message-required="<?php echo get_phrase('value_required');?>" value="" autofocus>
@@ -21,10 +21,10 @@
                     </div>
 
                     <div class="form-group">
-                        <label class="col-sm-3 control-label"><?php echo get_phrase('class'); ?></label>
+                        <label class="col-sm-3 control-label"><?php echo get_phrase('kelas'); ?></label>
                         <div class="col-sm-6">
                             <select name="class_id" id = 'class_id' class="form-control selectboxit" required>
-                                <option value=""><?php echo get_phrase('select_a_class'); ?></option>
+                                <option value=""><?php echo get_phrase('pilih_kelas'); ?></option>
                                 <?php
                                 $classes = $this->db->get('class')->result_array();
                                 foreach ($classes as $row) { ?>
@@ -37,10 +37,10 @@
                     </div>
 
                     <div class="form-group">
-                        <label class="col-sm-3 control-label"><?php echo get_phrase('exam'); ?></label>
+                        <label class="col-sm-3 control-label"><?php echo get_phrase('ujian'); ?></label>
                         <div class="col-sm-6">
                             <select name="exam_id" class="form-control" required>
-                                <option value=""><?php echo get_phrase('select_an_exam'); ?></option>
+                                <option value=""><?php echo get_phrase('pilih_ujian'); ?></option>
                                 <?php 
                                 $exams = $this->db->get('exam')->result_array();
                                 foreach ($exams as $row) { ?>
@@ -53,7 +53,7 @@
                     </div>
                     
                     <div class="form-group">
-                        <label for="field-2" class="col-sm-3 control-label"><?php echo get_phrase('question_paper');?></label>
+                        <label for="field-2" class="col-sm-3 control-label"><?php echo get_phrase('lembar_pertanyaan');?></label>
                         
                         <div class="col-sm-9">
                             <textarea class="form-control wysihtml5" data-stylesheet-url="assets/css/wysihtml5-color.css" name="question_paper" required></textarea>
@@ -62,7 +62,7 @@
                     
                     <div class="form-group">
                         <div class="col-sm-offset-3 col-sm-5">
-                            <button type="submit" id = "submit" class="btn btn-info"><?php echo get_phrase('submit');?></button>
+                            <button type="submit" id = "submit" class="btn btn-info"><?php echo get_phrase('save');?></button>
                         </div>
                     </div>
 

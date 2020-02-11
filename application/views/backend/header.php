@@ -61,13 +61,13 @@
 					<li>
 						<a href="<?php echo site_url($account_type . '/manage_profile');?>">
                         	<i class="entypo-info"></i>
-							<span><?php echo get_phrase('edit_profile');?></span>
+							<span><?php echo get_phrase('ubah_profile');?></span>
 						</a>
 					</li>
 					<li>
 						<a href="<?php echo site_url($account_type . '/manage_profile');?>">
                         	<i class="entypo-key"></i>
-							<span><?php echo get_phrase('change_password');?></span>
+							<span><?php echo get_phrase('ubah_password');?></span>
 						</a>
 					</li>
 				</ul>
@@ -77,13 +77,13 @@
 					<li>
 						<a href="<?php echo site_url('parents/manage_profile');?>">
                         	<i class="entypo-info"></i>
-							<span><?php echo get_phrase('edit_profile');?></span>
+							<span><?php echo get_phrase('ubah_profile');?></span>
 						</a>
 					</li>
 					<li>
 						<a href="<?php echo site_url('parents/manage_profile');?>">
                         	<i class="entypo-key"></i>
-							<span><?php echo get_phrase('change_password');?></span>
+							<span><?php echo get_phrase('ubah_password');?></span>
 						</a>
 					</li>
 				</ul>
@@ -92,7 +92,7 @@
 
 			<li>
 				<a href="<?php echo site_url('login/logout');?>">
-					<?php echo get_phrase('log_out'); ?><i class="entypo-logout right"></i>
+					<?php echo get_phrase('keluar'); ?><i class="entypo-logout right"></i>
 				</a>
 			</li>
 		</ul> -->
@@ -128,28 +128,28 @@
 					<li>
 						<a href="<?php echo site_url($account_type . '/manage_profile');?>">
 							<i class="flaticon-rotate"></i>
-							<?php echo get_phrase('edit_profile');?>
+							<?php echo get_phrase('ubah_profile');?>
 						</a>
 					</li>
 				<?php } } else { ?>
 					<li>
 						<a href="<?php echo site_url($account_type . '/manage_profile');?>">
 							<i class="flaticon-rotate"></i>
-							<?php echo get_phrase('edit_profile');?>
+							<?php echo get_phrase('ubah_profile');?>
 						</a>
 					</li>
 				<?php } ?>
 					<li>
 						<a href="<?php echo site_url($account_type . '/manage_profile');?>">
 							<i class="flaticon-lock"></i>
-							<?php echo get_phrase('change_password');?>
+							<?php echo get_phrase('ubah_password');?>
 						</a>
 					</li>
 
 					<li>
 						<a href="<?php echo site_url('login/logout');?>">
 							<i class="flaticon-paper-plane-1"></i>
-							<?php echo get_phrase('log_out');?>
+							<?php echo get_phrase('keluar');?>
 						</a>
 					</li>
 
