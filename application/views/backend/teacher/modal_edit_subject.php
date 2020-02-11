@@ -8,22 +8,22 @@ foreach ( $edit_data as $row):
         	<div class="panel-heading">
             	<div class="panel-title" >
             		<i class="entypo-plus-circled"></i>
-					<?php echo get_phrase('edit_subject');?>
+					<?php echo get_phrase('ubah_mata_pelajaran');?>
             	</div>
             </div>
 			<div class="panel-body">
                 <?php echo form_open(site_url('teacher/subject/do_update/'.$row['subject_id']) , array('class' => 'form-horizontal form-groups-bordered validate','target'=>'_top'));?>
                 <div class="form-group">
-                    <label class="col-sm-3 control-label"><?php echo get_phrase('name');?></label>
+                    <label class="col-sm-3 control-label"><?php echo get_phrase('nama');?></label>
                     <div class="col-sm-5 controls">
                         <input type="text" class="form-control" name="name" value="<?php echo $row['name'];?>" required/>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-3 control-label"><?php echo get_phrase('class');?></label>
+                    <label class="col-sm-3 control-label"><?php echo get_phrase('kelas');?></label>
                     <div class="col-sm-5 controls">
                         <select name="class_id" class="form-control" required>
-                        <option value=""><?php echo get_phrase('select_class'); ?></option>
+                        <option value=""><?php echo get_phrase('pilih_kelas'); ?></option>
                             <?php 
                             $classes = $this->db->get('class')->result_array();
                             foreach($classes as $row2):
@@ -39,7 +39,7 @@ foreach ( $edit_data as $row):
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-3 control-label"><?php echo get_phrase('teacher');?></label>
+                    <label class="col-sm-3 control-label"><?php echo get_phrase('guru');?></label>
                     <div class="col-sm-5 controls">
                         <select name="teacher_id" class="form-control">
                             <?php 
@@ -58,7 +58,7 @@ foreach ( $edit_data as $row):
                 </div>
                 <div class="form-group">
                     <div class="col-sm-offset-3 col-sm-5">
-                        <button type="submit" class="btn btn-info"><?php echo get_phrase('edit_subject');?></button>
+                        <button type="submit" class="btn btn-info"><?php echo get_phrase('ubah_mata_pelajaran');?></button>
                     </div>
                  </div>
         		</form>

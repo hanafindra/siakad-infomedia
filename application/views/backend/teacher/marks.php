@@ -5,7 +5,7 @@
 		<ul class="nav nav-tabs bordered">
 			<li class="active">
             	<a href="#list" data-toggle="tab"><i class="entypo-menu"></i>
-					<?php echo get_phrase('manage_marks');?>
+					<?php echo get_phrase('pengelolaan_nilai');?>
                     	</a></li>
 		</ul>
     	<!------CONTROL TABS END------>
@@ -17,22 +17,22 @@
                 <?php echo form_open(site_url('teacher/marks'));?>
                 <table border="0" cellspacing="0" cellpadding="0" class="table table-bordered">
                 	<tr>
-                        <td><?php echo get_phrase('select_exam');?></td>
-                        <td><?php echo get_phrase('select_class');?></td>
-                        <td><?php echo get_phrase('select_subject');?></td>
+                        <td><?php echo get_phrase('pilih_ujian');?></td>
+                        <td><?php echo get_phrase('pilih_kelas');?></td>
+                        <td><?php echo get_phrase('pilih_mata_pelajaran');?></td>
                         <td>&nbsp;</td>
                 	</tr>
                 	<tr>
                         <td>
                         	<select name="exam_id" class="form-control"  style="float:left;">
-                                <option value=""><?php echo get_phrase('select_an_exam');?></option>
+                                <option value=""><?php echo get_phrase('pilih_ujian');?></option>
                                 <?php
                                 $exams = $this->db->get('exam')->result_array();
                                 foreach($exams as $row):
                                 ?>
                                     <option value="<?php echo $row['exam_id'];?>"
                                         <?php if($exam_id == $row['exam_id'])echo 'selected';?>>
-                                            <?php echo get_phrase('class');?> <?php echo $row['name'];?></option>
+                                            <?php echo get_phrase('kelas');?> <?php echo $row['name'];?></option>
                                 <?php
                                 endforeach;
                                 ?>
@@ -40,7 +40,7 @@
                         </td>
                         <td>
                         	<select name="class_id" class="form-control"  onchange="show_subjects(this.value)"  style="float:left;">
-                                <option value=""><?php echo get_phrase('select_a_class');?></option>
+                                <option value=""><?php echo get_phrase('pilih_kelas');?></option>
                                 <?php
                                 $classes = $this->db->get('class')->result_array();
                                 foreach($classes as $row):

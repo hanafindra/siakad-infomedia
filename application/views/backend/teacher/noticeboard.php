@@ -5,7 +5,7 @@
         <ul class="nav nav-tabs bordered">
             <li class="active">
                 <a href="#list" data-toggle="tab"><i class="entypo-menu"></i> 
-                    <?php echo get_phrase('noticeboard_list'); ?>
+                    <?php echo get_phrase('daftar_pengumuamn'); ?>
                 </a></li>
         </ul>
         <!------CONTROL TABS END------>
@@ -18,9 +18,9 @@
                     <thead>
                         <tr>
                             <th><div>#</div></th>
-                    <th><div><?php echo get_phrase('title'); ?></div></th>
-                    <th><div><?php echo get_phrase('notice'); ?></div></th>
-                    <th><div><?php echo get_phrase('date'); ?></div></th>
+                    <th><div><?php echo get_phrase('judul'); ?></div></th>
+                    <th><div><?php echo get_phrase('pemberitahuan'); ?></div></th>
+                    <th><div><?php echo get_phrase('tanggal'); ?></div></th>
                     <th><div></div></th>
                     </tr>
                     </thead>

@@ -7,9 +7,9 @@
       <span class="col-md-12" style="font-size: 13px; color: #616161; text-align: center; padding: 0; margin: 0;"><?php echo ucfirst($group_info['group_name']); ?></span>
       <thead>
         <tr>
-          <th><?php echo get_phrase('image'); ?></th>
+          <th><?php echo get_phrase('gambar'); ?></th>
           <th><?php echo get_phrase('email'); ?></th>
-          <th><?php echo get_phrase('name'); ?></th>
+          <th><?php echo get_phrase('nama'); ?></th>
         </tr>
       </thead>
       <?php for($i = 0; $i < sizeof($user_info); $i++):

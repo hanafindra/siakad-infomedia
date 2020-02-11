@@ -10,7 +10,7 @@ foreach ($edit_data as $row):
         	<div class="panel-heading">
             	<div class="panel-title" >
             		<i class="entypo-plus-circled"></i>
-					<?php echo get_phrase('edit_student');?>
+					<?php echo get_phrase('edit_siswa');?>
             	</div>
             </div>
 			<div class="panel-body">
@@ -20,7 +20,7 @@ foreach ($edit_data as $row):
                 	
 	
 					<div class="form-group">
-						<label for="field-1" class="col-sm-3 control-label"><?php echo get_phrase('photo');?></label>
+						<label for="field-1" class="col-sm-3 control-label"><?php echo get_phrase('foto');?></label>
                         
 						<div class="col-sm-5">
 							<div class="fileinput fileinput-new" data-provides="fileinput">
@@ -41,7 +41,7 @@ foreach ($edit_data as $row):
 					</div>
 	
 					<div class="form-group">
-						<label for="field-1" class="col-sm-3 control-label"><?php echo get_phrase('name');?></label>
+						<label for="field-1" class="col-sm-3 control-label"><?php echo get_phrase('nama');?></label>
                         
 						<div class="col-sm-5">
 							<input type="text" class="form-control" name="name" data-validate="required" data-message-required="<?php echo get_phrase('value_required');?>" 
@@ -50,7 +50,7 @@ foreach ($edit_data as $row):
 					</div>
 
 					<div class="form-group">
-						<label for="field-1" class="col-sm-3 control-label"><?php echo get_phrase('class');?></label>
+						<label for="field-1" class="col-sm-3 control-label"><?php echo get_phrase('kelas');?></label>
                         
 						<div class="col-sm-5">
 							<input type="text" class="form-control" name="class" disabled
@@ -59,7 +59,7 @@ foreach ($edit_data as $row):
 					</div>
 
 					<div class="form-group">
-						<label for="field-2" class="col-sm-3 control-label"><?php echo get_phrase('section');?></label>
+						<label for="field-2" class="col-sm-3 control-label"><?php echo get_phrase('bagian');?></label>
                         
 						<div class="col-sm-5">
 							<select name="section_id" class="form-control selectboxit">
@@ -85,11 +85,11 @@ foreach ($edit_data as $row):
 					</div>
 
 					<div class="form-group">
-						<label for="field-2" class="col-sm-3 control-label"><?php echo get_phrase('parent');?></label>
+						<label for="field-2" class="col-sm-3 control-label"><?php echo get_phrase('orang_tua');?></label>
                         
 						<div class="col-sm-5">
-							<select name="parent_id" class="form-control select2" data-validate="required" data-message-required="<?php echo get_phrase('value_required');?>">
-                              <option value=""><?php echo get_phrase('select');?></option>
+							<select name="parent_id" class="form-control select2" data-validate="required" data-message-required="<?php echo get_phrase('yang_anda_masukkan_benar');?>">
+                              <option value=""><?php echo get_phrase('pilih');?></option>
                               <?php 
 									$parents = $this->db->get('parent')->result_array();
 									$parent_id = $this->db->get_where('student' , array('student_id' => $row['student_id']))->row()->parent_id;
@@ -109,7 +109,7 @@ foreach ($edit_data as $row):
 					
 					
 					<div class="form-group">
-						<label for="field-2" class="col-sm-3 control-label"><?php echo get_phrase('birthday');?></label>
+						<label for="field-2" class="col-sm-3 control-label"><?php echo get_phrase('tanggal_lahir');?></label>
                         
 						<div class="col-sm-5">
 							<input type="text" class="form-control datepicker" name="birthday" 
@@ -119,7 +119,7 @@ foreach ($edit_data as $row):
 					</div>
 					
 					<div class="form-group">
-						<label for="field-2" class="col-sm-3 control-label"><?php echo get_phrase('gender');?></label>
+						<label for="field-2" class="col-sm-3 control-label"><?php echo get_phrase('jenis_kelamin');?></label>
                         
 						<div class="col-sm-5">
 							<select name="sex" class="form-control selectboxit">
@@ -134,7 +134,7 @@ foreach ($edit_data as $row):
 					</div>
 					
 					<div class="form-group">
-						<label for="field-2" class="col-sm-3 control-label"><?php echo get_phrase('address');?></label>
+						<label for="field-2" class="col-sm-3 control-label"><?php echo get_phrase('alamat');?></label>
                         
 						<div class="col-sm-5">
 							<input type="text" class="form-control" name="address" 
@@ -143,7 +143,7 @@ foreach ($edit_data as $row):
 					</div>
 					
 					<div class="form-group">
-						<label for="field-2" class="col-sm-3 control-label"><?php echo get_phrase('phone');?></label>
+						<label for="field-2" class="col-sm-3 control-label"><?php echo get_phrase('telepon');?></label>
                         
 						<div class="col-sm-5">
 							<input type="text" class="form-control" name="phone" 
@@ -160,7 +160,7 @@ foreach ($edit_data as $row):
 					</div>
 
 					<div class="form-group">
-						<label for="field-2" class="col-sm-3 control-label"><?php echo get_phrase('dormitory');?></label>
+						<label for="field-2" class="col-sm-3 control-label"><?php echo get_phrase('asrama');?></label>
                         
 						<div class="col-sm-5">
 							<select name="dormitory_id" class="form-control selectboxit">
@@ -178,11 +178,11 @@ foreach ($edit_data as $row):
 					</div>
 
 					<div class="form-group">
-						<label for="field-2" class="col-sm-3 control-label"><?php echo get_phrase('transport_route');?></label>
+						<label for="field-2" class="col-sm-3 control-label"><?php echo get_phrase('rute_transportasi');?></label>
                         
 						<div class="col-sm-5">
 							<select name="transport_id" class="form-control selectboxit">
-                              <option value=""><?php echo get_phrase('select');?></option>
+                              <option value=""><?php echo get_phrase('pilih');?></option>
 	                              <?php
 	                              	$trans_id = $this->db->get_where('student' , array('student_id' => $row['student_id']))->row()->transport_id; 
 	                              	$transports = $this->db->get('transport')->result_array();
@@ -197,7 +197,7 @@ foreach ($edit_data as $row):
                     
                     <div class="form-group">
 						<div class="col-sm-offset-3 col-sm-5">
-							<button type="submit" class="btn btn-info"><?php echo get_phrase('edit_student');?></button>
+							<button type="submit" class="btn btn-info"><?php echo get_phrase('ubah_siswa');?></button>
 						</div>
 					</div>
                 <?php echo form_close();?>

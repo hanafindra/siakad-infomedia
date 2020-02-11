@@ -6,7 +6,7 @@
 
             <div class="panel-heading">
                 <div class="panel-title">
-                    <?php echo get_phrase('add_study_material'); ?>
+                    <?php echo get_phrase('tambah_bahan_pengajar'); ?>
                 </div>
             </div>
 
@@ -15,16 +15,16 @@
                 <?php echo form_open(site_url('teacher/study_material/create'), array('class' => 'form-horizontal form-groups-bordered validate', 'enctype' => 'multipart/form-data')); ?>
 
                 <div class="form-group">
-                    <label for="field-1" class="col-sm-3 control-label"><?php echo get_phrase('date'); ?></label>
+                    <label for="field-1" class="col-sm-3 control-label"><?php echo get_phrase('tanggal'); ?></label>
 
                     <div class="col-sm-5">
                         <input type="text" name="timestamp" class="form-control datepicker" data-format="D, dd MM yyyy"
-                               placeholder="<?php echo get_phrase('select_date'); ?>" required>
+                               placeholder="<?php echo get_phrase('pilih_tanggal'); ?>" required>
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label for="field-1" class="col-sm-3 control-label"><?php echo get_phrase('title'); ?></label>
+                    <label for="field-1" class="col-sm-3 control-label"><?php echo get_phrase('judul'); ?></label>
 
                     <div class="col-sm-5">
                         <input type="text" name="title" class="form-control" id="field-1" required>
@@ -32,7 +32,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="field-ta" class="col-sm-3 control-label"><?php echo get_phrase('description'); ?></label>
+                    <label for="field-ta" class="col-sm-3 control-label"><?php echo get_phrase('deskripsi'); ?></label>
 
                     <div class="col-sm-9">
                         <textarea name="description" class="form-control wysihtml5" id="field-ta" data-stylesheet-url="assets/css/wysihtml5-color.css" required></textarea>
@@ -40,11 +40,11 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="field-ta" class="col-sm-3 control-label"><?php echo get_phrase('class'); ?></label>
+                    <label for="field-ta" class="col-sm-3 control-label"><?php echo get_phrase('kelas'); ?></label>
 
                     <div class="col-sm-5">
                         <select name="class_id" class="form-control selectboxit" id="class_id" onchange="return get_class_subject(this.value)" required="">
-                        <option value=""><?php echo get_phrase('select_class'); ?></option>
+                        <option value=""><?php echo get_phrase('pilih_kelas'); ?></option>
                             <?php foreach ($class_info as $row) { ?>
                                 <option value="<?php echo $row['class_id']; ?>"><?php echo $row['name']; ?></option>
                             <?php } ?>
@@ -53,16 +53,16 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="field-2" class="col-sm-3 control-label"><?php echo get_phrase('subject'); ?></label>
+                    <label for="field-2" class="col-sm-3 control-label"><?php echo get_phrase('mata_pelajaran'); ?></label>
                     <div class="col-sm-5">
                         <select name="subject_id" class="form-control" id="subject_selector_holder" required="required">
-                            <option value="" disabled="true"><?php echo get_phrase('select_class_first'); ?></option>
+                            <option value="" disabled="true"><?php echo get_phrase('pilih_kelas_terlebih_dahulu'); ?></option>
                         </select>
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label class="col-sm-3 control-label"><?php echo get_phrase('file'); ?></label>
+                    <label class="col-sm-3 control-label"><?php echo get_phrase('berkas'); ?></label>
 
                     <div class="col-sm-5">
 
@@ -72,11 +72,11 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="field-ta" class="col-sm-3 control-label"><?php echo get_phrase('file_type'); ?></label>
+                    <label for="field-ta" class="col-sm-3 control-label"><?php echo get_phrase('jenis_berkas'); ?></label>
 
                     <div class="col-sm-5">
                         <select name="file_type" class="form-control selectboxit">
-                            <option value=""><?php echo get_phrase('select_file_type'); ?></option>
+                            <option value=""><?php echo get_phrase('pilih_jenis_berkas'); ?></option>
                             <option value="image"><?php echo get_phrase('image'); ?></option>
                             <option value="doc"><?php echo get_phrase('doc'); ?></option>
                             <option value="pdf"><?php echo get_phrase('pdf'); ?></option>
@@ -87,7 +87,7 @@
                 </div>
 
                 <div class="col-sm-3 control-label col-sm-offset-2">
-                    <button type="submit" id = "submit" class="btn btn-success"><?php echo get_phrase('upload'); ?></button>
+                    <button type="submit" id = "submit" class="btn btn-success"><?php echo get_phrase('unggah'); ?></button>
                 </div>
                 </form>
 

@@ -10,7 +10,7 @@ foreach ($single_study_material_info as $row) {
 
                 <div class="panel-heading">
                     <div class="panel-title">
-                        <?php echo get_phrase('edit_study_material'); ?>
+                        <?php echo get_phrase('ubah_bahan_pengajaran'); ?>
                     </div>
                 </div>
 
@@ -19,7 +19,7 @@ foreach ($single_study_material_info as $row) {
                     <form role="form" class="form-horizontal form-groups-bordered" action="<?php echo site_url('teacher/study_material/update/'.$row['document_id']); ?>" method="post" enctype="multipart/form-data">
 
                         <div class="form-group">
-                            <label for="field-1" class="col-sm-3 control-label"><?php echo get_phrase('date'); ?></label>
+                            <label for="field-1" class="col-sm-3 control-label"><?php echo get_phrase('tanggal'); ?></label>
 
                             <div class="col-sm-5">
                                 <input type="text" name="timestamp" class="form-control datepicker" data-format="D, dd MM yyyy"
@@ -28,7 +28,7 @@ foreach ($single_study_material_info as $row) {
                         </div>
 
                         <div class="form-group">
-                            <label for="field-1" class="col-sm-3 control-label"><?php echo get_phrase('title'); ?></label>
+                            <label for="field-1" class="col-sm-3 control-label"><?php echo get_phrase('judul'); ?></label>
 
                             <div class="col-sm-5">
                                 <input type="text" name="title" class="form-control" id="field-1" value="<?php echo $row['title']; ?>">
@@ -36,7 +36,7 @@ foreach ($single_study_material_info as $row) {
                         </div>
 
                         <div class="form-group">
-                            <label for="field-ta" class="col-sm-3 control-label"><?php echo get_phrase('description'); ?></label>
+                            <label for="field-ta" class="col-sm-3 control-label"><?php echo get_phrase('deskripsi'); ?></label>
 
                             <div class="col-sm-9">
                                 <textarea name="description" class="form-control wysihtml5" data-stylesheet-url="<?php echo base_url(); ?>assets/css/wysihtml5-color.css"
@@ -45,7 +45,7 @@ foreach ($single_study_material_info as $row) {
                         </div>
 
                         <div class="form-group">
-                            <label for="field-ta" class="col-sm-3 control-label"><?php echo get_phrase('class'); ?></label>
+                            <label for="field-ta" class="col-sm-3 control-label"><?php echo get_phrase('kelas'); ?></label>
 
                             <div class="col-sm-5">
                                 <select name="class_id" class="form-control selectboxit" id="class_id" onchange="return get_class_subject(this.value)">
@@ -59,7 +59,7 @@ foreach ($single_study_material_info as $row) {
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="field-2" class="col-sm-3 control-label"><?php echo get_phrase('subject'); ?></label>
+                            <label for="field-2" class="col-sm-3 control-label"><?php echo get_phrase('mata_pelajaran'); ?></label>
                             <div class="col-sm-5">
                                 <select name="subject_id" class="form-control" id="subject_selector_holder">
                                    <?php
@@ -75,7 +75,7 @@ foreach ($single_study_material_info as $row) {
                         </div>
 
                         <div class="col-sm-3 control-label col-sm-offset-1">
-                            <button type="submit" class="btn btn-success"><?php echo get_phrase('update'); ?></button>
+                            <button type="submit" class="btn btn-success"><?php echo get_phrase('ubah'); ?></button>
                         </div>
                     </form>
 

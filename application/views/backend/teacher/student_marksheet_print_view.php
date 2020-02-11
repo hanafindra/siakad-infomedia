@@ -18,20 +18,20 @@
     <center>
         <img src="<?php echo base_url(); ?>uploads/logo.png" style="max-height : 60px;"><br>
         <h3 style="font-weight: 100;"><?php echo $system_name;?></h3>
-        <?php echo get_phrase('student_marksheet');?><br>
+        <?php echo get_phrase('nilai_siswa');?><br>
         <?php echo $this->db->get_where('student' , array('student_id' => $student_id))->row()->name;?><br>
-        <?php echo get_phrase('class') . ' ' . $class_name;?><br>
+        <?php echo get_phrase('kelas') . ' ' . $class_name;?><br>
         <?php echo $exam_name;?>
     </center>
 
     <table style="width:100%; border-collapse:collapse;border: 1px solid #ccc; margin-top: 10px;" border="1">
        <thead>
         <tr>
-            <td style="text-align: center;">Subject</td>
-            <td style="text-align: center;">Obtained marks</td>
-            <td style="text-align: center;">Highest mark</td>
-            <td style="text-align: center;">Grade</td>
-            <td style="text-align: center;">Comment</td>
+            <td style="text-align: center;">Mata Pelajaran</td>
+            <td style="text-align: center;">Nilai yang diperoleh</td>
+            <td style="text-align: center;">Nilia teringgi</td>
+            <td style="text-align: center;">Kelas</td>
+            <td style="text-align: center;">Komentar</td>
         </tr>
     </thead>
     <tbody>
@@ -93,9 +93,9 @@
 <br>
 
     <center>
-       <?php echo get_phrase('total_marks');?> : <?php echo $total_marks;?>
+       <?php echo get_phrase('total_nilai');?> : <?php echo $total_marks;?>
        <br>
-       <?php echo get_phrase('average_grade_point');?> : 
+       <?php echo get_phrase('nilai_ratarata');?> : 
             <?php 
                 $this->db->where('class_id' , $class_id);
                 $this->db->where('year' , $running_year);

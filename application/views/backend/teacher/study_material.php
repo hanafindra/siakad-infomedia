@@ -1,6 +1,6 @@
 <button onclick="showAjaxModal('<?php echo site_url('modal/popup/modal_study_material_add');?>');" 
     class="btn btn-primary pull-right">
-        <?php echo get_phrase('add_study_material'); ?>
+        <?php echo get_phrase('tambah_bahan_pengajar'); ?>
 </button>
 <div style="clear:both;"></div>
 <br>
@@ -8,12 +8,12 @@
     <thead>
         <tr>
             <th>#</th>
-            <th><?php echo get_phrase('date');?></th>
-            <th><?php echo get_phrase('title');?></th>
-            <th><?php echo get_phrase('description');?></th>
-            <th><?php echo get_phrase('class');?></th>
-            <th><?php echo get_phrase('subject');?></th>
-            <th><?php echo get_phrase('download');?></th>
+            <th><?php echo get_phrase('tanggal');?></th>
+            <th><?php echo get_phrase('judul');?></th>
+            <th><?php echo get_phrase('deskripsi');?></th>
+            <th><?php echo get_phrase('kelas');?></th>
+            <th><?php echo get_phrase('mata_pelajaran');?></th>
+            <th><?php echo get_phrase('unduh');?></th>
             <th><?php echo get_phrase('options');?></th>
         </tr>
     </thead>

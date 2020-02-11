@@ -1,6 +1,6 @@
 <button onclick="showAjaxModal('<?php echo site_url('modal/popup/question_paper_add');?>');" 
     class="btn btn-primary pull-right">
-        <?php echo get_phrase('add_question_paper'); ?>
+        <?php echo get_phrase('tambah_lembar_pertanyaan'); ?>
 </button>
 <div style="clear:both;"></div>
 <br>
@@ -9,10 +9,10 @@
     <thead>
         <tr>
             <th style="width: 60px;">#</th>
-            <th><?php echo get_phrase('title');?></th>
-            <th><?php echo get_phrase('class');?></th>
-            <th><?php echo get_phrase('exam');?></th>
-            <th><?php echo get_phrase('teacher');?></th>
+            <th><?php echo get_phrase('judul');?></th>
+            <th><?php echo get_phrase('kelas');?></th>
+            <th><?php echo get_phrase('ujian');?></th>
+            <th><?php echo get_phrase('guru');?></th>
             <th><?php echo get_phrase('options');?></th>
         </tr>
     </thead>

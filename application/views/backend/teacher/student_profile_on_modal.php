@@ -42,7 +42,7 @@ $running_year = $this->db->get_where('settings' , array('type'=>'running_year'))
               'section_id' => $enroll_info->row()->section_id
             ))->row()->name;
           ?>
-          <?php echo get_phrase('class').' - '.$class_name.' | '. get_phrase('section').' - '.$section_name; ?>
+          <?php echo get_phrase('kelas').' - '.$class_name.' | '. get_phrase('bagian').' - '.$section_name; ?>
         </span>
       </center>
 		</div>
@@ -51,19 +51,19 @@ $running_year = $this->db->get_where('settings' , array('type'=>'running_year'))
 		<ul class="nav nav-tabs">
 			<li class="active"><a href="#tab1" data-toggle="tab" class="btn btn-default">
 					<span class="visible-xs"><i class="entypo-home"></i></span>
-					<span class="hidden-xs"><?php echo get_phrase('basic_info'); ?></span>
+					<span class="hidden-xs"><?php echo get_phrase('informasi_siswa'); ?></span>
 				</a>
 			</li>
 			<li class="">
 				<a href="#tab2" data-toggle="tab" class="btn btn-default">
 					<span class="visible-xs"><i class="entypo-user"></i></span>
-					<span class="hidden-xs"><?php echo get_phrase('parent_info'); ?></span>
+					<span class="hidden-xs"><?php echo get_phrase('informasi_orang_tua'); ?></span>
 				</a>
 			</li>
 			<li class="">
 				<a href="#tab3" data-toggle="tab" class="btn btn-default">
 					<span class="visible-xs"><i class="entypo-mail"></i></span>
-					<span class="hidden-xs"><?php echo get_phrase('exam_marks'); ?></span>
+					<span class="hidden-xs"><?php echo get_phrase('nilia_ujian'); ?></span>
 				</a>
 			</li>
 			<!-- <li class="">
@@ -75,7 +75,7 @@ $running_year = $this->db->get_where('settings' , array('type'=>'running_year'))
       <li class="">
 				<a href="#tab5" data-toggle="tab" class="btn btn-default">
 					<span class="visible-xs"><i class="entypo-cog"></i></span>
-					<span class="hidden-xs"><?php echo get_phrase('payments'); ?></span>
+					<span class="hidden-xs"><?php echo get_phrase('pembayaran'); ?></span>
 				</a>
 			</li>
 		</ul>

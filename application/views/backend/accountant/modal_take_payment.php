@@ -7,7 +7,7 @@ foreach ($edit_data as $row):
 	<div class="col-md-12">
         <div class="panel panel-default panel-shadow" data-collapsed="0">
             <div class="panel-heading">
-                <div class="panel-title"><?php echo get_phrase('payment_history');?></div>
+                <div class="panel-title"><?php echo get_phrase('riwayat_pembayaran');?></div>
             </div>
             <div class="panel-body">
 
@@ -15,9 +15,9 @@ foreach ($edit_data as $row):
                 	<thead>
                 		<tr>
                 			<td>#</td>
-                			<td><?php echo get_phrase('amount');?></td>
-                			<td><?php echo get_phrase('method');?></td>
-                			<td><?php echo get_phrase('date');?></td>
+                			<td><?php echo get_phrase('jumlah');?></td>
+                			<td><?php echo get_phrase('metode_pembayaran');?></td>
+                			<td><?php echo get_phrase('tanggal');?></td>
                 		</tr>
                 	</thead>
                 	<tbody>
@@ -34,11 +34,11 @@ foreach ($edit_data as $row):
                 			<td>
                 				<?php
                 					if ($row2['method'] == 1)
-                						echo get_phrase('cash');
+                						echo get_phrase('tunai');
                 					if ($row2['method'] == 2)
-                						echo get_phrase('check');
+                						echo get_phrase('chek');
                 					if ($row2['method'] == 3)
-                						echo get_phrase('card');
+                						echo get_phrase('kartu_kredit');
                                     if ($row2['method'] == 'paypal')
                                         echo 'paypal';
                 				?>
@@ -58,21 +58,21 @@ foreach ($edit_data as $row):
 	<div class="col-md-12">
 		<div class="panel panel-default panel-shadow" data-collapsed="0">
 			<div class="panel-heading">
-                <div class="panel-title"><?php echo get_phrase('take_payment');?></div>
+                <div class="panel-title"><?php echo get_phrase('ambil_pembayaran');?></div>
             </div>
             <div class="panel-body">
 				<?php echo form_open(base_url('accountant/invoice/take_payment/'.$row['invoice_id']), array(
 					'class' => 'form-horizontal form-groups-bordered validate','target'=>'_top'));?>
 
 					<div class="form-group">
-		                <label class="col-sm-3 control-label"><?php echo get_phrase('total_amount');?></label>
+		                <label class="col-sm-3 control-label"><?php echo get_phrase('jumlah_total');?></label>
 		                <div class="col-sm-6">
-		                    <input type="text" class="form-control" value="<?php echo $row['amount'];?>" readonly/>
+		                    <input type="text" class="form-control" value="<?php echo $row['jumlah'];?>" readonly/>
 		                </div>
 		            </div>
 
 		            <div class="form-group">
-		                <label class="col-sm-3 control-label"><?php echo get_phrase('amount_paid');?></label>
+		                <label class="col-sm-3 control-label"><?php echo get_phrase('jumlah_biaya');?></label>
 		                <div class="col-sm-6">
 		                    <input type="text" class="form-control" name="amount_paid" value="<?php echo $row['amount_paid'];?>" readonly/>
 		                </div>
@@ -81,31 +81,31 @@ foreach ($edit_data as $row):
 		            <div class="form-group">
 		                <label class="col-sm-3 control-label"><?php echo get_phrase('due');?></label>
 		                <div class="col-sm-6">
-		                    <input type="text" class="form-control" value="<?php echo $row['due'];?>" readonly/>
+		                    <input type="text" class="form-control" value="<?php echo $row['batas_pembayaran'];?>" readonly/>
 		                </div>
 		            </div>
 
 		            <div class="form-group">
-		                <label class="col-sm-3 control-label"><?php echo get_phrase('payment');?></label>
+		                <label class="col-sm-3 control-label"><?php echo get_phrase('pembayaran');?></label>
 		                <div class="col-sm-6">
 		                    <input type="text" class="form-control" name="amount" value=""
-		                    	placeholder="<?php echo get_phrase('enter_payment_amount');?>" required/>
+		                    	placeholder="<?php echo get_phrase('masukkan_jumlah_pembayaran');?>" required/>
 		                </div>
 		            </div>
 
 		            <div class="form-group">
-                        <label class="col-sm-3 control-label"><?php echo get_phrase('method');?></label>
+                        <label class="col-sm-3 control-label"><?php echo get_phrase('metode_pembayaran');?></label>
                         <div class="col-sm-6">
                             <select name="method" class="form-control selectboxit">
-                                <option value="1"><?php echo get_phrase('cash');?></option>
-                                <option value="2"><?php echo get_phrase('check');?></option>
-                                <option value="3"><?php echo get_phrase('card');?></option>
+                                <option value="1"><?php echo get_phrase('tunai');?></option>
+                                <option value="2"><?php echo get_phrase('cek');?></option>
+                                <option value="3"><?php echo get_phrase('kartu_kredit');?></option>
                             </select>
                         </div>
                     </div>
 
                     <div class="form-group">
-	                    <label class="col-sm-3 control-label"><?php echo get_phrase('date');?></label>
+	                    <label class="col-sm-3 control-label"><?php echo get_phrase('tanggal');?></label>
 	                    <div class="col-sm-6">
 	                        <input type="text" class="datepicker form-control" name="timestamp"
 	                            value="<?php echo date('m/d/Y');?>" required/>
@@ -119,7 +119,7 @@ foreach ($edit_data as $row):
 
 		            <div class="form-group">
 		                <div class="col-sm-5">
-		                    <button type="submit" class="btn btn-info"><?php echo get_phrase('take_payment');?></button>
+		                    <button type="submit" class="btn btn-info"><?php echo get_phrase('ambil_pembayaran');?></button>
 		                </div>
 		            </div>
 

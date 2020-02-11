@@ -5,9 +5,9 @@
 ?>
 <div class="row">
 	<div class="col-md-3">
-		<label><?php echo get_phrase('class');?></label>
+		<label><?php echo get_phrase('kelas');?></label>
 		<select class="" name="class_id" id="class_id">
-			<option value=""><?php echo get_phrase('select_a_class');?></option>
+			<option value=""><?php echo get_phrase('pilih_kelas');?></option>
 			<?php 
 				$classes = $this->db->get('class')->result_array();
 				foreach ($classes as $row):
@@ -19,25 +19,25 @@
 		</select>
 	</div>
 	<div class="col-md-3">
-		<label><?php echo get_phrase('section');?></label>
+		<label><?php echo get_phrase('bagian');?></label>
 		<div id="section_holder">
 			<select class="" name="section_id" id="section_id" disabled>
-			    <option value=""><?php echo get_phrase('select_a_class_first');?></option>
+			    <option value=""><?php echo get_phrase('pilih_kelas_terlebih_dahulu');?></option>
 		    </select>
 		</div>
 	</div>
 	<div class="col-md-3">
-		<label><?php echo get_phrase('student');?></label>
+		<label><?php echo get_phrase('siswa');?></label>
 		<div id="student_holder">
 			<select class="" name="student_id" id="student_id" disabled>
-			    <option value=""><?php echo get_phrase('select_a_class_and_section');?></option>
+			    <option value=""><?php echo get_phrase('pilih_kelas_dan_bagian_terlebih_dahulu');?></option>
 		    </select>
 		</div>
 	</div>
 	<div class="col-md-2">
 		<label></label>
 		<button type="button" class="btn btn-info btn-block" id="find">
-			<?php echo get_phrase('find_payments');?>
+			<?php echo get_phrase('cari_pembayaran');?>
 		</button>
 	</div>
 </div>

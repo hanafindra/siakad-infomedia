@@ -2,7 +2,7 @@
 <a href="javascript:;" onclick="showAjaxModal('<?php echo site_url('modal/popup/academic_syllabus_add/');?>');" 
 	class="btn btn-primary pull-right">
     	<i class="entypo-plus-circled"></i>
-			<?php echo get_phrase('add_academic_syllabus');?>
+			<?php echo get_phrase('tambah_silabus');?>
 </a> 
 <br><br><br>
 
@@ -10,7 +10,7 @@
 	<div class="col-md-12">
 		<div class="panel panel-primary">
 		    <div class="panel-heading">
-		        <h3 class="panel-title"><?php echo get_phrase('syllabus_manager') ?></h3>
+		        <h3 class="panel-title"><?php echo get_phrase('kelola_silabus') ?></h3>
 		    </div>
 		    <div class="panel-body">
 			<div class="tabs-vertical-env">
@@ -23,7 +23,7 @@
 					<li class="<?php if ($row['class_id'] == $class_id) echo 'active';?>">
 						<a href="<?php echo site_url('teacher/academic_syllabus/'.$row['class_id']);?>">
 							<i class="entypo-dot"></i>
-							<?php echo get_phrase('class');?> <?php echo $row['name'];?>
+							<?php echo get_phrase('kelas');?> <?php echo $row['name'];?>
 						</a>
 					</li>
 				<?php endforeach;?>
@@ -36,12 +36,12 @@
 							<thead>
 								<tr>
 									<th>#</th>
-									<th><?php echo get_phrase('title');?></th>
-									<th><?php echo get_phrase('description');?></th>
-	                                <th><?php echo get_phrase('subject');?></th>
-									<th><?php echo get_phrase('uploader');?></th>
-									<th><?php echo get_phrase('date');?></th>
-									<th><?php echo get_phrase('file');?></th>
+									<th><?php echo get_phrase('judul');?></th>
+									<th><?php echo get_phrase('deskripsi');?></th>
+	                                <th><?php echo get_phrase('mata_pelajaran');?></th>
+									<th><?php echo get_phrase('unggah');?></th>
+									<th><?php echo get_phrase('tanggal');?></th>
+									<th><?php echo get_phrase('berkas');?></th>
 									<th></th>
 								</tr>
 							</thead>

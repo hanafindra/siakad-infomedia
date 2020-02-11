@@ -48,7 +48,7 @@
 <div class="mail-reply">
   <div class="compose-message-editor">
     <textarea row="5" class="form-control wysihtml5" data-stylesheet-url="assets/css/wysihtml5-color.css" name="message"
-              placeholder="<?php echo get_phrase('reply_message'); ?>" id="sample_wysiwyg" required></textarea>
+              placeholder="<?php echo get_phrase('balas_pesan'); ?>" id="sample_wysiwyg" required></textarea>
   </div>
   <br>
   <!-- File adding module -->
@@ -57,7 +57,7 @@
   </div>
 <!-- end -->
   <button type="submit" class="btn btn-success pull-right">
-      <?php echo get_phrase('send'); ?>
+      <?php echo get_phrase('kirim'); ?>
   </button>
   <br><br>
 </div>
