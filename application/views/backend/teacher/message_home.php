@@ -1,7 +1,7 @@
 <div class="mail-header">
     <!-- title -->
     <h3 class="mail-title">
-        <?php echo get_phrase('messages'); ?>
+        <?php echo get_phrase('pesan'); ?>
     </h3>
 
     <!-- search -->
@@ -21,6 +21,6 @@
     <img src="<?php echo base_url(); ?>assets/images/inbox.png" width="70">
     <br><br>
     <div>
-        Select a message to read
+        Pilih sebuah pesan untuk dibaca
     </div>
 </div>

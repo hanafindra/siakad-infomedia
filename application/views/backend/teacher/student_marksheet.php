@@ -27,11 +27,11 @@
                    <table class="table table-bordered">
                        <thead>
                         <tr>
-                            <td style="text-align: center;">Subject</td>
-                            <td style="text-align: center;">Obtained marks</td>
-                            <td style="text-align: center;">Highest mark</td>
-                            <td style="text-align: center;">Grade</td>
-                            <td style="text-align: center;">Comment</td>
+                            <td style="text-align: center;">Mata Pelajaran</td>
+                            <td style="text-align: center;">Nilai yang diperoleh</td>
+                            <td style="text-align: center;">Nilai teringgi</td>
+                            <td style="text-align: center;">Kelas</td>
+                            <td style="text-align: center;">Komentar</td>
                         </tr>
                     </thead>
                     <tbody>
@@ -95,9 +95,9 @@
 
                    <hr />
 
-                   <?php echo get_phrase('total_marks');?> : <?php echo $total_marks;?>
+                   <?php echo get_phrase('total_nilai');?> : <?php echo $total_marks;?>
                    <br>
-                   <?php echo get_phrase('average_grade_point');?> : 
+                   <?php echo get_phrase('nilai_ratarata');?> : 
                         <?php 
                             $this->db->where('class_id' , $class_id);
                             $this->db->where('year' , $running_year);
@@ -109,7 +109,7 @@
                     <br> <br>
                     <a href="<?php echo site_url('teacher/student_marksheet_print_view/'.$student_id.'/'.$row2['exam_id']);?>"
                         class="btn btn-primary" target="_blank">
-                        <?php echo get_phrase('print_marksheet');?>
+                        <?php echo get_phrase('print nilai');?>
                     </a>
                </div>
 

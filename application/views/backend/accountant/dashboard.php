@@ -23,7 +23,7 @@ foreach($payments as $row)
             <div class="num" data-start="0" data-end="<?php echo $unpaid_invoices; ?>" 
             		data-postfix="" data-duration="1500" data-delay="0">0</div>
             
-            <h3><?php echo get_phrase('unpaid_invoices');?></h3>
+            <h3><?php echo get_phrase('Faktur_yang belum dibayar');?></h3>
         </div>
         
     </div>
@@ -35,7 +35,7 @@ foreach($payments as $row)
             <div class="num" data-start="0" data-end="<?php echo $total_income; ?>" 
             		data-postfix="" data-duration="800" data-delay="0">0</div>
             
-            <h3><?php echo get_phrase('total_income'); ?></h3>
+            <h3><?php echo get_phrase('total_uang_masuk'); ?></h3>
         </div>
         
     </div>
@@ -47,7 +47,7 @@ foreach($payments as $row)
             <div class="num" data-start="0" data-end="<?php echo $total_expense; ?>" 
             		data-postfix="" data-duration="500" data-delay="0">0</div>
             
-            <h3><?php echo get_phrase('total_expense');?></h3>
+            <h3><?php echo get_phrase('total_biaya');?></h3>
         </div>
         
     </div>
@@ -58,7 +58,7 @@ foreach($payments as $row)
 
 
 
-
+x
 
 
 

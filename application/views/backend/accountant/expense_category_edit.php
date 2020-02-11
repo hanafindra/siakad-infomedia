@@ -19,7 +19,7 @@
                 <?php echo form_open(site_url('accountant/expense_category/edit/'. $row['expense_category_id']), array('class' => 'form-horizontal form-groups-bordered validate', 'enctype' => 'multipart/form-data'));?>
 	
 					<div class="form-group">
-						<label for="field-1" class="col-sm-3 control-label"><?php echo get_phrase('name');?></label>
+						<label for="field-1" class="col-sm-3 control-label"><?php echo get_phrase('nama');?></label>
                         
 						<div class="col-sm-6">
 							<input type="text" class="form-control" name="name" data-validate="required" data-message-required="<?php echo get_phrase('value_required');?>" value="<?php echo $row['name'];?>">

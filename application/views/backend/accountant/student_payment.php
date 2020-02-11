@@ -5,12 +5,12 @@
 			<ul class="nav nav-tabs bordered">
 				<li class="active">
 					<a href="#unpaid" data-toggle="tab">
-						<span class="hidden-xs"><?php echo get_phrase('create_single_invoice');?></span>
+						<span class="hidden-xs"><?php echo get_phrase('buat_faktur_tunggal');?></span>
 					</a>
 				</li>
 				<li>
 					<a href="#paid" data-toggle="tab">
-						<span class="hidden-xs"><?php echo get_phrase('create_mass_invoice');?></span>
+						<span class="hidden-xs"><?php echo get_phrase('buat_faktur_banyak');?></span>
 					</a>
 				</li>
 			</ul>
@@ -25,16 +25,16 @@
 					<div class="col-md-6">
 	                        <div class="panel panel-primary" data-collapsed="0">
 	                            <div class="panel-heading">
-	                                <div class="panel-title"><?php echo get_phrase('invoice_informations');?></div>
+	                                <div class="panel-title"><?php echo get_phrase('informasi_faktur');?></div>
 	                            </div>
 	                            <div class="panel-body">
                                     
                                     <div class="form-group">
-                                        <label class="col-sm-3 control-label"><?php echo get_phrase('class');?></label>
+                                        <label class="col-sm-3 control-label"><?php echo get_phrase('kelas');?></label>
                                         <div class="col-sm-9">
                                             <select name="class_id" class="form-control selectboxit class_id"
                                                 onchange="return get_class_students(this.value)">
-                                                <option value=""><?php echo get_phrase('select_class');?></option>
+                                                <option value=""><?php echo get_phrase('pilih_kelas');?></option>
                                                 <?php 
                                                     $classes = $this->db->get('class')->result_array();
                                                     foreach ($classes as $row):
@@ -47,30 +47,30 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <label class="col-sm-3 control-label"><?php echo get_phrase('student');?></label>
+                                        <label class="col-sm-3 control-label"><?php echo get_phrase('siswa');?></label>
                                         <div class="col-sm-9">
                                             <select name="student_id" class="form-control" style="width:100%;" id="student_selection_holder" required>
-                                                <option value=""><?php echo get_phrase('select_class_first');?></option>
+                                                <option value=""><?php echo get_phrase('pilih_kelas_terlebih_dahulu');?></option>
                                             </select>
                                         </div>
                                     </div>
 
                                     <div class="form-group">
-                                        <label class="col-sm-3 control-label"><?php echo get_phrase('title');?></label>
+                                        <label class="col-sm-3 control-label"><?php echo get_phrase('judul');?></label>
                                         <div class="col-sm-9">
                                             <input type="text" class="form-control" name="title"
                                                 data-validate="required" data-message-required="<?php echo get_phrase('value_required');?>"/>
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-sm-3 control-label"><?php echo get_phrase('description');?></label>
+                                        <label class="col-sm-3 control-label"><?php echo get_phrase('deskripsi');?></label>
                                         <div class="col-sm-9">
                                             <input type="text" class="form-control" name="description"/>
                                         </div>
                                     </div>
 
                                     <div class="form-group">
-                                        <label class="col-sm-3 control-label"><?php echo get_phrase('date');?></label>
+                                        <label class="col-sm-3 control-label"><?php echo get_phrase('tanggal');?></label>
                                         <div class="col-sm-9">
                                             <input type="text" class="datepicker form-control" name="date"
                                                 data-validate="required" data-message-required="<?php echo get_phrase('value_required');?>"/>
@@ -84,7 +84,7 @@
 	                    <div class="col-md-6">
                         <div class="panel panel-primary" data-collapsed="0">
                             <div class="panel-heading">
-                                <div class="panel-title"><?php echo get_phrase('payment_informations');?></div>
+                                <div class="panel-title"><?php echo get_phrase('informasi_pembayaran');?></div>
                             </div>
                             <div class="panel-body">
                                 
@@ -92,16 +92,16 @@
                                     <label class="col-sm-3 control-label"><?php echo get_phrase('total');?></label>
                                     <div class="col-sm-9">
                                         <input type="text" class="form-control" name="amount"
-                                            placeholder="<?php echo get_phrase('enter_total_amount');?>"
+                                            placeholder="<?php echo get_phrase('masukkan_jumlah_total');?>"
                                                 data-validate="required" data-message-required="<?php echo get_phrase('value_required');?>"/>
                                     </div>
                                 </div>
 
                                 <div class="form-group">
-                                    <label class="col-sm-3 control-label"><?php echo get_phrase('payment');?></label>
+                                    <label class="col-sm-3 control-label"><?php echo get_phrase('pembayaran');?></label>
                                     <div class="col-sm-9">
                                         <input type="text" class="form-control" name="amount_paid"
-                                            placeholder="<?php echo get_phrase('enter_payment_amount');?>"
+                                            placeholder="<?php echo get_phrase('masukkan_jumlah_pembayaran');?>"
                                                 data-validate="required" data-message-required="<?php echo get_phrase('value_required');?>"/>
                                     </div>
                                 </div>
@@ -110,19 +110,19 @@
                                     <label class="col-sm-3 control-label"><?php echo get_phrase('status');?></label>
                                     <div class="col-sm-9">
                                         <select name="status" class="form-control selectboxit">
-                                            <option value="paid"><?php echo get_phrase('paid');?></option>
-                                            <option value="unpaid"><?php echo get_phrase('unpaid');?></option>
+                                            <option value="paid"><?php echo get_phrase('bayar');?></option>
+                                            <option value="unpaid"><?php echo get_phrase('belum_dibayar');?></option>
                                         </select>
                                     </div>
                                 </div>
 
                                 <div class="form-group">
-                                    <label class="col-sm-3 control-label"><?php echo get_phrase('method');?></label>
+                                    <label class="col-sm-3 control-label"><?php echo get_phrase('metode_pembayaran');?></label>
                                     <div class="col-sm-9">
                                         <select name="method" class="form-control selectboxit">
-                                            <option value="1"><?php echo get_phrase('cash');?></option>
-                                            <option value="2"><?php echo get_phrase('check');?></option>
-                                            <option value="3"><?php echo get_phrase('card');?></option>
+                                            <option value="1"><?php echo get_phrase('tunai');?></option>
+                                            <option value="2"><?php echo get_phrase('cek');?></option>
+                                            <option value="3"><?php echo get_phrase('kartu_kredit');?></option>
                                         </select>
                                     </div>
                                 </div>
@@ -131,7 +131,7 @@
                         </div>
                         <div class="form-group">
                             <div class="col-sm-5">
-                                <button type="submit" class="btn btn-info submit"><?php echo get_phrase('add_invoice');?></button>
+                                <button type="submit" class="btn btn-info submit"><?php echo get_phrase('tambah_faktur');?></button>
                             </div>
                         </div>
                     </div>
@@ -153,11 +153,11 @@
 				<div class="col-md-5">
 
 					<div class="form-group">
-                        <label class="col-sm-3 control-label"><?php echo get_phrase('class');?></label>
+                        <label class="col-sm-3 control-label"><?php echo get_phrase('kelas');?></label>
                         <div class="col-sm-9">
                             <select name="class_id" class="form-control select2" 
                             	onchange="return get_class_students_mass(this.value)" required>
-                            	<option value=""><?php echo get_phrase('select_class');?></option>
+                            	<option value=""><?php echo get_phrase('pilih_kelas');?></option>
                             	<?php 
                             		$classes = $this->db->get('class')->result_array();
                             		foreach ($classes as $row):
@@ -172,7 +172,7 @@
                     
 
                     <div class="form-group">
-                        <label class="col-sm-3 control-label"><?php echo get_phrase('title');?></label>
+                        <label class="col-sm-3 control-label"><?php echo get_phrase('judul');?></label>
                         <div class="col-sm-9">
                             <input type="text" class="form-control" name="title"
                                 data-validate="required" data-message-required="<?php echo get_phrase('value_required');?>"/>
@@ -180,7 +180,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label class="col-sm-3 control-label"><?php echo get_phrase('description');?></label>
+                        <label class="col-sm-3 control-label"><?php echo get_phrase('deskripsi');?></label>
                         <div class="col-sm-9">
                             <input type="text" class="form-control" name="description"/>
                         </div>
@@ -190,16 +190,16 @@
                         <label class="col-sm-3 control-label"><?php echo get_phrase('total');?></label>
                         <div class="col-sm-9">
                             <input type="text" class="form-control" name="amount"
-                                placeholder="<?php echo get_phrase('enter_total_amount');?>"
+                                placeholder="<?php echo get_phrase('masukkan_jumlah_total');?>"
                                     data-validate="required" data-message-required="<?php echo get_phrase('value_required');?>"/>
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label class="col-sm-3 control-label"><?php echo get_phrase('payment');?></label>
+                        <label class="col-sm-3 control-label"><?php echo get_phrase('pembayaran');?></label>
                         <div class="col-sm-9">
                             <input type="text" class="form-control" name="amount_paid"
-                                placeholder="<?php echo get_phrase('enter_payment_amount');?>"
+                                placeholder="<?php echo get_phrase('masukkan_jumlah_pembayaran');?>"
                                     data-validate="required" data-message-required="<?php echo get_phrase('value_required');?>"/>
                         </div>
                     </div>
@@ -208,25 +208,25 @@
                         <label class="col-sm-3 control-label"><?php echo get_phrase('status');?></label>
                         <div class="col-sm-9">
                             <select name="status" class="form-control selectboxit">
-                                <option value="paid"><?php echo get_phrase('paid');?></option>
-                                <option value="unpaid"><?php echo get_phrase('unpaid');?></option>
+                                <option value="paid"><?php echo get_phrase('bayar');?></option>
+                                <option value="unpaid"><?php echo get_phrase('belum_dibayar');?></option>
                             </select>
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label class="col-sm-3 control-label"><?php echo get_phrase('method');?></label>
+                        <label class="col-sm-3 control-label"><?php echo get_phrase('metode_pembayaran');?></label>
                         <div class="col-sm-9">
                             <select name="method" class="form-control selectboxit">
-                                <option value="1"><?php echo get_phrase('cash');?></option>
-                                <option value="2"><?php echo get_phrase('check');?></option>
-                                <option value="3"><?php echo get_phrase('card');?></option>
+                                <option value="1"><?php echo get_phrase('tunai');?></option>
+                                <option value="2"><?php echo get_phrase('cek');?></option>
+                                <option value="3"><?php echo get_phrase('kartu_kredit');?></option>
                             </select>
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label class="col-sm-3 control-label"><?php echo get_phrase('date');?></label>
+                        <label class="col-sm-3 control-label"><?php echo get_phrase('tanggal');?></label>
                         <div class="col-sm-9">
                             <input type="text" class="datepicker form-control" name="date"
                                 data-validate="required" data-message-required="<?php echo get_phrase('value_required');?>"/>
@@ -235,7 +235,7 @@
 
                     <div class="form-group">
                         <div class="col-sm-5 col-sm-offset-3">
-                            <button type="submit" class="btn btn-info"><?php echo get_phrase('add_invoice');?></button>
+                            <button type="submit" class="btn btn-info"><?php echo get_phrase(tambah_faktur);?></button>
                         </div>
                     </div>
                     

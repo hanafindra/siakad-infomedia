@@ -9,7 +9,7 @@ $system_name  = $this->db->get_where('settings', array('type' => 'system_name'))
       <meta charset="utf-8">
       <meta http-equiv="x-ua-compatible" content="ie=edge">
       <title>
-        <?php echo get_phrase('forgot_password'); ?> | <?php echo $system_name; ?>
+        <?php echo get_phrase('lupa_password'); ?> | <?php echo $system_name; ?>
       </title>
       <meta name="description" content="">
       <meta name="viewport" content="width=device-width, initial-scale=1">

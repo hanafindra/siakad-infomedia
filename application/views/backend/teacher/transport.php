@@ -5,7 +5,7 @@
 		<ul class="nav nav-tabs bordered">
 			<li class="active">
             	<a href="#list" data-toggle="tab"><i class="entypo-menu"></i> 
-					<?php echo get_phrase('transport_list');?>
+					<?php echo get_phrase('daftar_trasportasi');?>
                     	</a></li>
 		</ul>
     	<!------CONTROL TABS END------>
@@ -17,10 +17,10 @@
                 <table class="table table-bordered datatable" id="table_export">
                 	<thead>
                 		<tr>
-                    		<th><div><?php echo get_phrase('route_name');?></div></th>
-                    		<th><div><?php echo get_phrase('number_of_vehicle');?></div></th>
-                    		<th><div><?php echo get_phrase('description');?></div></th>
-                    		<th><div><?php echo get_phrase('route_fare');?></div></th>
+                    		<th><div><?php echo get_phrase('rute');?></div></th>
+                    		<th><div><?php echo get_phrase('nomor_kendaraan');?></div></th>
+                    		<th><div><?php echo get_phrase('deskripsi');?></div></th>
+                    		<th><div><?php echo get_phrase('tarif');?></div></th>
 						</tr>
 					</thead>
                     <tbody>

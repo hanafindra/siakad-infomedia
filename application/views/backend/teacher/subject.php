@@ -6,7 +6,7 @@
 		<ul class="nav nav-tabs bordered">
 			<li class="active">
             	<a href="#list" data-toggle="tab"><i class="entypo-menu"></i> 
-					<?php echo get_phrase('subject_list');?>
+					<?php echo get_phrase('daftar_pelajaran');?>
                     	</a></li>
 		</ul>
     	<!------CONTROL TABS END------>
@@ -18,9 +18,9 @@
                 <table class="table table-bordered datatable" id="table_export">
                 	<thead>
                 		<tr>
-                    		<th><div><?php echo get_phrase('class');?></div></th>
-                    		<th><div><?php echo get_phrase('subject_name');?></div></th>
-                    		<th><div><?php echo get_phrase('teacher');?></div></th>
+                    		<th><div><?php echo get_phrase('kelas');?></div></th>
+                    		<th><div><?php echo get_phrase('Nama_mata_pelajaran');?></div></th>
+                    		<th><div><?php echo get_phrase('guru');?></div></th>
 						</tr>
 					</thead>
                     <tbody>

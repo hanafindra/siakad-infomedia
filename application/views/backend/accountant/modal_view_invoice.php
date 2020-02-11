@@ -4,7 +4,7 @@ foreach ($edit_data as $row):
 ?>
 <center>
     <a onClick="PrintElem('#invoice_print')" class="btn btn-default btn-icon icon-left hidden-print pull-right">
-        Print Invoice
+        Print Faktur
         <i class="entypo-print"></i>
     </a>
 </center>
@@ -15,9 +15,9 @@ foreach ($edit_data as $row):
         <table width="100%" border="0">
             <tr>
                 <td align="right">
-                    <h5><?php echo get_phrase('creation_date'); ?> : <?php echo date('d M,Y', $row['creation_timestamp']);?></h5>
-                    <h5><?php echo get_phrase('title'); ?> : <?php echo $row['title'];?></h5>
-                    <h5><?php echo get_phrase('description'); ?> : <?php echo $row['description'];?></h5>
+                    <h5><?php echo get_phrase('tanggal_pembuatan'); ?> : <?php echo date('d M,Y', $row['creation_timestamp']);?></h5>
+                    <h5><?php echo get_phrase('judul'); ?> : <?php echo $row['title'];?></h5>
+                    <h5><?php echo get_phrase('deskripsi'); ?> : <?php echo $row['description'];?></h5>
                     <h5><?php echo get_phrase('status'); ?> : <?php echo $row['status']; ?></h5>
                 </td>
             </tr>
@@ -25,8 +25,8 @@ foreach ($edit_data as $row):
         <hr>
         <table width="100%" border="0">    
             <tr>
-                <td align="left"><h4><?php echo get_phrase('payment_to'); ?> </h4></td>
-                <td align="right"><h4><?php echo get_phrase('bill_to'); ?> </h4></td>
+                <td align="left"><h4><?php echo get_phrase('pembayaran_kepada'); ?> </h4></td>
+                <td align="right"><h4><?php echo get_phrase('tagihan_ke'); ?> </h4></td>
             </tr>
 
             <tr>
@@ -42,7 +42,7 @@ foreach ($edit_data as $row):
                             'student_id' => $row['student_id'],
                                 'year' => $this->db->get_where('settings', array('type' => 'running_year'))->row()->description
                         ))->row()->class_id;
-                        echo get_phrase('class') . ' ' . $this->db->get_where('class', array('class_id' => $class_id))->row()->name;
+                        echo get_phrase('kelas') . ' ' . $this->db->get_where('class', array('class_id' => $class_id))->row()->name;
                     ?><br>
                 </td>
             </tr>
@@ -51,17 +51,17 @@ foreach ($edit_data as $row):
 
         <table width="100%" border="0">    
             <tr>
-                <td align="right" width="80%"><?php echo get_phrase('total_amount'); ?> :</td>
+                <td align="right" width="80%"><?php echo get_phrase('jumlah_total'); ?> :</td>
                 <td align="right"><?php echo $row['amount']; ?></td>
             </tr>
             <tr>
-                <td align="right" width="80%"><h4><?php echo get_phrase('paid_amount'); ?> :</h4></td>
-                <td align="right"><h4><?php echo $row['amount_paid']; ?></h4></td>
+                <td align="right" width="80%"><h4><?php echo get_phrase('jumlah_pembayaran'); ?> :</h4></td>
+                <td align="right"><h4><?php echo $row['jumlah_pembayaran']; ?></h4></td>
             </tr>
             <?php if ($row['due'] != 0):?>
             <tr>
-                <td align="right" width="80%"><h4><?php echo get_phrase('due'); ?> :</h4></td>
-                <td align="right"><h4><?php echo $row['due']; ?></h4></td>
+                <td align="right" width="80%"><h4><?php echo get_phrase('batas_pembayaran'); ?> :</h4></td>
+                <td align="right"><h4><?php echo $row['batas_pembayaran']; ?></h4></td>
             </tr>
             <?php endif;?>
         </table>
@@ -69,13 +69,13 @@ foreach ($edit_data as $row):
         <hr>
 
         <!-- payment history -->
-        <h4><?php echo get_phrase('payment_history'); ?></h4>
+        <h4><?php echo get_phrase('riwayat_pembayaran'); ?></h4>
         <table class="table table-bordered" width="100%" border="1" style="border-collapse:collapse;">
             <thead>
                 <tr>
-                    <th><?php echo get_phrase('date'); ?></th>
-                    <th><?php echo get_phrase('amount'); ?></th>
-                    <th><?php echo get_phrase('method'); ?></th>
+                    <th><?php echo get_phrase('tanggal'); ?></th>
+                    <th><?php echo get_phrase('jumlah'); ?></th>
+                    <th><?php echo get_phrase('metode_pembayaran'); ?></th>
                 </tr>
             </thead>
             <tbody>
@@ -89,11 +89,11 @@ foreach ($edit_data as $row):
                         <td>
                             <?php 
                                 if ($row2['method'] == 1)
-                                    echo get_phrase('cash');
+                                    echo get_phrase('tunai');
                                 if ($row2['method'] == 2)
-                                    echo get_phrase('check');
+                                    echo get_phrase('cek');
                                 if ($row2['method'] == 3)
-                                    echo get_phrase('card');
+                                    echo get_phrase('kartu_kredit');
                                 if ($row2['method'] == 'paypal')
                                     echo 'paypal';
                             ?>

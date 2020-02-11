@@ -42,7 +42,7 @@ class Teacher extends CI_Controller
         if ($this->session->userdata('teacher_login') != 1)
             redirect(base_url(), 'refresh');
         $page_data['page_name']  = 'dashboard';
-        $page_data['page_title'] = get_phrase('teacher_dashboard');
+        $page_data['page_title'] = get_phrase('dashboard_guru');
         $this->load->view('backend/index', $page_data);
     }
 
@@ -58,7 +58,7 @@ class Teacher extends CI_Controller
             redirect('login', 'refresh');
 
 		$page_data['page_name']  	= 'student_information';
-		$page_data['page_title'] 	= get_phrase('student_information'). " - ".get_phrase('class')." : ".
+		$page_data['page_title'] 	= get_phrase('informasi_siswa'). " - ".get_phrase('kelas')." : ".
 											$this->crud_model->get_class_name($class_id);
 		$page_data['class_id'] 	= $class_id;
 		$this->load->view('backend/index', $page_data);
@@ -70,7 +70,7 @@ class Teacher extends CI_Controller
       redirect(base_url(), 'refresh');
     }
     $page_data['page_name']  = 'student_profile';
-		$page_data['page_title'] = get_phrase('student_profile');
+		$page_data['page_title'] = get_phrase('Profil_siswa');
     $page_data['student_id']  = $student_id;
 		$this->load->view('backend/index', $page_data);
   }
@@ -84,7 +84,7 @@ class Teacher extends CI_Controller
         $student_name = $this->db->get_where('student' , array('student_id' => $student_id))->row()->name;
         $class_name   = $this->db->get_where('class' , array('class_id' => $class_id))->row()->name;
         $page_data['page_name']  =   'student_marksheet';
-        $page_data['page_title'] =   get_phrase('marksheet_for') . ' ' . $student_name . ' (' . get_phrase('class') . ' ' . $class_name . ')';
+        $page_data['page_title'] =   get_phrase('lembarkerja_untuk') . ' ' . $student_name . ' (' . get_phrase('kelas') . ' ' . $class_name . ')';
         $page_data['student_id'] =   $student_id;
         $page_data['class_id']   =   $class_id;
         $this->load->view('backend/index', $page_data);
@@ -137,7 +137,7 @@ class Teacher extends CI_Controller
         }
         $page_data['teachers']   = $this->db->get('teacher')->result_array();
         $page_data['page_name']  = 'teacher';
-        $page_data['page_title'] = get_phrase('teacher_list');
+        $page_data['page_title'] = get_phrase('daftar_guru');
         $this->load->view('backend/index', $page_data);
     }
 
@@ -158,10 +158,10 @@ class Teacher extends CI_Controller
             $data['year']       = $this->db->get_where('settings' , array('type' => 'running_year'))->row()->description;
             if ($data['class_id'] != '') {
                 $this->db->insert('subject', $data);
-                $this->session->set_flashdata('flash_message' , get_phrase('data_added_successfully'));
+                $this->session->set_flashdata('flash_message' , get_phrase('data_berhasil_ditambah'));
             }
             else{
-                $this->session->set_flashdata('error_message' , get_phrase('select_class'));
+                $this->session->set_flashdata('error_message' , get_phrase('pilih_kelas'));
             }
 
             redirect(site_url('teacher/subject/'.$data['class_id']), 'refresh');
@@ -180,10 +180,10 @@ class Teacher extends CI_Controller
             if ($data['class_id'] != '') {
                $this->db->where('subject_id', $param2);
                $this->db->update('subject', $data);
-               $this->session->set_flashdata('flash_message' , get_phrase('data_updated'));
+               $this->session->set_flashdata('flash_message' , get_phrase('data_diperbarui'));
             }
             else{
-                $this->session->set_flashdata('error_message' , get_phrase('select_class'));
+                $this->session->set_flashdata('error_message' , get_phrase('pilih_kelas'));
             }
 
             redirect(site_url('teacher/subject/'.$data['class_id']), 'refresh');
@@ -204,7 +204,7 @@ class Teacher extends CI_Controller
             'year' => $this->db->get_where('settings' , array('type' => 'running_year'))->row()->description
         ))->result_array();
         $page_data['page_name']  = 'subject';
-        $page_data['page_title'] = get_phrase('manage_subject');
+        $page_data['page_title'] = get_phrase('kelola_matapelajaran');
         $this->load->view('backend/index', $page_data);
     }
 
@@ -216,7 +216,7 @@ class Teacher extends CI_Controller
         if ($this->session->userdata('teacher_login') != 1)
             redirect(base_url(), 'refresh');
         $page_data['page_name']  =   'marks_manage';
-        $page_data['page_title'] = get_phrase('manage_exam_marks');
+        $page_data['page_title'] = get_phrase('kelola_nilai_ujian');
         $this->load->view('backend/index', $page_data);
     }
 
@@ -229,7 +229,7 @@ class Teacher extends CI_Controller
         $page_data['subject_id'] =   $subject_id;
         $page_data['section_id'] =   $section_id;
         $page_data['page_name']  =   'marks_manage_view';
-        $page_data['page_title'] = get_phrase('manage_exam_marks');
+        $page_data['page_title'] = get_phrase('kelola_nilai_ujian');
         $this->load->view('backend/index', $page_data);
     }
 
@@ -264,9 +264,9 @@ class Teacher extends CI_Controller
 
     }
 else{
-        $this->session->set_flashdata('error_message' , get_phrase('select_all_the_fields'));
+        $this->session->set_flashdata('error_message' , get_phrase('pilih_semua_field'));
         $page_data['page_name']  =   'marks_manage';
-        $page_data['page_title'] = get_phrase('manage_exam_marks');
+        $page_data['page_title'] = get_phrase('kelola_nilia_ujian');
         $this->load->view('backend/index', $page_data);
 }
 }
@@ -287,13 +287,13 @@ else{
             $this->db->where('mark_id' , $row['mark_id']);
             $this->db->update('mark' , array('mark_obtained' => $obtained_marks , 'comment' => $comment));
         }
-        $this->session->set_flashdata('flash_message' , get_phrase('marks_updated'));
+        $this->session->set_flashdata('flash_message' , get_phrase('nilai_diperbarui'));
         redirect(site_url('teacher/marks_manage_view/'.$exam_id.'/'.$class_id.'/'.$section_id.'/'.$subject_id), 'refresh');
     }
     else{
-        $this->session->set_flashdata('error_message' , get_phrase('select_all_the_fields'));
+        $this->session->set_flashdata('error_message' , get_phrase('pilih_semua_field'));
         $page_data['page_name']  =   'marks_manage';
-        $page_data['page_title'] = get_phrase('manage_exam_marks');
+        $page_data['page_title'] = get_phrase('kelola_nilai_ujian');
         $this->load->view('backend/index', $page_data);
     }
     }
@@ -315,7 +315,7 @@ else{
             $class_id           =   $this->db->get('class')->first_row()->class_id;
 
         $page_data['page_name']  = 'academic_syllabus';
-        $page_data['page_title'] = get_phrase('academic_syllabus');
+        $page_data['page_title'] = get_phrase('silabus_akademik');
         $page_data['class_id']   = $class_id;
         $this->load->view('backend/index', $page_data);
     }
@@ -348,7 +348,7 @@ else{
         $data['file_name'] = $_FILES['file_name']['name'];
 
         $this->db->insert('academic_syllabus', $data);
-        $this->session->set_flashdata('flash_message' , get_phrase('syllabus_uploaded'));
+        $this->session->set_flashdata('flash_message' , get_phrase('silabus_diunggah'));
         redirect(site_url('teacher/academic_syllabus/'. $data['class_id']) , 'refresh');
 
     }
@@ -387,7 +387,7 @@ else{
 
         $page_data['page_info']  = 'Create backup / restore from backup';
         $page_data['page_name']  = 'backup_restore';
-        $page_data['page_title'] = get_phrase('manage_backup_restore');
+        $page_data['page_title'] = get_phrase('kelola backup dan restore');
         $this->load->view('backend/index', $page_data);
     }
 
@@ -404,10 +404,10 @@ else{
                 $this->db->where('teacher_id', $this->session->userdata('teacher_id'));
                 $this->db->update('teacher', $data);
                 move_uploaded_file($_FILES['userfile']['tmp_name'], 'uploads/teacher_image/' . $this->session->userdata('teacher_id') . '.jpg');
-                $this->session->set_flashdata('flash_message', get_phrase('account_updated'));
+                $this->session->set_flashdata('flash_message', get_phrase('akun_diperbarui'));
             }
             else{
-                $this->session->set_flashdata('error_message', get_phrase('this_email_id_is_not_available'));
+                $this->session->set_flashdata('error_message', get_phrase('email_ini_tidak_tersedia'));
             }
             redirect(site_url('teacher/manage_profile/'), 'refresh');
         }
@@ -424,14 +424,14 @@ else{
                 $this->db->update('teacher', array(
                     'password' => $data['new_password']
                 ));
-                $this->session->set_flashdata('flash_message', get_phrase('password_updated'));
+                $this->session->set_flashdata('flash_message', get_phrase('password_diperbarui'));
             } else {
-                $this->session->set_flashdata('error_message', get_phrase('password_mismatch'));
+                $this->session->set_flashdata('error_message', get_phrase('password_tidak_sesuai'));
             }
             redirect(site_url('teacher/manage_profile/'), 'refresh');
         }
         $page_data['page_name']  = 'manage_profile';
-        $page_data['page_title'] = get_phrase('manage_profile');
+        $page_data['page_title'] = get_phrase('atur_profil');
         $page_data['edit_data']  = $this->db->get_where('teacher', array(
             'teacher_id' => $this->session->userdata('teacher_id')
         ))->result_array();
@@ -445,7 +445,7 @@ else{
             redirect(base_url(), 'refresh');
         $page_data['page_name']  = 'class_routine';
         $page_data['class_id']  =   $class_id;
-        $page_data['page_title'] = get_phrase('class_routine');
+        $page_data['page_title'] = get_phrase('pembagian_kelas');
         $this->load->view('backend/index', $page_data);
     }
 
@@ -469,7 +469,7 @@ else{
         ))->row()->name;
         $page_data['page_name']  =  'manage_attendance';
         $page_data['class_id']   =  $class_id;
-        $page_data['page_title'] =  get_phrase('manage_attendance_of_class') . ' ' . $class_name;
+        $page_data['page_title'] =  get_phrase('kelola_kehadiran_kelas') . ' ' . $class_name;
         $this->load->view('backend/index', $page_data);
     }
 
@@ -487,7 +487,7 @@ else{
             'section_id' => $section_id
         ))->row()->name;
         $page_data['section_id'] = $section_id;
-        $page_data['page_title'] = get_phrase('manage_attendance_of_class') . ' ' . $class_name . ' : ' . get_phrase('section') . ' ' . $section_name;
+        $page_data['page_title'] = get_phrase('kelola_kehadiran_kelas') . ' ' . $class_name . ' : ' . get_phrase('section') . ' ' . $section_name;
         $this->load->view('backend/index', $page_data);
     }
 
@@ -544,16 +544,16 @@ else{
                             //$this->sms_model->send_sms($message,$receiver_phone);
                         }
                         else{
-                            $this->session->set_flashdata('error_message' , get_phrase('parent_phone_number_is_not_found'));
+                            $this->session->set_flashdata('error_message' , get_phrase('nomor_telepon_orangtua_tidak_ditemukan'));
                         }
                     }
                     else{
-                        $this->session->set_flashdata('error_message' , get_phrase('parent_phone_number_is_not_found'));
+                        $this->session->set_flashdata('error_message' , get_phrase('nomor_telepon_orangtua_tidak_ditemukan'));
                     }
                 }
             }
         }
-        $this->session->set_flashdata('flash_message' , get_phrase('attendance_updated'));
+        $this->session->set_flashdata('flash_message' , get_phrase('kehadiran_diperbarui'));
         redirect(site_url('teacher/manage_attendance_view/'.$class_id.'/'.$section_id.'/'.$timestamp ), 'refresh');
     }
 
@@ -566,7 +566,7 @@ else{
 
         $page_data['books']      = $this->db->get('book')->result_array();
         $page_data['page_name']  = 'book';
-        $page_data['page_title'] = get_phrase('manage_library_books');
+        $page_data['page_title'] = get_phrase('kelola_buku_pustaka');
         $this->load->view('backend/index', $page_data);
 
     }
@@ -578,7 +578,7 @@ else{
 
         $page_data['transports'] = $this->db->get('transport')->result_array();
         $page_data['page_name']  = 'transport';
-        $page_data['page_title'] = get_phrase('manage_transport');
+        $page_data['page_title'] = get_phrase('kelola_transportasi');
         $this->load->view('backend/index', $page_data);
 
     }
@@ -602,7 +602,7 @@ else{
             $data['create_timestamp'] = strtotime($this->input->post('create_timestamp'));
             $this->db->where('notice_id', $param2);
             $this->db->update('noticeboard', $data);
-            $this->session->set_flashdata('flash_message', get_phrase('notice_updated'));
+            $this->session->set_flashdata('flash_message', get_phrase('pemberitahuan_diperbarui'));
             redirect(site_url('teacher/noticeboard/'), 'refresh');
         } else if ($param1 == 'edit') {
             $page_data['edit_data'] = $this->db->get_where('noticeboard', array(
@@ -615,7 +615,7 @@ else{
             redirect(site_url('teacher/noticeboard/'), 'refresh');
         }
         $page_data['page_name']  = 'noticeboard';
-        $page_data['page_title'] = get_phrase('manage_noticeboard');
+        $page_data['page_title'] = get_phrase('kelola_pengumuman');
         $page_data['notices']    = $this->db->get_where('noticeboard',array('status'=>1))->result_array();
         $this->load->view('backend/index', $page_data);
     }
@@ -640,7 +640,7 @@ else{
             redirect(site_url('teacher/manage_document'), 'refresh');
         }
         $page_data['page_name']  = 'manage_document';
-        $page_data['page_title'] = get_phrase('manage_documents');
+        $page_data['page_title'] = get_phrase('kelola_dokument');
         $page_data['documents']  = $this->db->get('document')->result_array();
         $this->load->view('backend/index', $page_data);
     }
@@ -657,14 +657,14 @@ else{
         if ($task == "create")
         {
             $this->crud_model->save_study_material_info();
-            $this->session->set_flashdata('flash_message' , get_phrase('study_material_info_saved_successfuly'));
+            $this->session->set_flashdata('flash_message' , get_phrase('bahan_pengajaran_berhasil_disimpan'));
             redirect(site_url('teacher/study_material/'), 'refresh');
         }
 
         if ($task == "update")
         {
             $this->crud_model->update_study_material_info($document_id);
-            $this->session->set_flashdata('flash_message' , get_phrase('study_material_info_updated_successfuly'));
+            $this->session->set_flashdata('flash_message' , get_phrase('bahan_pengajaran_berhasil_disimpan'));
             redirect(site_url('teacher/study_material/'), 'refresh');
         }
 
@@ -676,7 +676,7 @@ else{
 
         $data['study_material_info']    = $this->crud_model->select_study_material_info_for_teacher();
         $data['page_name']              = 'study_material';
-        $data['page_title']             = get_phrase('study_material');
+        $data['page_title']             = get_phrase('bahan_pengajaran');
         $this->load->view('backend/index', $data);
     }
 
@@ -699,7 +699,7 @@ else{
             }
             if ($_FILES['attached_file_on_messaging']['name'] != "") {
               if($_FILES['attached_file_on_messaging']['size'] > $max_size){
-                $this->session->set_flashdata('error_message' , get_phrase('file_size_can_not_be_larger_that_2_Megabyte'));
+                $this->session->set_flashdata('error_message' , get_phrase('ukuran file tidak boleh lebih dari 2MB'));
                   redirect(site_url('teacher/message/message_new/'), 'refresh');
               }
               else{
@@ -708,7 +708,7 @@ else{
               }
             }
             $message_thread_code = $this->crud_model->send_new_private_message();
-            $this->session->set_flashdata('flash_message', get_phrase('message_sent!'));
+            $this->session->set_flashdata('flash_message', get_phrase('pesan_terkirim!'));
             redirect(site_url('teacher/message/message_read/'.$message_thread_code), 'refresh');
         }
 
@@ -720,7 +720,7 @@ else{
             }
             if ($_FILES['attached_file_on_messaging']['name'] != "") {
               if($_FILES['attached_file_on_messaging']['size'] > $max_size){
-                $this->session->set_flashdata('error_message' , get_phrase('file_size_can_not_be_larger_that_2_Megabyte'));
+                $this->session->set_flashdata('error_message' , get_phrase('ukuran file tidak boleh lebih dari 2MB'));
                   redirect(site_url('teacher/message/message_read/'.$param2), 'refresh');
 
               }
@@ -730,7 +730,7 @@ else{
               }
             }
             $this->crud_model->send_reply_message($param2);  //$param2 = message_thread_code
-            $this->session->set_flashdata('flash_message', get_phrase('message_sent!'));
+            $this->session->set_flashdata('flash_message', get_phrase('pesan_terkirim!'));
             redirect(site_url('teacher/message/message_read/'.$param2), 'refresh');
         }
 
@@ -741,7 +741,7 @@ else{
 
         $page_data['message_inner_page_name']   = $param1;
         $page_data['page_name']                 = 'message';
-        $page_data['page_title']                = get_phrase('private_messaging');
+        $page_data['page_title']                = get_phrase('pesan_pribadi');
         $this->load->view('backend/index', $page_data);
     }
 
@@ -761,7 +761,7 @@ else{
         }
         if ($_FILES['attached_file_on_messaging']['name'] != "") {
           if($_FILES['attached_file_on_messaging']['size'] > $max_size){
-            $this->session->set_flashdata('error_message' , get_phrase('file_size_can_not_be_larger_that_2_Megabyte'));
+            $this->session->set_flashdata('error_message' , get_phrase('ukuran file tidak boleh lebih dari 2MB'));
               redirect(site_url('teacher/group_message/group_message_read/'.$param2), 'refresh');
           }
           else{
@@ -771,12 +771,12 @@ else{
         }
 
         $this->crud_model->send_reply_group_message($param2);  //$param2 = message_thread_code
-        $this->session->set_flashdata('flash_message', get_phrase('message_sent!'));
+        $this->session->set_flashdata('flash_message', get_phrase('pesan_terkirim!'));
           redirect(site_url('teacher/group_message/group_message_read/'.$param2), 'refresh');
       }
       $page_data['message_inner_page_name']   = $param1;
       $page_data['page_name']                 = 'group_message';
-      $page_data['page_title']                = get_phrase('group_messaging');
+      $page_data['page_title']                = get_phrase('pesan_group');
       $this->load->view('backend/index', $page_data);
     }
 
@@ -792,21 +792,21 @@ else{
         if ($param1 == "create")
         {
             $this->crud_model->create_question_paper();
-            $this->session->set_flashdata('flash_message', get_phrase('data_created_successfully'));
+            $this->session->set_flashdata('flash_message', get_phrase('data_berhasil_dibuat'));
             redirect(site_url('teacher/question_paper'), 'refresh');
         }
 
         if ($param1 == "update")
         {
             $this->crud_model->update_question_paper($param2);
-            $this->session->set_flashdata('flash_message', get_phrase('data_updated_successfully'));
+            $this->session->set_flashdata('flash_message', get_phrase('data_berhasil_diperbarui'));
             redirect(site_url('teacher/question_paper'), 'refresh');
         }
 
         if ($param1 == "delete")
         {
             $this->crud_model->delete_question_paper($param2);
-            $this->session->set_flashdata('flash_message', get_phrase('data_deleted_successfully'));
+            $this->session->set_flashdata('flash_message', get_phrase('data_berhasil_dihapus'));
             redirect(site_url('teacher/question_paper'), 'refresh');
         }
 
@@ -827,7 +827,7 @@ else{
         $this->db->like('name', $student_identifier);
         $query_by_name = $this->db->get('student');
         if ($query_by_name->num_rows() == 0) {
-          $this->session->set_flashdata('error_message' , get_phrase('no_student_found'));
+          $this->session->set_flashdata('error_message' , get_phrase('siswa_tidak_ditemukan'));
             redirect(site_url('teacher/dashboard'), 'refresh');
         }
         else{
@@ -838,7 +838,7 @@ else{
         $page_data['student_information'] = $query_by_code->result_array();
       }
       $page_data['page_name']  	= 'search_result';
-  		$page_data['page_title'] 	= get_phrase('search_result');
+  		$page_data['page_title'] 	= get_phrase('hasil_pencarian');
   		$this->load->view('backend/index', $page_data);
     }
 
@@ -936,7 +936,7 @@ else{
                 if ($row->file_name == null)
                     $download = '';
                 else
-                    $download = '<a href="'.site_url("uploads/document/$row->file_name").'" class="btn btn-blue btn-icon icon-left"><i class="entypo-download"></i>'.get_phrase('download').'</a>';
+                    $download = '<a href="'.site_url("uploads/document/$row->file_name").'" class="btn btn-blue btn-icon icon-left"><i class="entypo-download"></i>'.get_phrase('unduh').'</a>';
 
                 $nestedData['book_id'] = $row->book_id;
                 $nestedData['name'] = $row->name;

@@ -7,10 +7,10 @@ $edit_data		=	$this->db->get_where('invoice' , array('invoice_id' => $param2) )-
         <?php foreach($edit_data as $row):?>
         <?php echo form_open(site_url('accountant/invoice/do_update/'.$row['invoice_id']), array('class' => 'form-horizontal form-groups-bordered validate','target'=>'_top'));?>
                 <div class="form-group">
-                    <label class="col-sm-3 control-label"><?php echo get_phrase('student');?></label>
+                    <label class="col-sm-3 control-label"><?php echo get_phrase('siswa');?></label>
                     <div class="col-sm-6">
                         <select name="student_id" class="form-control select2" required>
-                        <option value=""><?php echo get_phrase('select_class'); ?></option>
+                        <option value=""><?php echo get_phrase('pilih_kelas'); ?></option>
                             <?php
                             //$this->db->order_by('class_id','asc');
                             $students = $this->db->get('student')->result_array();
@@ -34,25 +34,25 @@ $edit_data		=	$this->db->get_where('invoice' , array('invoice_id' => $param2) )-
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-3 control-label"><?php echo get_phrase('title');?></label>
+                    <label class="col-sm-3 control-label"><?php echo get_phrase('judul');?></label>
                     <div class="col-sm-5">
                         <input type="text" class="form-control" name="title" value="<?php echo $row['title'];?>" required/>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-3 control-label"><?php echo get_phrase('description');?></label>
+                    <label class="col-sm-3 control-label"><?php echo get_phrase('deskripsi');?></label>
                     <div class="col-sm-5">
                         <input type="text" class="form-control" name="description" value="<?php echo $row['description'];?>"/>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-3 control-label"><?php echo get_phrase('total_amount');?></label>
+                    <label class="col-sm-3 control-label"><?php echo get_phrase('jumlah_total');?></label>
                     <div class="col-sm-5">
                         <input type="text" class="form-control" name="amount" value="<?php echo $row['amount'];?>" required/>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-3 control-label"><?php echo get_phrase('date');?></label>
+                    <label class="col-sm-3 control-label"><?php echo get_phrase('tanggal');?></label>
                     <div class="col-sm-5">
                         <input type="text" class="datepicker form-control" name="date"
                             value="<?php echo date('m/d/Y', $row['creation_timestamp']);?>"/>
@@ -61,7 +61,7 @@ $edit_data		=	$this->db->get_where('invoice' , array('invoice_id' => $param2) )-
                 </div>
                 <div class="form-group">
                   <div class="col-sm-offset-3 col-sm-5">
-                      <button type="submit" class="btn btn-info"><?php echo get_phrase('edit_invoice');?></button>
+                      <button type="submit" class="btn btn-info"><?php echo get_phrase('edit_faktur');?></button>
                   </div>
                 </div>
         </form>

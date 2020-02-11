@@ -17,7 +17,7 @@
                 ?>
 
                 <div class="form-group">
-                    <label class="col-sm-3 control-label"><?php echo get_phrase('title'); ?></label>
+                    <label class="col-sm-3 control-label"><?php echo get_phrase('judul'); ?></label>
                     <div class="col-sm-6">
                         <input type="text" class="form-control" name="title"
                                data-validate="required" data-message-required="<?php echo get_phrase('value_required'); ?>"/>
@@ -25,17 +25,17 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="col-sm-3 control-label"><?php echo get_phrase('description'); ?></label>
+                    <label class="col-sm-3 control-label"><?php echo get_phrase('deskripsi'); ?></label>
                     <div class="col-sm-6">
                         <textarea class="form-control" name="description" required="required"></textarea>
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label class="col-sm-3 control-label"><?php echo get_phrase('class'); ?></label>
+                    <label class="col-sm-3 control-label"><?php echo get_phrase('kelas'); ?></label>
                     <div class="col-sm-6">
                         <select class="form-control selectboxit" name="class_id" id="class_id" onchange="return get_class_subject(this.value)">
-                            <option value=""><?php echo get_phrase('select'); ?></option>
+                            <option value=""><?php echo get_phrase('pilih'); ?></option>
                             <?php
                             $classes = $this->db->get('class')->result_array();
                             foreach ($classes as $row):
@@ -48,16 +48,16 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="field-2" class="col-sm-3 control-label"><?php echo get_phrase('subject'); ?></label>
+                    <label for="field-2" class="col-sm-3 control-label"><?php echo get_phrase('mata_pelajaran'); ?></label>
                     <div class="col-sm-5">
                         <select name="subject_id" class="form-control" id="subject_selector_holder" required="required">
-                            <option value=""><?php echo get_phrase('select_class_first'); ?></option>
+                            <option value=""><?php echo get_phrase('pilih_kelas_terlebih_dahulu'); ?></option>
 
                         </select>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-3 control-label"><?php echo get_phrase('file'); ?></label>
+                    <label class="col-sm-3 control-label"><?php echo get_phrase('berkas'); ?></label>
                     <div class="col-sm-5">
                         <input type="file" name="file_name" class="form-control file2 inline btn btn-primary" data-label="<i class='glyphicon glyphicon-file'></i> Browse" 
                                data-validate="required" data-message-required="<?php echo get_phrase('required'); ?>"/>
@@ -67,7 +67,7 @@
                 <div class="form-group">
                     <div class="col-sm-offset-3 col-sm-5">
                         <button type="submit" id = 'submit' class="btn btn-info">
-                            <i class="entypo-upload"></i> <?php echo get_phrase('upload_syllabus'); ?>
+                            <i class="entypo-upload"></i> <?php echo get_phrase('unggah_silabus'); ?>
                         </button>
                     </div>
                 </div>

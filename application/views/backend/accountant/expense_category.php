@@ -2,15 +2,15 @@
 <a href="javascript:;" onclick="showAjaxModal('<?php echo site_url('modal/popup/expense_category_add/');?>');"
 class="btn btn-primary pull-right">
 <i class="entypo-plus-circled"></i>
-<?php echo get_phrase('add_new_expense_category');?>
+<?php echo get_phrase('tambah_kategori_biaya');?>
 </a>
 <br><br>
 <table class="table table-bordered" id="table_export">
     <thead>
         <tr>
             <th><div>#</div></th>
-            <th><div><?php echo get_phrase('name');?></div></th>
-            <th><div><?php echo get_phrase('options');?></div></th>
+            <th><div><?php echo get_phrase('nama_kategori');?></div></th>
+            <th><div><?php echo get_phrase('pilihan');?></div></th>
         </tr>
     </thead>
     <tbody>

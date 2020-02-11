@@ -38,7 +38,7 @@
             ))->row()->name;
           ?>
           <a href="<?php echo site_url('teacher/student_information/'.$enroll_info->row()->class_id);?>">
-            <?php echo get_phrase('class').' - '.$class_name.' | '. get_phrase('section').' - '.$section_name; ?>
+            <?php echo get_phrase('kelas').' - '.$class_name.' | '. get_phrase('bagian').' - '.$section_name; ?>
           </a>
         </span>
       </center>
@@ -48,19 +48,19 @@
 		<ul class="nav nav-tabs">
 			<li class="active"><a href="#tab1" data-toggle="tab" class="btn btn-default">
 					<span class="visible-xs"><i class="entypo-home"></i></span>
-					<span class="hidden-xs"><?php echo get_phrase('basic_info'); ?></span>
+					<span class="hidden-xs"><?php echo get_phrase('informasi_siswa'); ?></span>
 				</a>
 			</li>
 			<li class="">
 				<a href="#tab2" data-toggle="tab" class="btn btn-default">
 					<span class="visible-xs"><i class="entypo-user"></i></span>
-					<span class="hidden-xs"><?php echo get_phrase('parent_info'); ?></span>
+					<span class="hidden-xs"><?php echo get_phrase('informasi_orangtua'); ?></span>
 				</a>
 			</li>
 			<li class="">
 				<a href="#tab3" data-toggle="tab" class="btn btn-default">
 					<span class="visible-xs"><i class="entypo-mail"></i></span>
-					<span class="hidden-xs"><?php echo get_phrase('exam_marks'); ?></span>
+					<span class="hidden-xs"><?php echo get_phrase('nilia_ujian'); ?></span>
 				</a>
 			</li>
 			<!-- <li class="">
@@ -72,7 +72,7 @@
       <li class="">
 				<a href="#tab5" data-toggle="tab" class="btn btn-default">
 					<span class="visible-xs"><i class="entypo-cog"></i></span>
-					<span class="hidden-xs"><?php echo get_phrase('payments'); ?></span>
+					<span class="hidden-xs"><?php echo get_phrase('pembayaran'); ?></span>
 				</a>
 			</li>
 		</ul>
@@ -80,7 +80,7 @@
 		<div class="tab-content">
 			<div class="tab-pane active" id="tab1">
         <?php
-          $basic_info_titles = ['name','parent', 'class', 'section', 'email', 'phone', 'address', 'gender', 'birthday', 'transport', 'dormitory'];
+          $basic_info_titles = ['nama','orangtua', 'kelas', 'bagian', 'email', 'telepon', 'alamat', 'jenis kelamin', 'tanggal lahir', 'transportasi', 'asrama'];
           $basic_info_values = [$row['name'], $row['parent_id'] == NULL ? '' : $this->db->get_where('parent', array('parent_id' => $row['parent_id']))->row()->name,
           $class_name, $section_name, $row['email'], $row['phone'] == NULL ? '' : $row['phone'], $row['address'] == NULL ? '' : $row['address'], $row['sex'] == NULL ? '' : $row['sex'], $row['birthday'],
           $row['transport_id'] == NULL ? '' : $this->db->get_where('transport', array('transport_id' => $row['transport_id']))->row()->route_name,
@@ -108,7 +108,7 @@
           </div>
         <?php } else {
             $parent_info = $this->db->get_where('parent', array('parent_id' => $row['parent_id']))->result_array();
-            $parent_info_titles = ['name', 'email', 'phone', 'address', 'profession'];
+            $parent_info_titles = ['nama', 'email', 'telepon', 'alamat', 'pekerjaan'];
             foreach ($parent_info as $info) {
               $parent_info_values = [$info['name'], $info['email'], $info['phone'] == NULL ? '' : $info['phone'],
               $info['address'] == NULL ? '' : $info['address'], $info['profession'] == NULL ? '' : $info['profession']];
@@ -134,11 +134,11 @@
           <table class="table table-bordered">
               <thead>
                <tr>
-                   <td style="text-align: center;"><?php echo get_phrase('subject'); ?></td>
-                   <td style="text-align: center;"><?php echo get_phrase('obtained_mark'); ?></td>
-                   <td style="text-align: center;"><?php echo get_phrase('highest_mark'); ?></td>
-                   <td style="text-align: center;"><?php echo get_phrase('grade'); ?></td>
-                   <td style="text-align: center;"><?php echo get_phrase('comment'); ?></td>
+                   <td style="text-align: center;"><?php echo get_phrase('mata_pelajaran'); ?></td>
+                   <td style="text-align: center;"><?php echo get_phrase('nilai_yangdiperoleh'); ?></td>
+                   <td style="text-align: center;"><?php echo get_phrase('nilai_tertinggi'); ?></td>
+                   <td style="text-align: center;"><?php echo get_phrase('kelas'); ?></td>
+                   <td style="text-align: center;"><?php echo get_phrase('komentar'); ?></td>
                </tr>
            </thead>
            <tbody>
@@ -199,9 +199,9 @@
 
           <hr />
 
-          <?php echo get_phrase('total_marks');?> : <?php echo $total_marks;?>
+          <?php echo get_phrase('total_nilai');?> : <?php echo $total_marks;?>
           <br>
-          <?php echo get_phrase('average_grade_point');?> :
+          <?php echo get_phrase('nilai_tertinggi');?> :
                <?php
                    $this->db->where('class_id' , $class_id);
                    $this->db->where('year' , $running_year);
@@ -213,7 +213,7 @@
            <br> <br>
            <a href="<?php echo site_url('teacher/student_marksheet_print_view/'.$student_id.'/'.$row2['exam_id']);?>"
                class="btn btn-primary" target="_blank">
-               <?php echo get_phrase('print_marksheet');?>
+               <?php echo get_phrase('print_nilai');?>
            </a>
            <hr />
         <?php } ?>
@@ -231,10 +231,10 @@
            <thead>
              <tr>
                <th>#</th>
-               <th><?php echo get_phrase('title'); ?></th>
-               <th><?php echo get_phrase('amount'); ?></th>
-               <th><?php echo get_phrase('date'); ?></th>
-               <th><?php echo get_phrase('options'); ?></th>
+               <th><?php echo get_phrase('judul'); ?></th>
+               <th><?php echo get_phrase('jumlah'); ?></th>
+               <th><?php echo get_phrase('tanggal'); ?></th>
+               <th><?php echo get_phrase('pilihan'); ?></th>
              </tr>
            </thead>
            <tbody>
@@ -250,7 +250,7 @@
                   <td>
                     <a href="#" class="btn btn-default"
                       onclick="showAjaxModal('<?php echo site_url('modal/popup/modal_view_invoice/'.$payment['invoice_id']);?>')">
-                      <?php echo get_phrase('view_invoice'); ?>
+                      <?php echo get_phrase('lihat_faktur'); ?>
                     </a>
                   </td>
                 </tr>
