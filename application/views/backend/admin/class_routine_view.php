@@ -86,7 +86,7 @@
                 <center>
                     <a href="<?php echo site_url('admin/class_routine_print_view/'.$class_id.'/'.$row['section_id']);?>"
                         class="btn btn-primary btn-md pull-right" target="_blank">
-                            <i class="entypo-print"></i> <?php echo get_phrase('print');?>
+                            <i class="entypo-print"></i> <?php echo get_phrase('cetak');?>
                     </a>
                 </center>
             </div>

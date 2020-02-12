@@ -11,7 +11,7 @@
       <!-- Title -->
       <div class="w-md-80 w-lg-50 mx-auto mb-5">
         <h1 class="h1 text-white">
-          <span class="font-weight-semi-bold">Noticeboard</span>
+          <span class="font-weight-semi-bold">Papan Pengumuman</span>
         </h1>
       </div>
       <!-- End Title -->
@@ -33,7 +33,7 @@
       <div class="space-bottom-0 space-bottom-md-0">
         <a class="text-secondary" href="<?php echo site_url('home/noticeboard');?>">
           <span class="fas fa-arrow-left small mr-2"></span>
-          Back to noticeboard
+          Kembali ke Papan Pengumuman
         </a>
       </div>
       <!-- End Link -->

@@ -5,17 +5,17 @@
 			<ul class="nav nav-tabs bordered">
 				<li class="<?php if($active_tab == 'invoices') echo 'active'; ?>">
 					<a href="#unpaid" data-toggle="tab">
-						<span class="hidden-xs"><?php echo get_phrase('invoices');?></span>
+						<span class="hidden-xs"><?php echo get_phrase('faktur');?></span>
 					</a>
 				</li>
 				<li>
 					<a href="#paid" data-toggle="tab">
-						<span class="hidden-xs"><?php echo get_phrase('payment_history');?></span>
+						<span class="hidden-xs"><?php echo get_phrase('riwayat_pembayaran');?></span>
 					</a>
 				</li>
 				<li class="<?php if($active_tab == 'student_specific_payment_history') echo 'active'; ?>">
 					<a href="#paid_student_specific" data-toggle="tab">
-						<span class="hidden-xs"><?php echo get_phrase('student_specific_payment_history');?></span>
+						<span class="hidden-xs"><?php echo get_phrase('detail_riwayat_pembayaran_siswa');?></span>
 					</a>
 				</li>
 			</ul>
@@ -29,13 +29,13 @@
                 	<thead>
                 		<tr>
                 			<th>#</th>
-                    		<th><div><?php echo get_phrase('student');?></div></th>
-                    		<th><div><?php echo get_phrase('title');?></div></th>
+                    		<th><div><?php echo get_phrase('siswa');?></div></th>
+                    		<th><div><?php echo get_phrase('judul');?></div></th>
                             <th><div><?php echo get_phrase('total');?></div></th>
-                            <th><div><?php echo get_phrase('paid');?></div></th>
+                            <th><div><?php echo get_phrase('pembayaran');?></div></th>
                             <th><div><?php echo get_phrase('status');?></div></th>
-                    		<th><div><?php echo get_phrase('date');?></div></th>
-                    		<th><div><?php echo get_phrase('options');?></div></th>
+                    		<th><div><?php echo get_phrase('tanggal');?></div></th>
+                    		<th><div><?php echo get_phrase('aksi');?></div></th>
 						</tr>
 					</thead>
                     <tbody>
@@ -54,19 +54,19 @@
                             <td><?php echo $row['amount_paid'];?></td>
                             <?php if($row['due'] == 0):?>
                             	<td>
-                            		<button class="btn btn-success btn-xs"><?php echo get_phrase('paid');?></button>
+                            		<button class="btn btn-success btn-xs"><?php echo get_phrase('sudah_bayar');?></button>
                             	</td>
                             <?php endif;?>
                             <?php if($row['due'] > 0):?>
                             	<td>
-                            		<button class="btn btn-danger btn-xs"><?php echo get_phrase('unpaid');?></button>
+                            		<button class="btn btn-danger btn-xs"><?php echo get_phrase('belum_bayar');?></button>
                             	</td>
                             <?php endif;?>
 							<td><?php echo date('d M,Y', $row['creation_timestamp']);?></td>
 							<td>
                             <div class="btn-group">
                                 <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown">
-                                    <?php echo get_phrase('action');?> <span class="caret"></span>
+                                    <?php echo get_phrase('akasi');?> <span class="caret"></span>
                                 </button>
                                 <ul class="dropdown-menu dropdown-default pull-right" role="menu">
 
@@ -75,7 +75,7 @@
                                     <li>
                                         <a href="#" onclick="showAjaxModal('<?php echo site_url('modal/popup/modal_take_payment/'.$row['invoice_id']);?>');">
                                             <i class="entypo-bookmarks"></i>
-                                                <?php echo get_phrase('take_payment');?>
+                                                <?php echo get_phrase('ambil_pembayaran');?>
                                         </a>
                                     </li>
                                     <li class="divider"></li>
@@ -85,7 +85,7 @@
                                     <li>
                                         <a href="#" onclick="showAjaxModal('<?php echo site_url('modal/popup/modal_view_invoice/'.$row['invoice_id']);?>');">
                                             <i class="entypo-credit-card"></i>
-                                                <?php echo get_phrase('view_invoice');?>
+                                                <?php echo get_phrase('lihat_faktur');?>
                                             </a>
                                                     </li>
                                     <li class="divider"></li>
@@ -103,7 +103,7 @@
                                     <li>
                                         <a href="#" onclick="confirm_modal('<?php echo site_url('admin/invoice/delete/'.$row['invoice_id']);?>');">
                                             <i class="entypo-trash"></i>
-                                                <?php echo get_phrase('delete');?>
+                                                <?php echo get_phrase('hapus');?>
                                             </a>
                                                     </li>
                                 </ul>
@@ -121,11 +121,11 @@
 					    <thead>
 					        <tr>
 					            <th><div>#</div></th>
-					            <th><div><?php echo get_phrase('title');?></div></th>
-					            <th><div><?php echo get_phrase('description');?></div></th>
-					            <th><div><?php echo get_phrase('method');?></div></th>
-					            <th><div><?php echo get_phrase('amount');?></div></th>
-					            <th><div><?php echo get_phrase('date');?></div></th>
+					            <th><div><?php echo get_phrase('judul');?></div></th>
+					            <th><div><?php echo get_phrase('deskripsi');?></div></th>
+					            <th><div><?php echo get_phrase('metode_pembayaran');?></div></th>
+					            <th><div><?php echo get_phrase('jumlah');?></div></th>
+					            <th><div><?php echo get_phrase('tanggal');?></div></th>
 					            <th></th>
 					        </tr>
 					    </thead>
@@ -144,11 +144,11 @@
 					            <td>
 					            	<?php
 					            		if ($row['method'] == 1)
-					            			echo get_phrase('cash');
+					            			echo get_phrase('tunai');
 					            		if ($row['method'] == 2)
-					            			echo get_phrase('check');
+					            			echo get_phrase('cek');
 					            		if ($row['method'] == 3)
-					            			echo get_phrase('card');
+					            			echo get_phrase('kartu_kredit');
 					                    if ($row['method'] == 'paypal')
 					                    	echo 'paypal';
 					            	?>
@@ -158,7 +158,7 @@
 					            <td align="center">
 					            	<a href="#" onclick="showAjaxModal('<?php echo site_url('modal/popup/modal_view_invoice/'.$row['invoice_id']);?>');"
 					            		class="btn btn-default">
-					            			<?php echo get_phrase('view_invoice');?>
+					            			<?php echo get_phrase('lihat_faktur');?>
 					            	</a>
 					            </td>
 					        </tr>
@@ -178,7 +178,7 @@
 								<div class="form-group">
 									<select name="student_id" class="form-control selectboxit">
 										<option value="all" <?php if($student_id == 'all') echo 'selected'; ?>>
-											<?php echo get_phrase('all_students');?>
+											<?php echo get_phrase('semua_siswa');?>
 										</option>
 										<?php
 										$enrolls = $this->db->get_where('enroll', array('year' =>  $running_year))->result_array();
@@ -194,7 +194,7 @@
 							</div>
 
 							<div class="col-md-2">
-								<button type="submit" class="btn btn-info" style="margin-top: 5px;"><?php echo get_phrase('search');?></button>
+								<button type="submit" class="btn btn-info" style="margin-top: 5px;"><?php echo get_phrase('cari');?></button>
 							</div>
 
 						</div>
@@ -204,11 +204,11 @@
 					    <thead>
 					        <tr>
 					            <th><div>#</div></th>
-					            <th><div><?php echo get_phrase('title');?></div></th>
-					            <th><div><?php echo get_phrase('description');?></div></th>
-					            <th><div><?php echo get_phrase('method');?></div></th>
-					            <th><div><?php echo get_phrase('amount');?></div></th>
-					            <th><div><?php echo get_phrase('date');?></div></th>
+					            <th><div><?php echo get_phrase('judul');?></div></th>
+					            <th><div><?php echo get_phrase('deskripsi');?></div></th>
+					            <th><div><?php echo get_phrase('metode_pembayaran');?></div></th>
+					            <th><div><?php echo get_phrase('jumlah');?></div></th>
+					            <th><div><?php echo get_phrase('tanggal');?></div></th>
 					            <th></th>
 					        </tr>
 					    </thead>
@@ -228,11 +228,11 @@
 						            <td>
 						            	<?php
 						            		if ($row['method'] == 1)
-						            			echo get_phrase('cash');
+						            			echo get_phrase('tunai');
 						            		if ($row['method'] == 2)
-						            			echo get_phrase('check');
+						            			echo get_phrase('cek');
 						            		if ($row['method'] == 3)
-						            			echo get_phrase('card');
+						            			echo get_phrase('kartu_kredit');
 						                    if ($row['method'] == 'paypal')
 						                    	echo 'paypal';
 						            	?>
@@ -242,7 +242,7 @@
 						            <td align="center">
 						            	<a href="#" onclick="showAjaxModal('<?php echo site_url('modal/popup/modal_view_invoice/'.$row['invoice_id']);?>');"
 						            		class="btn btn-default">
-						            			<?php echo get_phrase('view_invoice');?>
+						            			<?php echo get_phrase('lihat_faktur');?>
 						            	</a>
 						            </td>
 						        </tr>

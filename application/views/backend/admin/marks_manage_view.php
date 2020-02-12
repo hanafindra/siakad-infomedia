@@ -93,13 +93,13 @@
 		<div class="tile-stats tile-white">
 			<div class="icon"><i class="entypo-chart-bar"></i></div>
 
-			<h3 style="color: #696969;"><?php echo get_phrase('marks_for');?> <?php echo $this->db->get_where('exam' , array('exam_id' => $exam_id))->row()->name;?></h3>
+			<h3 style="color: #696969;"><?php echo get_phrase('nilai_untuk');?> <?php echo $this->db->get_where('exam' , array('exam_id' => $exam_id))->row()->name;?></h3>
 			<h4 style="color: #696969;">
-				<?php echo get_phrase('class');?> <?php echo $this->db->get_where('class' , array('class_id' => $class_id))->row()->name;?> :
-				<?php echo get_phrase('section');?> <?php echo $this->db->get_where('section' , array('section_id' => $section_id))->row()->name;?>
+				<?php echo get_phrase('kelas');?> <?php echo $this->db->get_where('class' , array('class_id' => $class_id))->row()->name;?> :
+				<?php echo get_phrase('sesi');?> <?php echo $this->db->get_where('section' , array('section_id' => $section_id))->row()->name;?>
 			</h4>
 			<h4 style="color: #696969;">
-				<?php echo get_phrase('subject');?> : <?php echo $this->db->get_where('subject' , array('subject_id' => $subject_id))->row()->name;?>
+				<?php echo get_phrase('subjek');?> : <?php echo $this->db->get_where('subject' , array('subject_id' => $subject_id))->row()->name;?>
 			</h4>
 		</div>
 	</div>
@@ -110,7 +110,7 @@
 	<div class="col-md-8">
 		<div class="panel panel-primary">
 		    <div class="panel-heading">
-		        <h3 class="panel-title"><?php echo get_phrase('setup_payment_information') ?></h3>
+		        <h3 class="panel-title"><?php echo get_phrase('siapkan_informasi_pembayaran') ?></h3>
 		    </div>
 		    <div class="panel-body">
 		    	<?php echo form_open(site_url('admin/marks_update/'.$exam_id.'/'.$class_id.'/'.$section_id.'/'.$subject_id));?>
@@ -119,9 +119,9 @@
 						<tr>
 							<th>#</th>
 							<th><?php echo get_phrase('id');?></th>
-							<th><?php echo get_phrase('name');?></th>
-							<th><?php echo get_phrase('marks_obtained');?></th>
-							<th><?php echo get_phrase('comment');?></th>
+							<th><?php echo get_phrase('nama');?></th>
+							<th><?php echo get_phrase('nilai_diperoleh');?></th>
+							<th><?php echo get_phrase('komentar');?></th>
 						</tr>
 					</thead>
 					<tbody>
@@ -159,7 +159,7 @@
 
 				<center>
 					<button type="submit" class="btn btn-success" id="submit_button">
-						<i class="entypo-check"></i> <?php echo get_phrase('save_changes');?>
+						<i class="entypo-check"></i> <?php echo get_phrase('simpan_perubahan');?>
 					</button>
 				</center>
 				<?php echo form_close();?>

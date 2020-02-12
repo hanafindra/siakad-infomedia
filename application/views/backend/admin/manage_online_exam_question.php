@@ -5,18 +5,18 @@
 <hr>
 <div class="row">
     <div class="col-md-6">
-        <h4><i class="entypo-docs"></i>&nbsp; <?php echo get_phrase('question_paper');?></h4>
+        <h4><i class="entypo-docs"></i>&nbsp; <?php echo get_phrase('kertas_pertanyaan');?></h4>
     </div>
     <div class="col-md-6">
         <button type="button" class="btn btn-info pull-right" id="questions_print">
-            <i class="entypo-print"></i> &nbsp;<?php echo get_phrase('print');?>
+            <i class="entypo-print"></i> &nbsp;<?php echo get_phrase('cetak');?>
         </button>
         <div id="print_options">
             <a href="<?php echo site_url('admin/online_exam_questions_print_view/'.$online_exam_id.'/answers');?>" class="btn btn-white pull-right" id="questions_print_with_answers">
-                <i class="entypo-print"></i> &nbsp; <?php echo get_phrase('print_with_answers');?>
+                <i class="entypo-print"></i> &nbsp; <?php echo get_phrase('cetak_dengan_jawaban');?>
             </a>
             <a href="<?php echo site_url('admin/online_exam_questions_print_view/'.$online_exam_id.'/no_answers');?>" class="btn btn-white pull-right" id="questions_print_without_answers">
-                <i class="entypo-print"></i> &nbsp; <?php echo get_phrase('print_without_answers');?>
+                <i class="entypo-print"></i> &nbsp; <?php echo get_phrase('cetak_tanpa_jawaban');?>
             </a>
         </div>
     </div>
@@ -28,7 +28,7 @@
             <div class="panel-heading">
                 <div class="panel-title" >
                     <i class="entypo-menu"></i>
-                    <?php echo get_phrase('question_list');?>
+                    <?php echo get_phrase('daftar_pertanyaan');?>
                 </div>
             </div>
             <div class="panel-body">
@@ -36,16 +36,16 @@
                     <thead>
                         <tr>
                             <th style="text-align: center;" width="5%"><div>#</div></th>
-                            <th style="text-align: center;"><div><?php echo get_phrase('type');?></div></th>
-                            <th style="text-align: center;" width="60%"><div><?php echo get_phrase('question');?></div></th>
-                            <th style="text-align: center;" width="10%"><div><?php echo get_phrase('mark');?></div></th>
-                            <th style="text-align: center;"><div><?php echo get_phrase('options');?></div></th>
+                            <th style="text-align: center;"><div><?php echo get_phrase('tipe');?></div></th>
+                            <th style="text-align: center;" width="60%"><div><?php echo get_phrase('pertanyaan');?></div></th>
+                            <th style="text-align: center;" width="10%"><div><?php echo get_phrase('nilai');?></div></th>
+                            <th style="text-align: center;"><div><?php echo get_phrase('opsi');?></div></th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php if (sizeof($added_question_info) == 0):?>
                             <tr>
-                                <td colspan="4"><?php echo get_phrase('no_question_has_been_added_yet'); ?></td>
+                                <td colspan="4"><?php echo get_phrase('belum_ada_pertanyaan_yang_ditambahkan'); ?></td>
                             </tr>
 
                             <?php
@@ -55,7 +55,7 @@
                                 <tr>
                                     <td style="text-align: center;"><?php echo ++$i; ?></td>
                                     <td><?php echo get_phrase($added_question['type']);?></td>
-                                    <?php if ($added_question['type'] == 'fill_in_the_blanks'): ?>
+                                    <?php if ($added_question['type'] == 'isi_yang_kosong'): ?>
                                         <td><?php echo str_replace('^', '____', $added_question['question_title']); ?></td>
                                     <?php else: ?>
                                         <td><?php echo $added_question['question_title']; ?></td>
@@ -79,34 +79,34 @@
             <div class="panel-heading">
                 <div class="panel-title" >
                     <i class="entypo-info-circled"></i>
-                    <?php echo get_phrase('exam_details');?>
+                    <?php echo get_phrase('detail_ujian');?>
                 </div>
             </div>
             <div class="panel-body">
                 <table  class="table table-bordered">
                     <tbody>
                         <tr>
-                            <td><b><?php echo get_phrase('exam_title');?></b></td>
+                            <td><b><?php echo get_phrase('judul_ujian');?></b></td>
                             <td><?php echo $online_exam_details['title']; ?></td>
-                            <td><b><?php echo get_phrase('date');?></b></td>
+                            <td><b><?php echo get_phrase('tanggal');?></b></td>
                             <td><?php echo date('M d, Y', $online_exam_details['exam_date']); ?></td>
                         </tr>
                         <tr>
-                            <td><b><?php echo get_phrase('class');?></b></td>
+                            <td><b><?php echo get_phrase('kelas');?></b></td>
                             <td><?php echo $this->db->get_where('class', array('class_id' => $online_exam_details['class_id']))->row()->name; ?></td>
-                            <td><b><?php echo get_phrase('time');?></b></td>
+                            <td><b><?php echo get_phrase('waktu');?></b></td>
                             <td><?php echo $online_exam_details['time_start'].' - '.$online_exam_details['time_end']; ?></td>
                         </tr>
                         <tr>
-                            <td><b><?php echo get_phrase('section');?></b></td>
+                            <td><b><?php echo get_phrase('sesi');?></b></td>
                             <td><?php echo $this->db->get_where('section', array('section_id' => $online_exam_details['section_id']))->row()->name; ?></td>
-                            <td><b><?php echo get_phrase('passing_percentage');?></b></td>
+                            <td><b><?php echo get_phrase('persentase_kelulusan');?></b></td>
                             <td><?php echo $online_exam_details['minimum_percentage'].'%'; ?></td>
                         </tr>
                         <tr>
-                            <td><b><?php echo get_phrase('subject');?></b></td>
+                            <td><b><?php echo get_phrase('subjek');?></b></td>
                             <td><?php echo $this->db->get_where('subject', array('subject_id' => $online_exam_details['subject_id']))->row()->name; ?></td>
-                            <td><b><?php echo get_phrase('total_marks');?></b></td>
+                            <td><b><?php echo get_phrase('jumlah_nilai');?></b></td>
                             <td>
                                 <?php if (sizeof($added_question_info) == 0):?>
                                     <?php echo 0; ?>
@@ -129,18 +129,18 @@
             <div class="panel-heading">
                 <div class="panel-title" >
                     <i class="entypo-plus-circled"></i>
-                    <?php echo get_phrase('add_question');?>
+                    <?php echo get_phrase('tambah_pertanyaan');?>
                 </div>
             </div>
             <div class="panel-body">   
                 <div class="form-group">
-                    <label class="col-sm-3 control-label"><?php echo get_phrase('question_type');?></label>
+                    <label class="col-sm-3 control-label"><?php echo get_phrase('tipe_pertanyaan');?></label>
                     <div class="col-sm-8">
                         <select class="selectboxit" name="question_type" id="question_type">
-                            <option value=""><?php echo get_phrase('select_question_type');?></option>
-                            <option value="multiple_choice"><?php echo get_phrase('multiple_choice');?></option>
-                            <option value="true_false"><?php echo get_phrase('true_or_false');?></option>
-                            <option value="fill_in_the_blanks"><?php echo get_phrase('fill_in_the_blanks');?></option>
+                            <option value=""><?php echo get_phrase('pilih_tipe_pertanyaan');?></option>
+                            <option value="multiple_choice"><?php echo get_phrase('pilihan_ganda');?></option>
+                            <option value="true_false"><?php echo get_phrase('benar_atau_salah');?></option>
+                            <option value="fill_in_the_blanks"><?php echo get_phrase('isi_yang_kosong');?></option>
                         </select>
                     </div>
                 </div>
@@ -160,7 +160,7 @@
         $('#question_type').on('change', function() {
             var question_type = $(this).val();
             if (question_type == '') {
-                $('#question_holder').html('<div class="alert alert-danger">Please select a question type</div>');
+                $('#question_holder').html('<div class="alert alert-danger">Silahkan pilih tipe pertanyaan</div>');
                 return;
             }
             var online_exam_id = '<?php echo $online_exam_id;?>';

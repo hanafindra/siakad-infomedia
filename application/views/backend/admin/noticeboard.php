@@ -98,7 +98,7 @@
                           <div>
                             <span class="btn btn-white btn-file">
                               <span class="fileinput-new"><?php echo get_phrase('pilih gambar'); ?></span>
-                              <span class="fileinput-exists"><?php echo get_phrase('change'); ?></span>
+                              <span class="fileinput-exists"><?php echo get_phrase('ubah'); ?></span>
                               <input type="file" name="image" accept="image/*">
                             </span>
                             <a href="#" class="btn btn-orange fileinput-exists" data-dismiss="fileinput"><?php echo get_phrase('hapus'); ?></a>
@@ -132,7 +132,7 @@
                                 if ($active_sms_service == 'twilio')
                                     echo 'Twilio ' . get_phrase('aktivasi');
                                 if ($active_sms_service == '' || $active_sms_service == 'disabled')
-                                    echo get_phrase('sms_service_not_activated');
+                                    echo get_phrase('layanan_sms_tidak_diaktifkan');
                                 ?>
                             </span>
                         </div>

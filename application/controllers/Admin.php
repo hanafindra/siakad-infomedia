@@ -1498,7 +1498,7 @@ class Admin extends CI_Controller
         if ($this->session->userdata('admin_login') != 1)
             redirect(site_url('login'), 'refresh');
         $page_data['page_name']  = 'class_routine_add';
-        $page_data['page_title'] = get_phrase('add_class_routine');
+        $page_data['page_title'] = get_phrase('tambahkan_rutinitas_kelas');
         $this->load->view('backend/index', $page_data);
     }
 

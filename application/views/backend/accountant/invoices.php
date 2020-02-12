@@ -10,7 +10,7 @@
                     <th><div><?php echo get_phrase('bayar');?></div></th>
                     <th><div><?php echo get_phrase('status');?></div></th>
             		<th><div><?php echo get_phrase('tanggal');?></div></th>
-            		<th><div><?php echo get_phrase('pilihan');?></div></th>
+            		<th><div><?php echo get_phrase('aksi');?></div></th>
 				</tr>
 			</thead>
 		</table>

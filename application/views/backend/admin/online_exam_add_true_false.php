@@ -56,16 +56,16 @@
 <input type="hidden" name="type" value="<?php echo $question_type;?>">
 
 <div class="form-group">
-    <label class="col-sm-3 control-label"><?php echo get_phrase('mark');?></label>
+    <label class="col-sm-3 control-label"><?php echo get_phrase('nilai');?></label>
     <div class="col-sm-8">
-        <input type="number" class="form-control" name="mark" data-validate="required" data-message-required="<?php echo get_phrase('value_required');?>" min="0"/>
+        <input type="number" class="form-control" name="mark" data-validate="required" data-message-required="<?php echo get_phrase('nilai_dibutuhkan');?>" min="0"/>
     </div>
 </div>
 
 <div class="form-group">
-    <label class="col-sm-3 control-label"><?php echo get_phrase('question_title');?></label>
+    <label class="col-sm-3 control-label"><?php echo get_phrase('judul_pertanyaan');?></label>
     <div class="col-sm-8">
-        <textarea onkeyup="changeTheBlankColor()" name="question_title" class="form-control" id="question_title" rows="8" cols="80" data-validate="required" data-message-required="<?php echo get_phrase('value_required');?>"></textarea>
+        <textarea onkeyup="changeTheBlankColor()" name="question_title" class="form-control" id="question_title" rows="8" cols="80" data-validate="required" data-message-required="<?php echo get_phrase('nilai_dibutuhkan');?>"></textarea>
     </div>
 </div>
 
@@ -73,20 +73,20 @@
     <div class="col-sm-8 col-sm-offset-3">
         <p>
             <input type="radio" id="true" name="true_false_answer" value="true" checked>
-            <label for="true"><?php echo get_phrase('true'); ?></label>
+            <label for="true"><?php echo get_phrase('benar'); ?></label>
         </p>
     </div>
     <div class="col-sm-8 col-sm-offset-3">
         <p>
             <input type="radio" id="false" name="true_false_answer" value="false">
-            <label for="false"><?php echo get_phrase('false'); ?></label>
+            <label for="false"><?php echo get_phrase('salah'); ?></label>
         </p>
     </div>
 </div>
 
 <div class="form-group">
     <div class="col-sm-12">
-        <button type="submit" class="btn btn-info btn-block"><?php echo get_phrase('add_question');?></button>
+        <button type="submit" class="btn btn-info btn-block"><?php echo get_phrase('tambah_pertanyaan');?></button>
     </div>
 </div>
 <?php echo form_close();?>

@@ -576,7 +576,7 @@ class Parents extends CI_Controller
         $totalData = $this->ajaxload->all_teachers_count();
         $totalFiltered = $totalData;
 
-        if(empty($this->input->post('search')['value'])) {
+        if(empty($this->input->post('cari')['value'])) {
             $teachers = $this->ajaxload->all_teachers($limit,$start,$order,$dir);
         }
         else {

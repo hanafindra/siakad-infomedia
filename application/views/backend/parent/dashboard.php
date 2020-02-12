@@ -55,8 +55,8 @@
                     <div class="num" data-start="0" data-end="<?php echo $this->db->count_all('parent');?>"
                     		data-postfix="" data-duration="500" data-delay="0">0</div>
 
-                    <h3><?php echo get_phrase('orang_tua');?></h3>
-                   <p>Total orang tua</p>
+                    <h3><?php echo get_phrase('wali_murid');?></h3>
+                   <p>Total wali murid</p>
                 </div>
 
             </div>
@@ -73,7 +73,7 @@
                     		data-postfix="" data-duration="500" data-delay="0">0</div>
 
                     <h3><?php echo get_phrase('kehadiran');?></h3>
-                   <p>Total orang tua hari ini</p>
+                   <p>Total wali murid hari ini</p>
                 </div>
 
             </div>

@@ -6,20 +6,20 @@
         	<?php if(isset($edit_profile)):?>
 			<li class="active">
             	<a href="#edit" data-toggle="tab"><i class="icon-wrench"></i> 
-					<?php echo get_phrase('edit_phrase');?>
+					<?php echo get_phrase('ubah_frasa');?>
                     	</a></li>
             <?php endif;?>
 			<li class="<?php if(!isset($edit_profile))echo 'active';?>">
             	<a href="#list" data-toggle="tab"><i class="icon-align-justify"></i> 
-					<?php echo get_phrase('phrase_list');?>
+					<?php echo get_phrase('daftar_frasa');?>
                     	</a></li>
 			<li>
             	<a href="#add" data-toggle="tab"><i class="icon-plus"></i>
-					<?php echo get_phrase('add_phrase');?>
+					<?php echo get_phrase('tambah_frasa');?>
                     	</a></li>
 			<li class="">
             	<a href="#add_lang" data-toggle="tab"><i class="icon-plus"></i> 
-					<?php echo get_phrase('add_language');?>
+					<?php echo get_phrase('tambah_bahasa');?>
                     	</a></li>
 		</ul>
     	<!------CONTROL TABS END------->
@@ -105,8 +105,8 @@
                 <table cellpadding="0" cellspacing="0" border="0" class="table table-normal">
                 	<thead>
                     	<tr>
-                        	<th><?php echo get_phrase('language');?></th>
-                        	<th><?php echo get_phrase('option');?></th>
+                        	<th><?php echo get_phrase('bahasa');?></th>
+                        	<th><?php echo get_phrase('aksi');?></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -120,11 +120,11 @@
                         	<td><?php echo ucwords($field);?></td>
                         	<td>
                             	<a href="<?php echo site_url('admin/manage_language/edit_phrase/'.$field);?>"
-                                	rel="tooltip" data-placement="top" data-original-title="<?php echo get_phrase('edit_phrase');?>" class="btn btn-blue">
+                                	rel="tooltip" data-placement="top" data-original-title="<?php echo get_phrase('ubah_frasa');?>" class="btn btn-blue">
                                 		<i class="icon-wrench"></i>
                                 </a>
                             	<a href="<?php echo site_url('admin/manage_language/delete_language/'.$field);?>"
-                                	rel="tooltip" data-placement="top" data-original-title="<?php echo get_phrase('delete_language');?>" class="btn btn-gray" onclick="return confirm('Delete Language ?');">
+                                	rel="tooltip" data-placement="top" data-original-title="<?php echo get_phrase('hapus_bahasa');?>" class="btn btn-gray" onclick="return confirm('apakah_hapus_bahasa ?');">
                                 		<i class="icon-trash"></i>
                                 </a>
                             </td>
@@ -144,7 +144,7 @@
                     <?php echo form_open(site_url('admin/manage_language/add_phrase/') , array('class' => 'form-horizontal validatable'));?>
                         <div class="padded">
                             <div class="control-group">
-                                <label class="control-label"><?php echo get_phrase('phrase');?></label>
+                                <label class="control-label"><?php echo get_phrase('frasa');?></label>
                                 <div class="controls">
                                     <input type="text" class="validate[required]" name="phrase"/>
                                 </div>
@@ -152,7 +152,7 @@
                             
                         </div>
                         <div class="form-actions">
-                            <button type="submit" class="btn btn-blue"><?php echo get_phrase('add_phrase');?></button>
+                            <button type="submit" class="btn btn-blue"><?php echo get_phrase('tambah_bahasa');?></button>
                         </div>
                     <?php echo form_close();?>                
                 </div>                
@@ -165,7 +165,7 @@
                     <?php echo form_open(site_url('admin/manage_language/add_language/') , array('class' => 'form-horizontal validatable'));?>
                         <div class="padded">
                             <div class="control-group">
-                                <label class="control-label"><?php echo get_phrase('language');?></label>
+                                <label class="control-label"><?php echo get_phrase('bahasa');?></label>
                                 <div class="controls">
                                     <input type="text" class="validate[required]" name="language"/>
                                 </div>
@@ -173,7 +173,7 @@
                             
                         </div>
                         <div class="form-actions">
-                            <button type="submit" class="btn btn-blue"><?php echo get_phrase('add_language');?></button>
+                            <button type="submit" class="btn btn-blue"><?php echo get_phrase('tambah_bahasa');?></button>
                         </div>
                     <?php echo form_close();?> 
                 </div>

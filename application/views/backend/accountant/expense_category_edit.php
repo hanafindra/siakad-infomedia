@@ -11,7 +11,7 @@
         	<div class="panel-heading">
             	<div class="panel-title" >
             		<i class="entypo-plus-circled"></i>
-					<?php echo get_phrase('edit_expense');?>
+					<?php echo get_phrase('edit_biaya');?>
             	</div>
             </div>
 			<div class="panel-body">
@@ -22,13 +22,13 @@
 						<label for="field-1" class="col-sm-3 control-label"><?php echo get_phrase('nama');?></label>
                         
 						<div class="col-sm-6">
-							<input type="text" class="form-control" name="name" data-validate="required" data-message-required="<?php echo get_phrase('value_required');?>" value="<?php echo $row['name'];?>">
+							<input type="text" class="form-control" name="name" data-validate="required" data-message-required="<?php echo get_phrase('nilai_benar');?>" value="<?php echo $row['name'];?>">
 						</div>
 					</div>
                     
                     <div class="form-group">
 						<div class="col-sm-offset-3 col-sm-5">
-							<button type="submit" class="btn btn-info"><?php echo get_phrase('update');?></button>
+							<button type="submit" class="btn btn-info"><?php echo get_phrase('perbarui');?></button>
 						</div>
 					</div>
                 <?php echo form_close();?>
