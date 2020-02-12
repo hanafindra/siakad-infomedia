@@ -12,7 +12,7 @@
       <!-- Title -->
       <div class="w-md-80 w-lg-50 mx-auto mb-5">
         <h1 class="h1 text-white">
-          <span class="font-weight-semi-bold">Noticeboard</span>
+          <span class="font-weight-semi-bold">Papan Pengumuman</span>
         </h1>
       </div>
       <!-- End Title -->
@@ -26,8 +26,8 @@
 
       <!-- Title -->
       <div class="w-md-80 w-lg-50 text-center mx-md-auto mb-9">
-        <span class="btn btn-xs btn-soft-success btn-pill mb-2">Notices</span>
-        <h2 class="text-primary">Follow up school notices</h2>
+        <span class="btn btn-xs btn-soft-success btn-pill mb-2">Pengumuman</span>
+        <h2 class="text-primary">Tindak Lanjuti Pengumuman Sekolah</h2>
       </div>
       <!-- End Title -->
 

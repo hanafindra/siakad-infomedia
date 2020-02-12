@@ -6,26 +6,26 @@
                     <?php if(isset($edit_profile)):?>
                         <li class="nav-item">
                             <a href="#edit" data-toggle="tab" aria-expanded="false" class="nav-link <?php if(isset($edit_profile)) echo 'active';?>">
-                                <?php echo get_phrase('edit_phrase');?>
+                                <?php echo get_phrase('ubah_frasa');?>
                             </a>
                         </li>
                     <?php endif;?>
                     <li class="nav-item">
                         <a href="#list" data-toggle="tab" aria-expanded="false" class="nav-link <?php if(!isset($edit_profile)) echo 'active';?>">
                             <i class="entypo-menu"></i>
-                            <span class="d-none d-lg-block"><?php echo get_phrase('language_list');?></span>
+                            <span class="d-none d-lg-block"><?php echo get_phrase('Daftar_Bahasa');?></span>
                         </a>
                     </li>
                     <li class="nav-item">
                         <a href="#add" data-toggle="tab" aria-expanded="false" class="nav-link">
                             <i class="entypo-plus-circled"></i>
-                            <span class="d-none d-lg-block"><?php echo get_phrase('add_phrase');?></span>
+                            <span class="d-none d-lg-block"><?php echo get_phrase('tambah_frasa');?></span>
                         </a>
                     </li>
                     <li class="nav-item">
                         <a href="#add_lang" data-toggle="tab" aria-expanded="false" class="nav-link">
                             <i class="entypo-plus-circled"></i>
-                            <span class="d-none d-lg-block"><?php echo get_phrase('add_language');?></span>
+                            <span class="d-none d-lg-block"><?php echo get_phrase('tambah_bahasa');?></span>
                         </a>
                     </li>
                 </ul>
@@ -64,8 +64,8 @@
                             <table class="table table-bordered table-centered mb-0">
                                 <thead>
                                     <tr>
-                                        <th><?php echo get_phrase('language');?></th>
-                                        <th><?php echo get_phrase('option');?></th>
+                                        <th><?php echo get_phrase('Bahasa');?></th>
+                                        <th><?php echo get_phrase('aksi');?></th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -76,11 +76,11 @@
                                         <td>
                                             <a href="<?php echo site_url('admin/manage_language/edit_phrase/'.$language);?>"
                                                 class="btn btn-info">
-                                                <?php echo get_phrase('edit_phrase');?>
+                                                <?php echo get_phrase('ubah_frasa');?>
                                             </a>
                                             <a href="<?php echo site_url('admin/manage_language/delete_language/'.$language);?>"
                                                 class="btn btn-danger">
-                                                <?php echo get_phrase('delete_language');?>
+                                                <?php echo get_phrase('hapus_bahasa');?>
                                             </a>
                                         </td>
                                     </tr>
@@ -101,10 +101,10 @@
                                     <div class="panel-body">
                                         <form class="" action="<?php echo site_url('admin/manage_language/add_phrase') ?>" method="post">
                                             <div class="form-group">
-                                                  <label for="simpleinput"><?php echo get_phrase('add_new_phrase'); ?></label>
+                                                  <label for="simpleinput"><?php echo get_phrase('tambah_frasa_baru'); ?></label>
                                                   <input type="text" id="phrase" name="phrase" class="form-control" placeholder="" required>
                                               </div>
-                                            <button type="submit" class="btn btn-primary" name="button"><?php echo get_phrase('save'); ?></button>
+                                            <button type="submit" class="btn btn-primary" name="button"><?php echo get_phrase('simpan'); ?></button>
                                         </form>
                                     </div>
                                 </div>
@@ -122,10 +122,10 @@
                                     <div class="panel-body">
                                         <form class="" action="<?php echo site_url('admin/manage_language/add_language'); ?>" method="post">
                                             <div class="form-group">
-                                                  <label for="language"><?php echo get_phrase('add_new_language'); ?></label>
+                                                  <label for="language"><?php echo get_phrase('tambah_bahasa_baru'); ?></label>
                                                   <input type="text" id="language" name="language" class="form-control" placeholder="" required>
                                               </div>
-                                            <button type="submit" class="btn btn-primary" name="button"><?php echo get_phrase('save'); ?></button>
+                                            <button type="submit" class="btn btn-primary" name="button"><?php echo get_phrase('simpan'); ?></button>
                                         </form>
                                     </div>
                                 </div>

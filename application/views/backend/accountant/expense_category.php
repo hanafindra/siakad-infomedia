@@ -10,7 +10,7 @@ class="btn btn-primary pull-right">
         <tr>
             <th><div>#</div></th>
             <th><div><?php echo get_phrase('nama_kategori');?></div></th>
-            <th><div><?php echo get_phrase('pilihan');?></div></th>
+            <th><div><?php echo get_phrase('aksi');?></div></th>
         </tr>
     </thead>
     <tbody>

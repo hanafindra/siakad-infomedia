@@ -15,8 +15,8 @@
 	<center>
 		<img src="<?php echo base_url(); ?>uploads/logo.png" style="max-height : 60px;"><br>
 		<h3 style="font-weight: 100;"><?php echo $system_name;?></h3>
-		<?php echo get_phrase('tabulation_sheet');?><br>
-		<?php echo get_phrase('class') . ' ' . $class_name;?><br>
+		<?php echo get_phrase('lembar_tabulasi');?><br>
+		<?php echo get_phrase('kelas') . ' ' . $class_name;?><br>
 		<?php echo $exam_name;?>
 
 
@@ -27,7 +27,7 @@
 		<thead>
 			<tr>
 			<td style="text-align: center;">
-				<?php echo get_phrase('students');?> <i class="entypo-down-thin"></i> | <?php echo get_phrase('subjects');?> <i class="entypo-right-thin"></i>
+				<?php echo get_phrase('siswa');?> <i class="entypo-down-thin"></i> | <?php echo get_phrase('subjek');?> <i class="entypo-right-thin"></i>
 			</td>
 			<?php
 				$subjects = $this->db->get_where('subject' , array('class_id' => $class_id , 'year' => $running_year))->result_array();
@@ -36,7 +36,7 @@
 				<td style="text-align: center;"><?php echo $row['name'];?></td>
 			<?php endforeach;?>
 			<td style="text-align: center;"><?php echo get_phrase('total');?></td>
-			<td style="text-align: center;"><?php echo get_phrase('average_grade_point');?></td>
+			<td style="text-align: center;"><?php echo get_phrase('poin_nilai_ratarata');?></td>
 			</tr>
 		</thead>
 		<tbody>

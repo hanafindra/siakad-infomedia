@@ -119,9 +119,9 @@
                                     <label class="col-sm-3 control-label"><?php echo get_phrase('metode bayar');?></label>
                                     <div class="col-sm-9">
                                         <select name="method" class="form-control selectboxit">
-                                            <option value="1"><?php echo get_phrase('cash');?></option>
-                                            <option value="2"><?php echo get_phrase('check');?></option>
-                                            <option value="3"><?php echo get_phrase('card');?></option>
+                                            <option value="1"><?php echo get_phrase('tunai');?></option>
+                                            <option value="2"><?php echo get_phrase('cek');?></option>
+                                            <option value="3"><?php echo get_phrase('kartu_kredit');?></option>
                                         </select>
                                     </div>
                                 </div>
@@ -217,9 +217,9 @@
                         <label class="col-sm-3 control-label"><?php echo get_phrase('metode bayar');?></label>
                         <div class="col-sm-9">
                             <select name="method" class="form-control selectboxit">
-                                <option value="1"><?php echo get_phrase('cash');?></option>
-                                <option value="2"><?php echo get_phrase('check');?></option>
-                                <option value="3"><?php echo get_phrase('card');?></option>
+                                <option value="1"><?php echo get_phrase('tunai');?></option>
+                                <option value="2"><?php echo get_phrase('cek');?></option>
+                                <option value="3"><?php echo get_phrase('kartu_kredit');?></option>
                             </select>
                         </div>
                     </div>
