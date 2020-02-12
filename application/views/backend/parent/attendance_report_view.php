@@ -2,7 +2,7 @@
 <div class="panel panel-primary ">
     <div class="panel-heading">
         <div class="panel-title">
-            <?php echo get_phrase('attendance_report');?>
+            <?php echo get_phrase('laporan_kehadiran');?>
         </div>
     </div>
     <div class="panel-body">
@@ -10,34 +10,34 @@
 
             <div class="col-md-offset-3 col-md-2">
                  <div class="form-group">
-                    <label class="control-label" style="margin-bottom: 5px;"><?php echo get_phrase('month'); ?></label>
+                    <label class="control-label" style="margin-bottom: 5px;"><?php echo get_phrase('bulan'); ?></label>
                     <select name="month" class="form-control selectboxit">
                         <?php
                         for ($i = 1; $i <= 12; $i++):
                             if ($i == 1)
-                                $m = 'january';
+                                $m = 'januari';
                             else if ($i == 2)
-                                $m = 'february';
+                                $m = 'februari';
                             else if ($i == 3)
-                                $m = 'march';
+                                $m = 'maret';
                             else if ($i == 4)
                                 $m = 'april';
                             else if ($i == 5)
-                                $m = 'may';
+                                $m = 'mai';
                             else if ($i == 6)
-                                $m = 'june';
+                                $m = 'juni';
                             else if ($i == 7)
-                                $m = 'july';
+                                $m = 'juli';
                             else if ($i == 8)
-                                $m = 'august';
+                                $m = 'agustus';
                             else if ($i == 9)
                                 $m = 'september';
                             else if ($i == 10)
-                                $m = 'october';
+                                $m = 'oktober';
                             else if ($i == 11)
                                 $m = 'november';
                             else if ($i == 12)
-                                $m = 'december';
+                                $m = 'deseember';
                             ?>
                             <option value="<?php echo $i; ?>"
                                   <?php if($month == $i) echo 'selected'; ?>  >
@@ -52,7 +52,7 @@
 
             <div class="col-md-2">
                 <div class="form-group">
-                    <label class="control-label" style="margin-bottom: 5px;"><?php echo get_phrase('sessional_year'); ?></label>
+                    <label class="control-label" style="margin-bottom: 5px;"><?php echo get_phrase('tahun_sesi'); ?></label>
                     <select class="form-control selectboxit" name="sessional_year" disabled>
                         <?php
                         $sessional_year_options = explode('-', $running_year); ?>
@@ -66,7 +66,7 @@
             <input type="hidden" name="year" value="<?php echo $running_year;?>">
 
         	<div class="col-md-2" style="margin-top: 20px;">
-        		<button type="submit" class="btn btn-info"><?php echo get_phrase('show_report');?></button>
+        		<button type="submit" class="btn btn-info"><?php echo get_phrase('tunjukkan_laporan');?></button>
         	</div>
         </div>
     </div>
@@ -89,34 +89,34 @@
                     $section_name = $this->db->get_where('section', array('section_id' => $section_id))->row()->name;
                     $class_name = $this->db->get_where('class', array('class_id' => $class_id))->row()->name;
                     if ($month == 1)
-                        $m = 'January';
+                        $m = 'Januari';
                     else if ($month == 2)
-                        $m = 'February';
+                        $m = 'Februari';
                     else if ($month == 3)
-                        $m = 'March';
+                        $m = 'Maret';
                     else if ($month == 4)
                         $m = 'April';
                     else if ($month == 5)
-                        $m = 'May';
+                        $m = 'Mai';
                     else if ($month == 6)
-                        $m = 'June';
+                        $m = 'Juni';
                     else if ($month == 7)
-                        $m = 'July';
+                        $m = 'Juli';
                     else if ($month == 8)
-                        $m = 'August';
+                        $m = 'Agustus';
                     else if ($month == 9)
                         $m = 'Sepetember';
                     else if ($month == 10)
-                        $m = 'October';
+                        $m = 'Oktober';
                     else if ($month == 11)
                         $m = 'November';
                     else if ($month == 12)
-                        $m = 'December';
-                    echo get_phrase('attendance_sheet');
+                        $m = 'Desember';
+                    echo get_phrase('absensi');
                     ?>
                 </h3>
                 <h4 style="color: #696969;">
-    <?php echo get_phrase('class') . ' ' . $class_name; ?> : <?php echo get_phrase('section');?> <?php echo $section_name; ?><br>
+    <?php echo get_phrase('kelas') . ' ' . $class_name; ?> : <?php echo get_phrase('bagian');?> <?php echo $section_name; ?><br>
     <?php echo $m . ', ' . $sessional_year; ?>
                 </h4>
             </div>
@@ -129,7 +129,7 @@
 <div class="panel panel-primary ">
     <div class="panel-heading">
         <div class="panel-title">
-            <?php echo get_phrase('attendance_sheet');?>
+            <?php echo get_phrase('absensi');?>
         </div>
     </div>
     <div class="panel-body">
@@ -139,7 +139,7 @@
                     <thead>
                         <tr>
                             <td style="text-align: center;">
-        <?php echo get_phrase('students'); ?> <i class="entypo-down-thin"></i> | <?php echo get_phrase('date'); ?> <i class="entypo-right-thin"></i>
+        <?php echo get_phrase('siswa'); ?> <i class="entypo-down-thin"></i> | <?php echo get_phrase('tanggal'); ?> <i class="entypo-right-thin"></i>
                             </td>
         <?php
         $year = explode('-', $running_year);
@@ -204,7 +204,7 @@
                 <center>
                     <a href="<?php echo site_url('parents/attendance_report_print_view/'.$class_id.'/'.$section_id.'/'.$month.'/'.$sessional_year.'/'.$student_id); ?>"
                        class="btn btn-primary" target="_blank">
-        <?php echo get_phrase('print_attendance_sheet'); ?>
+        <?php echo get_phrase('cetak_lembar_kehadiran'); ?>
                     </a>
                 </center>
             </div>

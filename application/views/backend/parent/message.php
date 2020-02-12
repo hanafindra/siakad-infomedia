@@ -1,5 +1,5 @@
 <div class="pull-right" style="text-align: right; margin-top: -30px;">
-  <a href="<?php echo site_url('parents/group_message'); ?>" class="btn btn-blue"><i class="fa fa-comments" aria-hidden="true"></i> <?php echo get_phrase('group_message'); ?></a>
+  <a href="<?php echo site_url('parents/group_message'); ?>" class="btn btn-blue"><i class="fa fa-comments" aria-hidden="true"></i> <?php echo get_phrase('pesan_grup'); ?></a>
 </div>
 <hr />
 <div class="mail-env">
@@ -10,7 +10,7 @@
         <!-- compose new email button -->
         <div class="mail-sidebar-row">
             <a href="<?php echo site_url('parents/message/message_new'); ?>" class="btn btn-success btn-block">
-                <?php echo get_phrase('new_message'); ?>
+                <?php echo get_phrase('pesan_baru'); ?>
             </a>
         </div>
 

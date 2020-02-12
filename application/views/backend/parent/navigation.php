@@ -52,7 +52,7 @@
         <li class="<?php if ($page_name == 'teacher') echo 'active'; ?> ">
             <a href="<?php echo site_url('parents/teacher_list'); ?>">
                 <i class="entypo-users"></i>
-                <span><?php echo get_phrase('teacher'); ?></span>
+                <span><?php echo get_phrase('guru'); ?></span>
             </a>
         </li>
 
@@ -60,7 +60,7 @@
         <li class="<?php if ($page_name == 'academic_syllabus') echo 'opened active';?> ">
             <a href="#">
                 <i class="entypo-doc"></i>
-                <span><?php echo get_phrase('academic_syllabus'); ?></span>
+                <span><?php echo get_phrase('silabus_akademik'); ?></span>
             </a>
             <ul>
             <?php
@@ -82,7 +82,7 @@
         <li class="<?php if ($page_name == 'class_routine') echo 'opened active';?> ">
             <a href="#">
                 <i class="entypo-target"></i>
-                <span><?php echo get_phrase('class_routine'); ?></span>
+                <span><?php echo get_phrase('rutinitas_kelas'); ?></span>
             </a>
             <ul>
             <?php
@@ -104,7 +104,7 @@
         <li class="<?php if ($page_name == 'attendance_report' || $page_name == 'attendance_report_view') echo 'opened active';?> ">
             <a href="#">
                 <i class="entypo-chart-area"></i>
-                <span><?php echo get_phrase('student_attendance'); ?></span>
+                <span><?php echo get_phrase('daftar_hadir_siswa'); ?></span>
             </a>
             <ul>
             <?php
@@ -127,7 +127,7 @@
         if ($page_name == 'marks') echo 'opened active';?> ">
             <a href="#">
                 <i class="entypo-graduation-cap"></i>
-                <span><?php echo get_phrase('exam_marks'); ?></span>
+                <span><?php echo get_phrase('nilai_ujian'); ?></span>
             </a>
             <ul>
             <?php
@@ -146,7 +146,7 @@
         <li class="<?php if ($page_name == 'invoice' || $page_name == 'pay_with_payumoney') echo 'opened active';?> ">
             <a href="#">
                 <i class="entypo-credit-card"></i>
-                <span><?php echo get_phrase('payment'); ?></span>
+                <span><?php echo get_phrase('pembayaran'); ?></span>
             </a>
             <ul>
             <?php
@@ -166,7 +166,7 @@
         <li class="<?php if ($page_name == 'book') echo 'active'; ?> ">
             <a href="<?php echo site_url('parents/book'); ?>">
                 <i class="entypo-book"></i>
-                <span><?php echo get_phrase('library'); ?></span>
+                <span><?php echo get_phrase('pustaka'); ?></span>
             </a>
         </li>
 
@@ -174,7 +174,7 @@
         <li class="<?php if ($page_name == 'transport') echo 'active'; ?> ">
             <a href="<?php echo site_url('parents/transport'); ?>">
                 <i class="entypo-location"></i>
-                <span><?php echo get_phrase('transport'); ?></span>
+                <span><?php echo get_phrase('kendaraan'); ?></span>
             </a>
         </li>
 
@@ -182,7 +182,7 @@
         <li class="<?php if ($page_name == 'noticeboard') echo 'active'; ?> ">
             <a href="<?php echo site_url('parents/noticeboard'); ?>">
                 <i class="entypo-doc-text-inv"></i>
-                <span><?php echo get_phrase('noticeboard'); ?></span>
+                <span><?php echo get_phrase('papan_pengumuman'); ?></span>
             </a>
         </li>
 
@@ -190,7 +190,7 @@
         <li class="<?php if ($page_name == 'message' || $page_name == 'group_message') echo 'active'; ?> ">
             <a href="<?php echo site_url('parents/message'); ?>">
                 <i class="entypo-mail"></i>
-                <span><?php echo get_phrase('message'); ?></span>
+                <span><?php echo get_phrase('pesan'); ?></span>
             </a>
         </li>
 
@@ -198,7 +198,7 @@
         <li class="<?php if ($page_name == 'manage_profile') echo 'active'; ?> ">
             <a href="<?php echo site_url('parents/manage_profile'); ?>">
                 <i class="entypo-lock"></i>
-                <span><?php echo get_phrase('account'); ?></span>
+                <span><?php echo get_phrase('akun'); ?></span>
             </a>
         </li>
 
