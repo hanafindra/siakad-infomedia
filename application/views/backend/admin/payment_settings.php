@@ -4,7 +4,7 @@
         <div class="col-md-12">
             <div class="panel panel-primary">
                 <div class="panel-heading">
-                    <h3 class="panel-title"><?php echo get_phrase('setup_payment_information') ?></h3>
+                    <h3 class="panel-title"><?php echo get_phrase('atur_informasi_pembayaran') ?></h3>
                 </div>
 
                 <div class="panel-body">
@@ -31,16 +31,16 @@
 
                                     <div class="form-group">
                                         <label class="col-sm-3 control-label">
-                                            <?php echo get_phrase('active') ?>
+                                            <?php echo get_phrase('aktif') ?>
                                         </label>
                                         <div class="col-sm-7">
                                             <select name="paypal_active" class="form-control">
                                                 <option value="0"
                                                     <?php if ($paypal[0]->active == 0) echo 'selected';?>>
-                                                        <?php echo get_phrase('no');?></option>
+                                                        <?php echo get_phrase('tidak');?></option>
                                                 <option value="1"
                                                     <?php if ($paypal[0]->active == 1) echo 'selected';?>>
-                                                        <?php echo get_phrase('yes');?></option>
+                                                        <?php echo get_phrase('ya');?></option>
                                             </select>
                                         </div>
                                     </div>
@@ -61,7 +61,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label class="col-sm-3 control-label">
-                                            <?php echo get_phrase('client_id').' ('.get_phrase('sandbox').')'; ?>
+                                            <?php echo get_phrase('id_klien').' ('.get_phrase('sandbox').')'; ?>
                                         </label>
                                         <div class="col-sm-7">
                                             <input type="text" class="form-control"
@@ -71,7 +71,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label class="col-sm-3 control-label">
-                                            <?php echo get_phrase('client_id').' ('.get_phrase('production').')'; ?>
+                                            <?php echo get_phrase('id_klien').' ('.get_phrase('production').')'; ?>
                                         </label>
                                         <div class="col-sm-7">
                                             <input type="text" class="form-control"
@@ -82,7 +82,7 @@
                                     <div class="form-group">
                                         <div class="col-sm-offset-3 col-sm-5">
                                             <button type="submit" class="btn btn-info">
-                                                <?php echo get_phrase('save_changes'); ?>
+                                                <?php echo get_phrase('simpan_perubahan'); ?>
                                             </button>
                                         </div>
                                     </div>
@@ -100,22 +100,22 @@
 
                                     <div class="form-group">
                                         <label class="col-sm-3 control-label">
-                                            <?php echo get_phrase('active') ?>
+                                            <?php echo get_phrase('aktif') ?>
                                         </label>
                                         <div class="col-sm-7">
                                             <select name="stripe_active" class="form-control">
                                                 <option value="0"
                                                     <?php if ($stripe[0]->active == 0) echo 'selected';?>>
-                                                        <?php echo get_phrase('no');?></option>
+                                                        <?php echo get_phrase('tidak');?></option>
                                                 <option value="1"
                                                     <?php if ($stripe[0]->active == 1) echo 'selected';?>>
-                                                        <?php echo get_phrase('yes');?></option>
+                                                        <?php echo get_phrase('ya');?></option>
                                             </select>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-sm-3 control-label">
-                                            <?php echo get_phrase('test_mode') ?>
+                                            <?php echo get_phrase('mode_tes') ?>
                                         </label>
                                         <div class="col-sm-7">
                                             <select name="testmode" class="form-control">
@@ -130,7 +130,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label class="col-sm-3 control-label">
-                                            <?php echo get_phrase('test_secret_key') ?>
+                                            <?php echo get_phrase('tes_secret_key') ?>
                                         </label>
                                         <div class="col-sm-7">
                                             <input type="text" class="form-control"
@@ -140,7 +140,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label class="col-sm-3 control-label">
-                                            <?php echo get_phrase('test_public_key') ?>
+                                            <?php echo get_phrase('tes_public_key') ?>
                                         </label>
                                         <div class="col-sm-7">
                                             <input type="text" class="form-control"
@@ -171,7 +171,7 @@
                                     <div class="form-group">
                                         <div class="col-sm-offset-3 col-sm-5">
                                             <button type="submit" class="btn btn-info">
-                                                <?php echo get_phrase('save_changes'); ?>
+                                                <?php echo get_phrase('simpan_perubahan'); ?>
                                             </button>
                                         </div>
                                     </div>
