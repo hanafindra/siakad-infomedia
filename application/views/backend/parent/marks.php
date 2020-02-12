@@ -40,11 +40,11 @@
                     <table class="table table-bordered responsive">
                         <thead>
                             <tr>
-                                <th width="15%"><?php echo get_phrase('class');?></th>
-                                <th><?php echo get_phrase('subject');?></th>
-                                <th><?php echo get_phrase('total_mark');?></th>
-                                <th><?php echo get_phrase('mark_obtained');?></th>
-                                <th width="33%"><?php echo get_phrase('comment');?></th>
+                                <th width="15%"><?php echo get_phrase('kelas');?></th>
+                                <th><?php echo get_phrase('subyek');?></th>
+                                <th><?php echo get_phrase('total_tanda');?></th>
+                                <th><?php echo get_phrase('tanda_diperoleh');?></th>
+                                <th width="33%"><?php echo get_phrase('komentar');?></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -69,7 +69,7 @@
                     </table>
                     <a href="<?php echo site_url('parents/student_marksheet_print_view/'.$student_id.'/'.$exam['exam_id']);?>"
                         class="btn btn-primary" target="_blank">
-                        <?php echo get_phrase('print_marksheet');?>
+                        <?php echo get_phrase('cetak_lembar_penilaian');?>
                     </a>
                 </div>
             <?php endforeach;?>

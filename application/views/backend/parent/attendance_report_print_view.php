@@ -3,18 +3,18 @@
 	$section_name  		= $this->db->get_where('section' , array('section_id' => $section_id))->row()->name;
 	$system_name        =	$this->db->get_where('settings' , array('type'=>'system_name'))->row()->description;
 	$running_year       =	$this->db->get_where('settings' , array('type'=>'running_year'))->row()->description;
-        if($month == 1) $m = 'January';
-        else if($month == 2) $m='February';
-        else if($month == 3) $m='March';
+        if($month == 1) $m = 'Januari';
+        else if($month == 2) $m='Februari';
+        else if($month == 3) $m='Maret';
         else if($month == 4) $m='April';
-        else if($month == 5) $m='May';
-        else if($month == 6) $m='June';
-        else if($month == 7) $m='July';
-        else if($month == 8) $m='August';
+        else if($month == 5) $m='Mai';
+        else if($month == 6) $m='Juni';
+        else if($month == 7) $m='Juli';
+        else if($month == 8) $m='Agustus';
         else if($month == 9) $m='Sepetember';
-        else if($month == 10) $m='October';
+        else if($month == 10) $m='Oktober';
         else if($month == 11) $m='November';
-        else if($month == 12) $m='December';
+        else if($month == 12) $m='Desember';
 ?>
 <div id="print">
 	<script src="assets/js/jquery-1.11.0.min.js"></script>
@@ -27,9 +27,9 @@
 	<center>
 		<img src="<?php echo base_url(); ?>uploads/logo.png" style="max-height : 60px;"><br>
 		<h3 style="font-weight: 100;"><?php echo $system_name;?></h3>
-		<?php echo get_phrase('attendance_sheet');?><br>
-		<?php echo get_phrase('class') . ' ' . $class_name;?><br>
-		<?php echo get_phrase('section').' '.$section_name;?><br>
+		<?php echo get_phrase('abseni');?><br>
+		<?php echo get_phrase('kelas') . ' ' . $class_name;?><br>
+		<?php echo get_phrase('bagian').' '.$section_name;?><br>
         <?php echo $m . ', ' . $sessional_year; ?>
 
 	</center>
@@ -38,7 +38,7 @@
                 <thead>
                     <tr>
                         <td style="text-align: center;">
-    <?php echo get_phrase('students'); ?> <i class="entypo-down-thin"></i> | <?php echo get_phrase('date'); ?> <i class="entypo-right-thin"></i>
+    <?php echo get_phrase('siswa'); ?> <i class="entypo-down-thin"></i> | <?php echo get_phrase('tanggal'); ?> <i class="entypo-right-thin"></i>
                         </td>
     <?php
     $year = explode('-', $running_year);

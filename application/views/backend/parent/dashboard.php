@@ -7,7 +7,7 @@
                     <div class="panel-heading">
                         <div class="panel-title">
                             <i class="fa fa-calendar"></i>
-                            <?php echo get_phrase('event_schedule');?>
+                            <?php echo get_phrase('jadwal_kegiatan');?>
                         </div>
                     </div>
                     <div class="panel-body" style="padding:0px;">
@@ -31,8 +31,8 @@
                     <div class="num" data-start="0" data-end="<?php echo $this->db->count_all('student');?>"
                     		data-postfix="" data-duration="1500" data-delay="0">0</div>
 
-                    <h3><?php echo get_phrase('student');?></h3>
-                   <p>Total students</p>
+                    <h3><?php echo get_phrase('siswa');?></h3>
+                   <p>Total siswa</p>
                 </div>
 
             </div>
@@ -43,8 +43,8 @@
                     <div class="num" data-start="0" data-end="<?php echo $this->db->count_all('teacher');?>"
                     		data-postfix="" data-duration="800" data-delay="0">0</div>
 
-                    <h3><?php echo get_phrase('teacher');?></h3>
-                   <p>Total teachers</p>
+                    <h3><?php echo get_phrase('guru');?></h3>
+                   <p>Total guru</p>
                 </div>
 
             </div>
@@ -55,8 +55,8 @@
                     <div class="num" data-start="0" data-end="<?php echo $this->db->count_all('parent');?>"
                     		data-postfix="" data-duration="500" data-delay="0">0</div>
 
-                    <h3><?php echo get_phrase('parent');?></h3>
-                   <p>Total parents</p>
+                    <h3><?php echo get_phrase('orang_tua');?></h3>
+                   <p>Total orang tua</p>
                 </div>
 
             </div>
@@ -72,8 +72,8 @@
                     <div class="num" data-start="0" data-end="<?php echo $present_today;?>"
                     		data-postfix="" data-duration="500" data-delay="0">0</div>
 
-                    <h3><?php echo get_phrase('attendance');?></h3>
-                   <p>Total present student today</p>
+                    <h3><?php echo get_phrase('kehadiran');?></h3>
+                   <p>Total orang tua hari ini</p>
                 </div>
 
             </div>
