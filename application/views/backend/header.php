@@ -61,29 +61,13 @@
 					<li>
 						<a href="<?php echo site_url($account_type . '/manage_profile');?>">
                         	<i class="entypo-info"></i>
-<<<<<<< HEAD
-<<<<<<< HEAD
 							<span><?php echo get_phrase('edit_profil');?></span>
-=======
-							<span><?php echo get_phrase('ubah_profile');?></span>
->>>>>>> 6f0574d9aa071f001c926557b9ee2737919700db
-=======
-							<span><?php echo get_phrase('ubah_profile');?></span>
->>>>>>> 6f0574d9aa071f001c926557b9ee2737919700db
 						</a>
 					</li>
 					<li>
 						<a href="<?php echo site_url($account_type . '/manage_profile');?>">
                         	<i class="entypo-key"></i>
-<<<<<<< HEAD
-<<<<<<< HEAD
 							<span><?php echo get_phrase('ganti_password');?></span>
-=======
-							<span><?php echo get_phrase('ubah_password');?></span>
->>>>>>> 6f0574d9aa071f001c926557b9ee2737919700db
-=======
-							<span><?php echo get_phrase('ubah_password');?></span>
->>>>>>> 6f0574d9aa071f001c926557b9ee2737919700db
 						</a>
 					</li>
 				</ul>
@@ -93,29 +77,13 @@
 					<li>
 						<a href="<?php echo site_url('parents/manage_profile');?>">
                         	<i class="entypo-info"></i>
-<<<<<<< HEAD
-<<<<<<< HEAD
 							<span><?php echo get_phrase('edit_profil');?></span>
-=======
-							<span><?php echo get_phrase('ubah_profile');?></span>
->>>>>>> 6f0574d9aa071f001c926557b9ee2737919700db
-=======
-							<span><?php echo get_phrase('ubah_profile');?></span>
->>>>>>> 6f0574d9aa071f001c926557b9ee2737919700db
 						</a>
 					</li>
 					<li>
 						<a href="<?php echo site_url('parents/manage_profile');?>">
                         	<i class="entypo-key"></i>
-<<<<<<< HEAD
-<<<<<<< HEAD
 							<span><?php echo get_phrase('ganti_password');?></span>
-=======
-							<span><?php echo get_phrase('ubah_password');?></span>
->>>>>>> 6f0574d9aa071f001c926557b9ee2737919700db
-=======
-							<span><?php echo get_phrase('ubah_password');?></span>
->>>>>>> 6f0574d9aa071f001c926557b9ee2737919700db
 						</a>
 					</li>
 				</ul>
@@ -160,45 +128,21 @@
 					<li>
 						<a href="<?php echo site_url($account_type . '/manage_profile');?>">
 							<i class="flaticon-rotate"></i>
-<<<<<<< HEAD
-<<<<<<< HEAD
 							<?php echo get_phrase('edit_profil');?>
-=======
-							<?php echo get_phrase('ubah_profile');?>
->>>>>>> 6f0574d9aa071f001c926557b9ee2737919700db
-=======
-							<?php echo get_phrase('ubah_profile');?>
->>>>>>> 6f0574d9aa071f001c926557b9ee2737919700db
 						</a>
 					</li>
 				<?php } } else { ?>
 					<li>
 						<a href="<?php echo site_url($account_type . '/manage_profile');?>">
 							<i class="flaticon-rotate"></i>
-<<<<<<< HEAD
-<<<<<<< HEAD
 							<?php echo get_phrase('edit_profil');?>
-=======
-							<?php echo get_phrase('ubah_profile');?>
->>>>>>> 6f0574d9aa071f001c926557b9ee2737919700db
-=======
-							<?php echo get_phrase('ubah_profile');?>
->>>>>>> 6f0574d9aa071f001c926557b9ee2737919700db
 						</a>
 					</li>
 				<?php } ?>
 					<li>
 						<a href="<?php echo site_url($account_type . '/manage_profile');?>">
 							<i class="flaticon-lock"></i>
-<<<<<<< HEAD
-<<<<<<< HEAD
 							<?php echo get_phrase('ganti_password');?>
-=======
-							<?php echo get_phrase('ubah_password');?>
->>>>>>> 6f0574d9aa071f001c926557b9ee2737919700db
-=======
-							<?php echo get_phrase('ubah_password');?>
->>>>>>> 6f0574d9aa071f001c926557b9ee2737919700db
 						</a>
 					</li>
 

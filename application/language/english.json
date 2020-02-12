@@ -886,5 +886,18 @@
     "password_updated": "Password updated",
     "data_berhasil_ditambahkan": "Data berhasil ditambahkan",
     "ubah_profil": "Ubah profil",
-    "keluar": "Keluar"
+    "keluar": "Keluar",
+    "dashboard_akuntan": "Dashboard akuntan",
+    "catatan_akuntansi": "Catatan akuntansi",
+    "tambah_pembayaran_siswa": "Tambah pembayaran siswa",
+    "pembayaran_mahasiswa": "Pembayaran mahasiswa",
+    "akun_saya": "Akun saya",
+    "edit_profil": "Edit profil",
+    "ubah_profile": "Ubah profile",
+    "ganti_password": "Ganti password",
+    "faktur_yang_belum_dibayar": "Faktur yang belum dibayar",
+    "total_uang_masuk": "Total uang masuk",
+    "total_biaya": "Total biaya",
+    "atur_profil": "Atur profil",
+    "kofirmasi_password_baru": "Kofirmasi password baru"
 }
