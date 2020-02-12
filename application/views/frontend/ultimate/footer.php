@@ -8,7 +8,7 @@ $links = json_decode($social);
   <div class="container space-2">
     <div class="row">
       <div class="col-sm-3 col-lg-2 order-sm-2 mb-4 mb-sm-0 ml-lg-auto">
-        <h4 class="h6 font-weight-semi-bold">Contact</h4>
+        <h4 class="h6 font-weight-semi-bold">Kontak</h4>
 
         <!-- Address -->
           <address>
@@ -29,29 +29,29 @@ $links = json_decode($social);
           <!-- End Address -->
       </div>
       <div class="col-sm-3 col-lg-2 order-sm-2 mb-4 mb-sm-0 ml-lg-auto">
-        <h4 class="h6 font-weight-semi-bold">About</h4>
+        <h4 class="h6 font-weight-semi-bold">Tentang</h4>
 
         <!-- List Group -->
         <ul class="list-group list-group-flush list-group-borderless mb-0">
           <li><a class="list-group-item list-group-item-action"
-            href="<?php echo site_url('home/about');?>">About</a></li>
+            href="<?php echo site_url('home/about');?>">Tentang</a></li>
           <li><a class="list-group-item list-group-item-action"
-            href="<?php echo site_url('home/teachers');?>">Teachers </a></li>
+            href="<?php echo site_url('home/teachers');?>">Guru</a></li>
           <li><a class="list-group-item list-group-item-action"
-            href="<?php echo site_url('home/gallery');?>">Gallery </a></li>
+            href="<?php echo site_url('home/gallery');?>">Galeri</a></li>
         </ul>
         <!-- End List Group -->
       </div>
 
       <div class="col-sm-3 col-lg-2 order-sm-3 mb-4 mb-sm-0">
-        <h4 class="h6 font-weight-semi-bold">Resources</h4>
+        <h4 class="h6 font-weight-semi-bold">Sumber Daya</h4>
 
         <!-- List Group -->
         <ul class="list-group list-group-flush list-group-borderless mb-0">
           <li><a class="list-group-item list-group-item-action"
-            href="<?php echo site_url('home/terms_conditions');?>">Terms & Conditions</a></li>
+            href="<?php echo site_url('home/terms_conditions');?>">Syarat & Ketentuan</a></li>
           <li><a class="list-group-item list-group-item-action"
-            href="<?php echo site_url('home/privacy_policy');?>">Privacy Policy</a></li>
+            href="<?php echo site_url('home/privacy_policy');?>">Kebijakan Privasi</a></li>
           <!-- <li><a class="list-group-item list-group-item-action" target="_blank"
             href="<?php echo site_url('login');?>">Login</a></li> -->
         </ul>
