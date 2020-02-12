@@ -1,7 +1,7 @@
 <a href="javascript:;" onclick="showAjaxModal('<?php echo site_url('modal/popup/accountant_add');?>');"
     class="btn btn-primary pull-right">
         <i class="entypo-plus-circled"></i>
-        <?php echo get_phrase('add_new_accountant');?>
+        <?php echo get_phrase('tambah_keuangan_baru');?>
 </a>
 <br><br>
 
@@ -9,7 +9,7 @@
     <thead>
         <tr>
             <th style="width: 60px;">#</th>
-            <th><div><?php echo get_phrase('name');?></div></th>
+            <th><div><?php echo get_phrase('nama');?></div></th>
             <th><div><?php echo get_phrase('email').'/'.get_phrase('username');?></div></th>
             <th><div><?php echo get_phrase('aksi');?></div></th>
         </tr>

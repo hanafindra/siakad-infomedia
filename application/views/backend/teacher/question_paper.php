@@ -13,7 +13,7 @@
             <th><?php echo get_phrase('kelas');?></th>
             <th><?php echo get_phrase('ujian');?></th>
             <th><?php echo get_phrase('guru');?></th>
-            <th><?php echo get_phrase('options');?></th>
+            <th><?php echo get_phrase('aksi');?></th>
         </tr>
     </thead>
 

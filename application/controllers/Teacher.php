@@ -204,7 +204,7 @@ class Teacher extends CI_Controller
             'year' => $this->db->get_where('settings' , array('type' => 'running_year'))->row()->description
         ))->result_array();
         $page_data['page_name']  = 'subject';
-        $page_data['page_title'] = get_phrase('kelola_matapelajaran');
+        $page_data['page_title'] = get_phrase('mata_pelajaran');
         $this->load->view('backend/index', $page_data);
     }
 

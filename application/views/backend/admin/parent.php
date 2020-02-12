@@ -8,10 +8,10 @@
                <table class="table table-bordered" id="parents">
                     <thead>
                         <tr>
-                            <th width="60"><div><?php echo get_phrase('parent_id');?></div></th>
+                            <th width="60"><div><?php echo get_phrase('id_wali_murid');?></div></th>
                             <th><div><?php echo get_phrase('nama');?></div></th>
                             <th><div><?php echo get_phrase('email').'/'.get_phrase('username');?></div></th>
-                            <th><div><?php echo get_phrase('phone');?></div></th>
+                            <th><div><?php echo get_phrase('telepon');?></div></th>
                             <th><div><?php echo get_phrase('profesi');?></div></th>
                             <th><div><?php echo get_phrase('aksi');?></div></th>
                         </tr>

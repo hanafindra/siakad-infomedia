@@ -85,7 +85,7 @@ foreach ($edit_data as $row):
 					</div>
 
 					<div class="form-group">
-						<label for="field-2" class="col-sm-3 control-label"><?php echo get_phrase('orang_tua');?></label>
+						<label for="field-2" class="col-sm-3 control-label"><?php echo get_phrase('wali_murid');?></label>
                         
 						<div class="col-sm-5">
 							<select name="parent_id" class="form-control select2" data-validate="required" data-message-required="<?php echo get_phrase('yang_anda_masukkan_benar');?>">

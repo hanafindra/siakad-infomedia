@@ -14,7 +14,7 @@
 							$exams = $this->db->get_where('exam' , array('year' => $running_year))->result_array();
 							foreach($exams as $row):
 						?>
-						<option value="<?php echo $row['exam_id'];?>"><?php echo $row['name'];?></option>
+						<option value="<?php echo $row['exam_id'];?>"><?php echo $row['nama'];?></option>
 						<?php endforeach;?>
 					</select>
 				</div>

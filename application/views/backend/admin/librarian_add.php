@@ -13,10 +13,10 @@
                 <?php echo form_open(site_url('admin/librarian/create') , array('class' => 'form-horizontal form-groups-bordered validate', 'enctype' => 'multipart/form-data'));?>
 
 					<div class="form-group">
-						<label for="field-1" class="col-sm-3 control-label"><?php echo get_phrase('name');?></label>
+						<label for="field-1" class="col-sm-3 control-label"><?php echo get_phrase('nama');?></label>
 
 						<div class="col-sm-5">
-							<input type="text" class="form-control" name="name" data-validate="required" data-message-required="<?php echo get_phrase('value_required');?>"  autofocus
+							<input type="text" class="form-control" name="name" data-validate="required" data-message-required="<?php echo get_phrase('nilia_benar');?>"  autofocus
                             	value="">
 						</div>
 					</div>
@@ -24,7 +24,7 @@
 					<div class="form-group">
 						<label for="field-1" class="col-sm-3 control-label"><?php echo get_phrase('email').'/'.get_phrase('username');?></label>
 						<div class="col-sm-5">
-							<input type="text" class="form-control" name="email" value="" data-validate="required" data-message-required="<?php echo get_phrase('value_required');?>">
+							<input type="text" class="form-control" name="email" value="" data-validate="required" data-message-required="<?php echo get_phrase('nilia_benar');?>">
 						</div>
 					</div>
 
@@ -32,13 +32,13 @@
 						<label for="field-2" class="col-sm-3 control-label"><?php echo get_phrase('password');?></label>
 
 						<div class="col-sm-5">
-							<input type="password" class="form-control" name="password" value="" data-validate="required" data-message-required="<?php echo get_phrase('value_required');?>">
+							<input type="password" class="form-control" name="password" value="" data-validate="required" data-message-required="<?php echo get_phrase('nilia_benar');?>">
 						</div>
 					</div>
 
                     <div class="form-group">
 						<div class="col-sm-offset-3 col-sm-5">
-							<button type="submit" class="btn btn-info"><?php echo get_phrase('submit');?></button>
+							<button type="submit" class="btn btn-info"><?php echo get_phrase('simpan');?></button>
 						</div>
 					</div>
 

@@ -16,24 +16,24 @@ foreach($edit_data as $row) { ?>
 	                <?php echo form_open(site_url('admin/accountant/edit/' . $param2), array('class' => 'form-horizontal form-groups-bordered validate', 'enctype' => 'multipart/form-data'));?>
 
 						<div class="form-group">
-							<label for="field-1" class="col-sm-3 control-label"><?php echo get_phrase('name');?></label>
+							<label for="field-1" class="col-sm-3 control-label"><?php echo get_phrase('nama');?></label>
 
 							<div class="col-sm-5">
-								<input type="text" class="form-control" name="name" data-validate="required" data-message-required="<?php echo get_phrase('value_required');?>"  autofocus
-	                            	value="<?php echo $row['name']; ?>" data-validate="required" data-message-required="<?php echo get_phrase('value_required');?>">
+								<input type="text" class="form-control" name="name" data-validate="required" data-message-required="<?php echo get_phrase('nilai_benar');?>"  autofocus
+	                            	value="<?php echo $row['name']; ?>" data-validate="required" data-message-required="<?php echo get_phrase('nilai_benar');?>">
 							</div>
 						</div>
 
 						<div class="form-group">
 							<label for="field-1" class="col-sm-3 control-label"><?php echo get_phrase('email').'/'.get_phrase('username');?></label>
 							<div class="col-sm-5">
-								<input type="text" class="form-control" name="email" value="<?php echo $row['email']; ?>" data-validate="required" data-message-required="<?php echo get_phrase('value_required');?>">
+								<input type="text" class="form-control" name="email" value="<?php echo $row['email']; ?>" data-validate="required" data-message-required="<?php echo get_phrase('nilai_benar');?>">
 							</div>
 						</div>
 
 	                    <div class="form-group">
 							<div class="col-sm-offset-3 col-sm-5">
-								<button type="submit" class="btn btn-info"><?php echo get_phrase('update');?></button>
+								<button type="submit" class="btn btn-info"><?php echo get_phrase('perbarui');?></button>
 							</div>
 						</div>
 

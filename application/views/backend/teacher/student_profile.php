@@ -54,7 +54,7 @@
 			<li class="">
 				<a href="#tab2" data-toggle="tab" class="btn btn-default">
 					<span class="visible-xs"><i class="entypo-user"></i></span>
-					<span class="hidden-xs"><?php echo get_phrase('informasi_orangtua'); ?></span>
+					<span class="hidden-xs"><?php echo get_phrase('informasi_wali_murid'); ?></span>
 				</a>
 			</li>
 			<li class="">
@@ -80,7 +80,7 @@
 		<div class="tab-content">
 			<div class="tab-pane active" id="tab1">
         <?php
-          $basic_info_titles = ['nama','orangtua', 'kelas', 'bagian', 'email', 'telepon', 'alamat', 'jenis kelamin', 'tanggal lahir', 'transportasi', 'asrama'];
+          $basic_info_titles = ['nama','wali_murid', 'kelas', 'bagian', 'email', 'telepon', 'alamat', 'jenis kelamin', 'tanggal lahir', 'transportasi', 'asrama'];
           $basic_info_values = [$row['name'], $row['parent_id'] == NULL ? '' : $this->db->get_where('parent', array('parent_id' => $row['parent_id']))->row()->name,
           $class_name, $section_name, $row['email'], $row['phone'] == NULL ? '' : $row['phone'], $row['address'] == NULL ? '' : $row['address'], $row['sex'] == NULL ? '' : $row['sex'], $row['birthday'],
           $row['transport_id'] == NULL ? '' : $this->db->get_where('transport', array('transport_id' => $row['transport_id']))->row()->route_name,
@@ -234,7 +234,7 @@
                <th><?php echo get_phrase('judul'); ?></th>
                <th><?php echo get_phrase('jumlah'); ?></th>
                <th><?php echo get_phrase('tanggal'); ?></th>
-               <th><?php echo get_phrase('pilihan'); ?></th>
+               <th><?php echo get_phrase('aksi'); ?></th>
              </tr>
            </thead>
            <tbody>

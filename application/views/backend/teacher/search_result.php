@@ -10,7 +10,7 @@
                   <th><div><?php echo get_phrase('nama');?></div></th>
                   <th class="span3"><div><?php echo get_phrase('alamat');?></div></th>
                   <th><div><?php echo get_phrase('email').'/'.get_phrase('username');?></div></th>
-                  <th><div><?php echo get_phrase('pilihan');?></div></th>
+                  <th><div><?php echo get_phrase('aksi');?></div></th>
               </tr>
           </thead>
           <tbody>

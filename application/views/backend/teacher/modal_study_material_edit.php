@@ -49,7 +49,7 @@ foreach ($single_study_material_info as $row) {
 
                             <div class="col-sm-5">
                                 <select name="class_id" class="form-control selectboxit" id="class_id" onchange="return get_class_subject(this.value)">
-                                    <option value=""><?php echo get_phrase('select_class'); ?></option>
+                                    <option value=""><?php echo get_phrase('pilih_kelas'); ?></option>
                                     <?php foreach ($class_info as $row2) { ?>
                                         <option value="<?php echo $row2['class_id']; ?>" <?php if ($row['class_id'] == $row2['class_id']) echo 'selected'; ?>>
                                             <?php echo $row2['name']; ?>

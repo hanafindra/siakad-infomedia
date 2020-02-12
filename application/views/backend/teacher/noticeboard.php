@@ -21,7 +21,7 @@
                     <th><div><?php echo get_phrase('judul'); ?></div></th>
                     <th><div><?php echo get_phrase('pemberitahuan'); ?></div></th>
                     <th><div><?php echo get_phrase('tanggal'); ?></div></th>
-                    <th><div></div></th>
+                    <th><div><?php echo get_phrase('aksi'); ?></div></th>
                     </tr>
                     </thead>
                     <tbody>
@@ -37,7 +37,7 @@
                                 <td>
                                     <a href="#" onclick="showAjaxModal('<?php echo site_url('modal/popup/modal_view_notice/'.$row['notice_id']); ?>');"
                                        class="btn btn-default">
-                                        <?php echo get_phrase('view_notice'); ?>
+                                        <?php echo get_phrase('lihat_pengumuman'); ?>
                                     </a>
                                 </td>
 
