@@ -37,7 +37,7 @@
 				</div>
 				<div class="row">
 					<div class="col-md-offset-4 col-md-4" style="padding: 15px;">
-						<button type="button" class="btn btn-primary" name="generate_csv" id="generate_csv"><?php echo get_phrase('generate_').'CSV '.get_phrase('file'); ?></button>
+						<button type="button" class="btn btn-primary" name="generate_csv" id="generate_csv"><?php echo get_phrase('dapatkan_').'CSV '.get_phrase('file'); ?></button>
 					</div>
 					<div class="col-md-offset-4 col-md-4" style="padding-bottom:15px;">
 					<input type="file" name="userfile" class="form-control file2 inline btn btn-info" data-label="<i class='entypo-tag'></i> Pilih File CSV"

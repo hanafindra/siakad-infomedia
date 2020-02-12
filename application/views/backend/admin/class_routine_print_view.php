@@ -18,8 +18,8 @@
 	<center>
 		<img src="<?php echo base_url(); ?>uploads/logo.png" style="max-height : 60px;"><br>
 		<h3 style="font-weight: 100;"><?php echo $system_name;?></h3>
-		<?php echo get_phrase('class_routine');?><br>
-		<?php echo get_phrase('class') . ' ' . $class_name;?> : <?php echo get_phrase('section');?> <?php echo $section_name;?><br>
+		<?php echo get_phrase('rutinitas_kelas');?><br>
+		<?php echo get_phrase('kelas') . ' ' . $class_name;?> : <?php echo get_phrase('bagian');?> <?php echo $section_name;?><br>
 	</center>
     <br>
 	<table style="width:100%; border-collapse:collapse;border: 1px solid #eee; margin-top: 10px;" border="1">
@@ -27,13 +27,13 @@
             <?php 
                 for($d=1;$d<=7;$d++):
                 
-                if($d==1)$day='sunday';
-                else if($d==2)$day='monday';
-                else if($d==3)$day='tuesday';
-                else if($d==4)$day='wednesday';
-                else if($d==5)$day='thursday';
-                else if($d==6)$day='friday';
-                else if($d==7)$day='saturday';
+                if($d==1)$day='ahad';
+                else if($d==2)$day='senin';
+                else if($d==3)$day='selasa';
+                else if($d==4)$day='rabu';
+                else if($d==5)$day='kamis';
+                else if($d==6)$day='jumat';
+                else if($d==7)$day='sabtu';
                 ?>
                 <tr>
                     <td width="100"><?php echo strtoupper($day);?></td>

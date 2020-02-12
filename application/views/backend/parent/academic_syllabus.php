@@ -56,7 +56,7 @@
                     <td align="center">
                         <a class="btn btn-default btn-xs"
                            href="<?php echo site_url('parents/download_academic_syllabus/'.$row['academic_syllabus_code']); ?>">
-                            <i class="entypo-download"></i> <?php echo get_phrase('download'); ?>
+                            <i class="entypo-download"></i> <?php echo get_phrase('unduh'); ?>
                         </a>
                     </td>
                 </tr>
