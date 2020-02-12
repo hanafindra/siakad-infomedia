@@ -3,7 +3,7 @@
     <div class="panel panel-primary" >
       <div class="panel-heading">
           <div class="panel-title">
-              <?php echo 'SMTP'.' '.get_phrase('settings');?>
+              <?php echo 'SMTP'.' '.get_phrase('pengaturan');?>
           </div>
       </div>
       <div class="panel-body">
@@ -41,7 +41,7 @@
 
           <?php if($smtp_settings['type'] == 'smtp_user'): ?>
             <div class="form-group">
-              <label  class="col-sm-3 control-label text-right"><?php echo 'SMTP'.' '.get_phrase('username');?></label>
+              <label  class="col-sm-3 control-label text-right"><?php echo 'SMTP'.' '.get_phrase('nama_user');?></label>
               <div class="col-sm-9" style="margin-bottom: 15px;">
                   <input type="text" class="form-control" name="smtp_user"
                       value="<?php echo $smtp_settings['description']; ?>">

@@ -5,11 +5,11 @@
 		<ul class="nav nav-tabs bordered">
 			<li class="active">
             	<a href="#list" data-toggle="tab"><i class="entypo-menu"></i> 
-					<?php echo get_phrase('invoice/payment_list');?>
+					<?php echo get_phrase('daftar_biaya/pembayaran');?>
                     	</a></li>
 			<li>
             	<a href="#add" data-toggle="tab"><i class="entypo-plus-circled"></i>
-					<?php echo get_phrase('add_invoice/payment');?>
+					<?php echo get_phrase('tambah_biaya/pembayaran');?>
                     	</a></li>
 		</ul>
     	<!------CONTROL TABS END------>
@@ -20,13 +20,13 @@
                 <table  class="table table-bordered datatable" id="table_export">
                 	<thead>
                 		<tr>
-                    		<th><div><?php echo get_phrase('student');?></div></th>
-                    		<th><div><?php echo get_phrase('title');?></div></th>
+                    		<th><div><?php echo get_phrase('siswa');?></div></th>
+                    		<th><div><?php echo get_phrase('judul');?></div></th>
                             <th><div><?php echo get_phrase('total');?></div></th>
-                            <th><div><?php echo get_phrase('paid');?></div></th>
+                            <th><div><?php echo get_phrase('pembayaran');?></div></th>
                     		<th><div><?php echo get_phrase('status');?></div></th>
-                    		<th><div><?php echo get_phrase('date');?></div></th>
-                    		<th><div><?php echo get_phrase('options');?></div></th>
+                    		<th><div><?php echo get_phrase('tanggal');?></div></th>
+                    		<th><div><?php echo get_phrase('aksi');?></div></th>
 						</tr>
 					</thead>
                     <tbody>
@@ -52,7 +52,7 @@
                                     <li>
                                         <a href="#" onclick="showAjaxModal('<?php echo site_url('modal/popup/modal_take_payment/'.$row['invoice_id']);?>');">
                                             <i class="entypo-bookmarks"></i>
-                                                <?php echo get_phrase('take_payment');?>
+                                                <?php echo get_phrase('ambil_pembayaran');?>
                                         </a>
                                     </li>
                                     <li class="divider"></li>
@@ -62,7 +62,7 @@
                                     <li>
                                         <a href="#" onclick="showAjaxModal('<?php echo site_url('modal/popup/modal_view_invoice/'.$row['invoice_id']);?>');">
                                             <i class="entypo-credit-card"></i>
-                                                <?php echo get_phrase('view_invoice');?>
+                                                <?php echo get_phrase('lihat_faktur');?>
                                             </a>
                                                     </li>
                                     <li class="divider"></li>
@@ -80,7 +80,7 @@
                                     <li>
                                         <a href="#" onclick="confirm_modal('<?php echo site_url('accountant/invoice/delete/'.$row['invoice_id']);?>');">
                                             <i class="entypo-trash"></i>
-                                                <?php echo get_phrase('delete');?>
+                                                <?php echo get_phrase('hapus');?>
                                             </a>
                                                     </li>
                                 </ul>
@@ -101,12 +101,12 @@
                     <div class="col-md-6">
                         <div class="panel panel-default panel-shadow" data-collapsed="0">
                             <div class="panel-heading">
-                                <div class="panel-title"><?php echo get_phrase('invoice_informations');?></div>
+                                <div class="panel-title"><?php echo get_phrase('informasi_faktur');?></div>
                             </div>
                             <div class="panel-body">
                                 
                                 <div class="form-group">
-                                    <label class="col-sm-3 control-label"><?php echo get_phrase('student');?></label>
+                                    <label class="col-sm-3 control-label"><?php echo get_phrase('siswa');?></label>
                                     <div class="col-sm-9">
                                         <select name="student_id" class="form-control" style="" >
                                             <?php 
@@ -127,20 +127,20 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label class="col-sm-3 control-label"><?php echo get_phrase('title');?></label>
+                                    <label class="col-sm-3 control-label"><?php echo get_phrase('judul');?></label>
                                     <div class="col-sm-9">
                                         <input type="text" class="form-control" name="title"/>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-sm-3 control-label"><?php echo get_phrase('description');?></label>
+                                    <label class="col-sm-3 control-label"><?php echo get_phrase('deskripsi');?></label>
                                     <div class="col-sm-9">
                                         <input type="text" class="form-control" name="description"/>
                                     </div>
                                 </div>
 
                                 <div class="form-group">
-                                    <label class="col-sm-3 control-label"><?php echo get_phrase('date');?></label>
+                                    <label class="col-sm-3 control-label"><?php echo get_phrase('tanggal');?></label>
                                     <div class="col-sm-9">
                                         <input type="text" class="datepicker form-control" name="date"/>
                                     </div>
@@ -152,7 +152,7 @@
                     <div class="col-md-6">
                         <div class="panel panel-default panel-shadow" data-collapsed="0">
                             <div class="panel-heading">
-                                <div class="panel-title"><?php echo get_phrase('payment_informations');?></div>
+                                <div class="panel-title"><?php echo get_phrase('informasi_pembayaran');?></div>
                             </div>
                             <div class="panel-body">
                                 
@@ -160,15 +160,15 @@
                                     <label class="col-sm-3 control-label"><?php echo get_phrase('total');?></label>
                                     <div class="col-sm-9">
                                         <input type="text" class="form-control" name="amount"
-                                            placeholder="<?php echo get_phrase('enter_total_amount');?>"/>
+                                            placeholder="<?php echo get_phrase('masukkan_total_pembayaran');?>"/>
                                     </div>
                                 </div>
 
                                 <div class="form-group">
-                                    <label class="col-sm-3 control-label"><?php echo get_phrase('payment');?></label>
+                                    <label class="col-sm-3 control-label"><?php echo get_phrase('pembayaran');?></label>
                                     <div class="col-sm-9">
                                         <input type="text" class="form-control" name="amount_paid"
-                                            placeholder="<?php echo get_phrase('enter_payment_amount');?>"/>
+                                            placeholder="<?php echo get_phrase('masukkan_total_pembayaran');?>"/>
                                     </div>
                                 </div>
 
@@ -176,19 +176,19 @@
                                     <label class="col-sm-3 control-label"><?php echo get_phrase('status');?></label>
                                     <div class="col-sm-9">
                                         <select name="status" class="form-control">
-                                            <option value="paid"><?php echo get_phrase('paid');?></option>
-                                            <option value="unpaid"><?php echo get_phrase('unpaid');?></option>
+                                            <option value="paid"><?php echo get_phrase('sudah_bayar');?></option>
+                                            <option value="unpaid"><?php echo get_phrase('belum_bayar');?></option>
                                         </select>
                                     </div>
                                 </div>
 
                                 <div class="form-group">
-                                    <label class="col-sm-3 control-label"><?php echo get_phrase('method');?></label>
+                                    <label class="col-sm-3 control-label"><?php echo get_phrase('metode_pembayaran');?></label>
                                     <div class="col-sm-9">
                                         <select name="method" class="form-control">
-                                            <option value="1"><?php echo get_phrase('cash');?></option>
-                                            <option value="2"><?php echo get_phrase('check');?></option>
-                                            <option value="3"><?php echo get_phrase('card');?></option>
+                                            <option value="1"><?php echo get_phrase('tunai');?></option>
+                                            <option value="2"><?php echo get_phrase('cek');?></option>
+                                            <option value="3"><?php echo get_phrase('kartu_kredit');?></option>
                                         </select>
                                     </div>
                                 </div>
@@ -197,7 +197,7 @@
                         </div>
                         <div class="form-group">
                             <div class="col-sm-5">
-                                <button type="submit" class="btn btn-info"><?php echo get_phrase('add_invoice');?></button>
+                                <button type="submit" class="btn btn-info"><?php echo get_phrase('tambah_faktur');?></button>
                             </div>
                         </div>
                     </div>
