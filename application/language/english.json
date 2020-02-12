@@ -886,5 +886,20 @@
     "password_updated": "Password updated",
     "data_berhasil_ditambahkan": "Data berhasil ditambahkan",
     "ubah_profil": "Ubah profil",
-    "keluar": "Keluar"
+    "keluar": "Keluar",
+    "nilai_siswa": "Nilai siswa",
+    "total_nilai": "Total nilai",
+    "nilai_ratarata": "Nilai ratarata",
+    "edit_profil": "Edit profil",
+    "ubah_profile": "Ubah profile",
+    "ganti_password": "Ganti password",
+    "dashboard_guru": "Dashboard guru",
+    "informasi_siswa": "Informasi siswa",
+    "bahan_pengajar": "Bahan pengajar",
+    "presensi_kehadiran": "Presensi kehadiran",
+    "kelola_nilai": "Kelola nilai",
+    "perpustakaan": "Perpustakaan",
+    "transportasi": "Transportasi",
+    "pengumuman": "Pengumuman",
+    "jadwal_kegiatan": "Jadwal kegiatan"
 }
