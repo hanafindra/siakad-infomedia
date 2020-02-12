@@ -9,10 +9,10 @@
                     <thead>
                         <tr>
                             <th width="60"><div><?php echo get_phrase('id');?></div></th>
-                            <th width="80"><div><?php echo get_phrase('photo');?></div></th>
-                            <th><div><?php echo get_phrase('name');?></div></th>
+                            <th width="80"><div><?php echo get_phrase('foto');?></div></th>
+                            <th><div><?php echo get_phrase('nama');?></div></th>
                             <th><div><?php echo get_phrase('email').'/'.get_phrase('username');?></div></th>
-                            <th><div><?php echo get_phrase('phone');?></div></th>
+                            <th><div><?php echo get_phrase('telepon');?></div></th>
                             <th><div><?php echo get_phrase('aksi');?></div></th>
                         </tr>
                     </thead>

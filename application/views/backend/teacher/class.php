@@ -25,7 +25,7 @@
                     		<th><div><?php echo get_phrase('nama_kelas');?></div></th>
                     		<th><div><?php echo get_phrase('nomor');?></div></th>
                     		<th><div><?php echo get_phrase('guru');?></div></th>
-                    		<th><div><?php echo get_phrase('pilihan');?></div></th>
+                    		<th><div><?php echo get_phrase('aksi');?></div></th>
 						</tr>
 					</thead>
                     <tbody>

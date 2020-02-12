@@ -42,7 +42,7 @@
 									<th><?php echo get_phrase('unggah');?></th>
 									<th><?php echo get_phrase('tanggal');?></th>
 									<th><?php echo get_phrase('berkas');?></th>
-									<th></th>
+									<th><?php echo get_phrase('aksi');?></th>
 								</tr>
 							</thead>
 							<tbody>
@@ -79,7 +79,7 @@
 									<td align="center">
 										<a class="btn btn-default btn-xs"
 											href="<?php echo site_url('teacher/download_academic_syllabus/'.$row['academic_syllabus_code']);?>">
-											<i class="entypo-download"></i> <?php echo get_phrase('download');?>
+											<i class="entypo-download"></i> <?php echo get_phrase('unduh');?>
 										</a>
 									</td>
 								</tr>

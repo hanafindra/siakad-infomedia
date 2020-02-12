@@ -38,7 +38,7 @@
 
                 <?php endforeach; ?>
             </optgroup>
-            <optgroup label="<?php echo get_phrase('orang_tua'); ?>">
+            <optgroup label="<?php echo get_phrase('wali_murid'); ?>">
                 <?php
                 $parents = $this->db->get('parent')->result_array();
                 foreach ($parents as $row):

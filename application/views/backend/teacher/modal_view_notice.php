@@ -4,7 +4,7 @@ foreach ($edit_data as $row):
 ?>
 <center>
     <a onClick="PrintElem('#notice_print')" class="btn btn-default btn-icon icon-left hidden-print pull-right">
-        Print Notice
+        Print Pengumuman
         <i class="entypo-print"></i>
     </a>
     
@@ -19,11 +19,11 @@ foreach ($edit_data as $row):
                 <div class="panel panel-primary" data-collapsed="0">
                         
                     <div class="panel-body">
-                        <b>Title</b>
+                        <b>Judul</b>
                         <p><?php echo $row['notice_title']; ?></p>
-                        <b>Notice</b>
+                        <b>Pemberitahuan</b>
                         <p><?php echo $row['notice'] ?></p>
-                        <b>Date</b>
+                        <b>Tanggal</b>
                         <p><?php echo date('d M Y',$row['create_timestamp']) ?></p>
                     </div>
                 </div>

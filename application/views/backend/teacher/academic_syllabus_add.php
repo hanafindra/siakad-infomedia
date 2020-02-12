@@ -20,7 +20,7 @@
                     <label class="col-sm-3 control-label"><?php echo get_phrase('judul'); ?></label>
                     <div class="col-sm-6">
                         <input type="text" class="form-control" name="title"
-                               data-validate="required" data-message-required="<?php echo get_phrase('value_required'); ?>"/>
+                               data-validate="required" data-message-required="<?php echo get_phrase('nilai_benar'); ?>"/>
                     </div>
                 </div>
 

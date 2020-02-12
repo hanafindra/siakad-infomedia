@@ -9,9 +9,9 @@
     <thead>
         <tr>
             <th style="width: 60px;">#</th>
-            <th><div><?php echo get_phrase('name');?></div></th>
+            <th><div><?php echo get_phrase('nama');?></div></th>
             <th><div><?php echo get_phrase('email').'/'.get_phrase('username');?></div></th>
-            <th><div><?php echo get_phrase('options');?></div></th>
+            <th><div><?php echo get_phrase('aksi');?></div></th>
         </tr>
     </thead>
     <tbody>

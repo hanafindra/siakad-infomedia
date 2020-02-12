@@ -84,7 +84,7 @@ foreach($student_info as $row):?>
                         </td>
                     </tr>
                     <tr>
-                        <td><?php echo get_phrase('orang_tua');?></td>
+                        <td><?php echo get_phrase('wali_murid');?></td>
                         <td>
                             <b>
                                 <?php 
@@ -95,7 +95,7 @@ foreach($student_info as $row):?>
                         </td>
                     </tr>
                     <tr>
-                        <td><?php echo get_phrase('telepon_orang_tua');?></td>
+                        <td><?php echo get_phrase('telepon_wali_murid');?></td>
                         <td><b><?php echo $this->db->get_where('parent' , array('parent_id' => $parent_id))->row()->phone;?></b></td>
                     </tr>
                     

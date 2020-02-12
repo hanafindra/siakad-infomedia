@@ -4,34 +4,34 @@
                     <?php echo form_open(site_url('admin/teacher/do_update/'.$row['teacher_id']) , array('class' => 'form-horizontal form-groups-bordered validate','target'=>'_top', 'enctype' => 'multipart/form-data'));?>
                         <div class="padded">
                             <div class="form-group">
-                                <label class="col-sm-3 control-label"><?php echo get_phrase('name');?></label>
+                                <label class="col-sm-3 control-label"><?php echo get_phrase('nama');?></label>
                                 <div class="col-sm-5">
                                     <input type="text" class="validate[required]" name="name" value="<?php echo $row['name'];?>"/>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-sm-3 control-label"><?php echo get_phrase('birthday');?></label>
+                                <label class="col-sm-3 control-label"><?php echo get_phrase('tanggal_lahir');?></label>
                                 <div class="col-sm-5">
                                     <input type="text" class="datepicker fill-up" name="birthday" value="<?php echo $row['birthday'];?>"/>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-sm-3 control-label"><?php echo get_phrase('sex');?></label>
+                                <label class="col-sm-3 control-label"><?php echo get_phrase('jenis_kelamin');?></label>
                                 <div class="col-sm-5">
                                     <select name="sex" class="uniform" style="width:100%;">
-                                    	<option value="male" <?php if($row['sex'] == 'male')echo 'selected';?>><?php echo get_phrase('male');?></option>
-                                    	<option value="female" <?php if($row['sex'] == 'female')echo 'selected';?>><?php echo get_phrase('female');?></option>
+                                    	<option value="male" <?php if($row['sex'] == 'male')echo 'selected';?>><?php echo get_phrase('laki-laki');?></option>
+                                    	<option value="female" <?php if($row['sex'] == 'female')echo 'selected';?>><?php echo get_phrase('perempuan');?></option>
                                     </select>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-sm-3 control-label"><?php echo get_phrase('address');?></label>
+                                <label class="col-sm-3 control-label"><?php echo get_phrase('alamat');?></label>
                                 <div class="col-sm-5">
                                     <input type="text" class="" name="address" value="<?php echo $row['address'];?>"/>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-sm-3 control-label"><?php echo get_phrase('phone');?></label>
+                                <label class="col-sm-3 control-label"><?php echo get_phrase('telepon');?></label>
                                 <div class="col-sm-5">
                                     <input type="text" class="" name="phone" value="<?php echo $row['phone'];?>"/>
                                 </div>
@@ -44,7 +44,7 @@
                             </div>
                             
                             <div class="form-group">
-                                <label class="col-sm-3 control-label"><?php echo get_phrase('photo');?></label>
+                                <label class="col-sm-3 control-label"><?php echo get_phrase('foto');?></label>
                                 <div class="controls" style="width:210px;">
                                     <input type="file" class="" name="userfile" id="imgInp" />
                                 </div>
@@ -57,7 +57,7 @@
                             </div>
                         </div>
                         <div class="form-actions">
-                            <button type="submit" class="btn btn-gray"><?php echo get_phrase('edit_teacher');?></button>
+                            <button type="submit" class="btn btn-gray"><?php echo get_phrase('ubah_guru');?></button>
                         </div>
                     </form>
                     <?php endforeach;?>

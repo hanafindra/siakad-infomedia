@@ -14,7 +14,7 @@
             <th><?php echo get_phrase('kelas');?></th>
             <th><?php echo get_phrase('mata_pelajaran');?></th>
             <th><?php echo get_phrase('unduh');?></th>
-            <th><?php echo get_phrase('options');?></th>
+            <th><?php echo get_phrase('aksi');?></th>
         </tr>
     </thead>
 
@@ -38,7 +38,7 @@
                 <td>
                     <a href="<?php echo site_url().'uploads/document/'.$row['file_name']; ?>" class="btn btn-blue btn-icon icon-left">
                         <i class="entypo-download"></i>
-                        <?php echo get_phrase('download');?>
+                        <?php echo get_phrase('unduh');?>
                     </a>
                 </td>
                 <td>

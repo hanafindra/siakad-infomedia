@@ -57,7 +57,7 @@ $running_year = $this->db->get_where('settings' , array('type'=>'running_year'))
 			<li class="">
 				<a href="#tab2" data-toggle="tab" class="btn btn-default">
 					<span class="visible-xs"><i class="entypo-user"></i></span>
-					<span class="hidden-xs"><?php echo get_phrase('informasi_orang_tua'); ?></span>
+					<span class="hidden-xs"><?php echo get_phrase('informasi_wali_murid'); ?></span>
 				</a>
 			</li>
 			<li class="">
