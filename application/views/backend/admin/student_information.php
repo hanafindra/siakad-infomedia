@@ -39,11 +39,11 @@
                     <thead>
                         <tr>
                             <th width="80"><div><?php echo get_phrase('id_no');?></div></th>
-                            <th width="80"><div><?php echo get_phrase('photo');?></div></th>
-                            <th><div><?php echo get_phrase('name');?></div></th>
-                            <th class="span3"><div><?php echo get_phrase('address');?></div></th>
-                            <th><div><?php echo get_phrase('email').'/'.get_phrase('username');?></div></th>
-                            <th><div><?php echo get_phrase('options');?></div></th>
+                            <th width="80"><div><?php echo get_phrase('foto');?></div></th>
+                            <th><div><?php echo get_phrase('nama');?></div></th>
+                            <th class="span3"><div><?php echo get_phrase('alamat');?></div></th>
+                            <th><div><?php echo get_phrase('email').'/'.get_phrase('nama_pengguna');?></div></th>
+                            <th><div><?php echo get_phrase('pilihan');?></div></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -90,7 +90,7 @@
                                         <li>
                                             <a href="<?php echo site_url('admin/student_marksheet/'.$row['student_id']);?>">
                                                 <i class="entypo-chart-bar"></i>
-                                                    <?php echo get_phrase('mark_sheet');?>
+                                                    <?php echo get_phrase('lembar_penilaian');?>
                                                 </a>
                                         </li>
 
@@ -99,7 +99,7 @@
                                         <li>
                                             <a href="<?php echo site_url('admin/student_profile/'.$row['student_id']);?>">
                                                 <i class="entypo-user"></i>
-                                                    <?php echo get_phrase('profile');?>
+                                                    <?php echo get_phrase('profil');?>
                                                 </a>
                                         </li>
 
@@ -113,7 +113,7 @@
                                         <li>
                                             <a href="#" onclick="showAjaxModal('<?php echo site_url('modal/popup/student_id/'.$row['student_id']);?>');">
                                                 <i class="entypo-vcard"></i>
-                                                <?php echo get_phrase('generate_id');?>
+                                                <?php echo get_phrase('id_yang_dihasilkan');?>
                                             </a>
                                         </li>
 
@@ -121,7 +121,7 @@
                                         <li>
                                           <a href="#" onclick="confirm_modal('<?php echo site_url('admin/delete_student/'.$row['student_id'].'/'.$class_id);?>');">
                                             <i class="entypo-trash"></i>
-                                              <?php echo get_phrase('delete');?>
+                                              <?php echo get_phrase('hapus');?>
                                           </a>
                                         </li>
                                     </ul>
@@ -146,11 +146,11 @@
                     <thead>
                         <tr>
                             <th width="80"><div><?php echo get_phrase('id_no');?></div></th>
-                            <th width="80"><div><?php echo get_phrase('photo');?></div></th>
-                            <th><div><?php echo get_phrase('name');?></div></th>
-                            <th class="span3"><div><?php echo get_phrase('address');?></div></th>
-                            <th><div><?php echo get_phrase('email').'/'.get_phrase('username');?></div></th>
-                            <th><div><?php echo get_phrase('options');?></div></th>
+                            <th width="80"><div><?php echo get_phrase('foto');?></div></th>
+                            <th><div><?php echo get_phrase('nama');?></div></th>
+                            <th class="span3"><div><?php echo get_phrase('alamat');?></div></th>
+                            <th><div><?php echo get_phrase('email').'/'.get_phrase('nama_pengguna');?></div></th>
+                            <th><div><?php echo get_phrase('pilihan');?></div></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -197,7 +197,7 @@
                                         <li>
                                             <a href="<?php echo site_url('admin/student_marksheet/'.$row['student_id']);?>">
                                                 <i class="entypo-chart-bar"></i>
-                                                    <?php echo get_phrase('mark_sheet');?>
+                                                    <?php echo get_phrase('lembar_penilaian');?>
                                                 </a>
                                         </li>
 
@@ -205,13 +205,13 @@
                                         <li>
                                             <a href="#" onclick="showAjaxModal('<?php echo site_url('modal/popup/modal_student_profile/'.$row['student_id']);?>');">
                                                 <i class="entypo-user"></i>
-                                                    <?php echo get_phrase('profile');?>
+                                                    <?php echo get_phrase('profil');?>
                                                 </a>
                                         </li>
                                         <li>
                                             <a href="#" onclick="showAjaxModal('<?php echo site_url('modal/popup/student_id/'.$row['student_id']);?>');">
                                                 <i class="entypo-vcard"></i>
-                                                <?php echo get_phrase('generate_id');?>
+                                                <?php echo get_phrase('id_yang_dihasilkan');?>
                                             </a>
                                         </li>
 
