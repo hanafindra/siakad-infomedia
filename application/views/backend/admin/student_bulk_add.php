@@ -55,22 +55,24 @@
 		<blockquote class="blockquote-blue">
 			<p>
 				<strong>
-					Bulk student adding instruction
+					Intruksi Menambahkan Data Siswa Secara Massal
 				</strong>
 			</p>
 			<p>
 				<ol style="color: #ffffff;font-weight: 200;line-height: 1.5;font-size: 13px;padding-left: 15px;">
-					<li style="padding: 5px;"><?php echo get_phrase('at_first_select_the_class_and_section').'.'; ?></li>
-					<li style="padding: 5px;"><?php echo get_phrase('after_selecting_class_and_section_click_').'"Generate CSV File".'; ?></li>
-					<li style="padding: 5px;"><?php echo get_phrase('open_the_downloaded_').'"bulk_student.csv" File. '.get_phrase('enter_student_details_as_written_in_there_and_remember_take_the_parent_ID_from_parent_table').'.';?></li>
-					<li style="padding: 5px;"><?php echo get_phrase('save_the_edited_').'"bulk_student.csv" File.';?></li>
-					<li style="padding: 5px;"><?php echo get_phrase('click_the_').'"Select CSV File" '.get_phrase('and_choose_the_file_you_just_edited').'.';?></li>
-					<li style="padding: 5px;"><?php echo get_phrase('import_that_file.');?></li>
-					<li style="padding: 5px;"><?php echo get_phrase('hit_').'"Import CSV File".';?></li>
+					<li style="padding: 5px;"><?php echo get_phrase('
+					Pada_Pertama_Pilih_Kelas_Dan_Bagian').'.'; ?></li>
+					<li style="padding: 5px;"><?php echo get_phrase('setelah_memiliki_kelas_dan_bagian_klik_').'"dapatkan_CSV_file".'; ?></li>
+					<li style="padding: 5px;"><?php echo get_phrase('buka_file_').'"bulk student.csv" File. '.get_phrase('masukan_detail_siswa_seperti_ditulis_di_sana_dan_ingat_ambil_dari_tabel_induk').'.';?></li>
+					<li style="padding: 5px;"><?php echo get_phrase('simpan_yang_di_edit_').'"bulk student.csv" File.';?></li>
+					<li style="padding: 5px;"><?php echo get_phrase('klik_').'"pilih file CSV" '.get_phrase('dan_pilih_file_yang_baru_saja_di_edit').'.';?></li>
+					<li style="padding: 5px;"><?php echo get_phrase('impor_file.');?></li>
+					<li style="padding: 5px;"><?php echo get_phrase('tekan_').'"Import file CSV ".';?></li>
 				</ol>
 			</p>
 			<p style="font-weight: 500;">
-				***<?php echo get_phrase('this_system_keeps_track_of_duplication_in_email_ID.').' '.get_phrase('so_please_enter_unique_email_ID_for_every_student').'.'; ?>
+				***<?php echo get_phrase('sistem_ini_melacak_duplikasi_dalam_ID_email.').' '.get_phrase('
+					jadi_silakan_masukkan_ID_email_unik_untuk_setiap_siswa').'.'; ?>
 			</p>
 		</blockquote>
 	</div>

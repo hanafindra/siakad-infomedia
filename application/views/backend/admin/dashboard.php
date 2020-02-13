@@ -63,7 +63,7 @@
                     		data-postfix="" data-duration="500" data-delay="0">0</div>
 
                     <h3><?php echo get_phrase('wali_murid');?></h3>
-                   <p>Total parents</p>
+                   <p>Jumlah Wali Murid</p>
                 </div>
 
             </div>

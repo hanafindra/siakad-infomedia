@@ -57,11 +57,11 @@ class Admin extends CI_Controller
                 $validation = email_validation($data['email']);
                 if ($validation == 1) {
                     $this->db->insert('admin', $data);
-                    $this->session->set_flashdata('flash_message' , get_phrase('data_added_successfully'));
+                    $this->session->set_flashdata('flash_message' , get_phrase('data_berhasil_ditambahkan'));
                     $this->email_model->account_opening_email('admin', $data['email'], $this->input->post('password')); //SEND EMAIL ACCOUNT OPENING EMAIL
                 }
                 else{
-                    $this->session->set_flashdata('error_message' , get_phrase('this_email_id_is_not_available'));
+                    $this->session->set_flashdata('error_message' , get_phrase('id_email_ini_tidak_tersedia'));
                 }
 
                 redirect(site_url('admin/admin'), 'refresh');
@@ -77,10 +77,10 @@ class Admin extends CI_Controller
                 if($validation == 1){
                     $this->db->where('admin_id' , $param2);
                     $this->db->update('admin' , $data);
-                    $this->session->set_flashdata('flash_message' , get_phrase('data_updated'));
+                    $this->session->set_flashdata('flash_message' , get_phrase('data_diperbarui'));
                 }
                 else{
-                    $this->session->set_flashdata('error_message' , get_phrase('this_email_id_is_not_available'));
+                    $this->session->set_flashdata('error_message' , get_phrase('id_email_ini_tidak_tersedia'));
                 }
 
                 redirect(site_url('admin/admin'), 'refresh');
@@ -90,12 +90,12 @@ class Admin extends CI_Controller
                 $this->db->where('admin_id' , $param2);
                 $this->db->delete('admin');
 
-                $this->session->set_flashdata('flash_message' , get_phrase('data_deleted'));
+                $this->session->set_flashdata('flash_message' , get_phrase('data_dihapus'));
                 redirect(site_url('admin/admin'), 'refresh');
             }
 
 		$page_data['page_name']  = 'admin';
-		$page_data['page_title'] = get_phrase('Pengaturan Admin');
+		$page_data['page_title'] = get_phrase('pengaturan_admin');
 		$this->load->view('backend/index', $page_data);
     }
 
@@ -106,7 +106,7 @@ class Admin extends CI_Controller
             redirect(site_url('login'), 'refresh');
 
 		$page_data['page_name']  = 'student_add';
-		$page_data['page_title'] = get_phrase('Tambah Data Siswa');
+		$page_data['page_title'] = get_phrase('tambah_data_siswa');
 		$this->load->view('backend/index', $page_data);
 	}
 
@@ -115,7 +115,7 @@ class Admin extends CI_Controller
 		if ($this->session->userdata('admin_login') != 1)
             redirect(site_url('login'), 'refresh');
 		$page_data['page_name']  = 'student_bulk_add';
-		$page_data['page_title'] = get_phrase('tambah data siswa secara massal');
+		$page_data['page_title'] = get_phrase('tambah_data_siswa_secara_massal');
 		$this->load->view('backend/index', $page_data);
 	}
 
@@ -125,7 +125,7 @@ class Admin extends CI_Controller
       redirect(site_url('login'), 'refresh');
     }
     $page_data['page_name']  = 'student_profile';
-		$page_data['page_title'] = get_phrase('student_profile');
+		$page_data['page_title'] = get_phrase('profil_siswa');
     $page_data['student_id']  = $student_id;
 		$this->load->view('backend/index', $page_data);
   }
@@ -212,7 +212,7 @@ class Admin extends CI_Controller
         $student_name = $this->db->get_where('student' , array('student_id' => $student_id))->row()->name;
         $class_name   = $this->db->get_where('class' , array('class_id' => $class_id))->row()->name;
         $page_data['page_name']  =   'student_marksheet';
-        $page_data['page_title'] =   get_phrase('marksheet_for') . ' ' . $student_name . ' (' . get_phrase('class') . ' ' . $class_name . ')';
+        $page_data['page_title'] =   get_phrase('lembar_penilaian_untuk') . ' ' . $student_name . ' (' . get_phrase('kelas') . ' ' . $class_name . ')';
         $page_data['student_id'] =   $student_id;
         $page_data['class_id']   =   $class_id;
         $this->load->view('backend/index', $page_data);
@@ -260,7 +260,7 @@ class Admin extends CI_Controller
                 $data['student_code'] = html_escape($this->input->post('student_code'));
                 $code_validation = code_validation_insert(html_escape($data['student_code']));
                 if(!$code_validation) {
-                    $this->session->set_flashdata('error_message' , get_phrase('this_id_no_is_not_available'));
+                    $this->session->set_flashdata('error_message' , get_phrase('id_tidak_tersedia'));
                     redirect(site_url('admin/student_add'), 'refresh');
                 }
             }
@@ -299,11 +299,11 @@ class Admin extends CI_Controller
                 $this->db->insert('enroll', $data2);
                 move_uploaded_file($_FILES['userfile']['tmp_name'], 'uploads/student_image/' . $student_id . '.jpg');
 
-                $this->session->set_flashdata('flash_message' , get_phrase('data_added_successfully'));
+                $this->session->set_flashdata('flash_message' , get_phrase('data_berhasil_ditambahkan'));
                 $this->email_model->account_opening_email('student', $data['email']); //SEND EMAIL ACCOUNT OPENING EMAIL
             }
             else {
-                $this->session->set_flashdata('error_message' , get_phrase('this_email_id_is_not_available'));
+                $this->session->set_flashdata('error_message' , get_phrase('id_email_ini_tidak_tersedia'));
             }
             redirect(site_url('admin/student_add'), 'refresh');
         }
@@ -335,7 +335,7 @@ class Admin extends CI_Controller
                 $data['student_code'] = html_escape($this->input->post('student_code'));
                 $code_validation = code_validation_update($data['student_code'],$param2);
                 if(!$code_validation){
-                    $this->session->set_flashdata('error_message' , get_phrase('this_id_no_is_not_available'));
+                    $this->session->set_flashdata('error_message' , get_phrase('id_tidak_tersedia'));
                     redirect(site_url('admin/student_information/' . $param3), 'refresh');
                 }
             }
@@ -361,10 +361,10 @@ class Admin extends CI_Controller
 
                 move_uploaded_file($_FILES['userfile']['tmp_name'], 'uploads/student_image/' . $param2 . '.jpg');
                 $this->crud_model->clear_cache();
-                $this->session->set_flashdata('flash_message' , get_phrase('data_updated'));
+                $this->session->set_flashdata('flash_message' , get_phrase('data_diperbarui'));
            }
            else{
-             $this->session->set_flashdata('error_message' , get_phrase('this_email_id_is_not_available'));
+             $this->session->set_flashdata('error_message' , get_phrase('id_email_ini_tidak_tersedia'));
            }
             redirect(site_url('admin/student_information/' . $param3), 'refresh');
         }
@@ -372,7 +372,7 @@ class Admin extends CI_Controller
 
     function delete_student($student_id = '', $class_id = '') {
       $this->crud_model->delete_student($student_id);
-      $this->session->set_flashdata('flash_message' , get_phrase('student_deleted'));
+      $this->session->set_flashdata('flash_message' , get_phrase('siswa_dihapus'));
       redirect(site_url('admin/student_information/' . $class_id), 'refresh');
     }
 
@@ -398,11 +398,11 @@ class Admin extends CI_Controller
                 $enroll_data['date_added']      =   strtotime(date("Y-m-d H:i:s"));
                 $this->db->insert('enroll' , $enroll_data);
             }
-            $this->session->set_flashdata('flash_message' , get_phrase('new_enrollment_successfull'));
+            $this->session->set_flashdata('flash_message' , get_phrase('enrollment_baru_berhasil'));
             redirect(site_url('admin/student_promotion'), 'refresh');
         }
 
-        $page_data['page_title']    = get_phrase('Kenaikan Kelas');
+        $page_data['page_title']    = get_phrase('kenaikan_kelas');
         $page_data['page_name']  = 'student_promotion';
         $this->load->view('backend/index', $page_data);
     }
@@ -438,11 +438,11 @@ class Admin extends CI_Controller
             $validation = email_validation($data['email']);
             if($validation == 1){
                 $this->db->insert('parent', $data);
-                $this->session->set_flashdata('flash_message' , get_phrase('data_added_successfully'));
+                $this->session->set_flashdata('flash_message' , get_phrase('data_berhasil_ditambahkan'));
                 $this->email_model->account_opening_email('parent', $data['email']); //SEND EMAIL ACCOUNT OPENING EMAIL
             }
             else{
-                $this->session->set_flashdata('error_message' , get_phrase('this_email_id_is_not_available'));
+                $this->session->set_flashdata('error_message' , get_phrase('id_email_ini_tidak_tersedia'));
             }
 
             redirect(site_url('admin/parent'), 'refresh');
@@ -472,10 +472,10 @@ class Admin extends CI_Controller
             if ($validation == 1) {
                 $this->db->where('parent_id' , $param2);
                 $this->db->update('parent' , $data);
-                $this->session->set_flashdata('flash_message' , get_phrase('data_updated'));
+                $this->session->set_flashdata('flash_message' , get_phrase('data_diperbarui'));
             }
             else{
-                $this->session->set_flashdata('error_message' , get_phrase('this_email_id_is_not_available'));
+                $this->session->set_flashdata('error_message' , get_phrase('id_email_ini_tidak_tersedia'));
             }
 
             redirect(site_url('admin/parent'), 'refresh');
@@ -483,10 +483,10 @@ class Admin extends CI_Controller
         if ($param1 == 'delete') {
             $this->db->where('parent_id' , $param2);
             $this->db->delete('parent');
-            $this->session->set_flashdata('flash_message' , get_phrase('data_deleted'));
+            $this->session->set_flashdata('flash_message' , get_phrase('data_dihapus'));
             redirect(site_url('admin/parent'), 'refresh');
         }
-        $page_data['page_title'] 	= get_phrase('Master Data Wali Murid');
+        $page_data['page_title'] 	= get_phrase('master_data_wali_murid');
         $page_data['page_name']  = 'parent';
         $this->load->view('backend/index', $page_data);
     }
@@ -593,11 +593,11 @@ class Admin extends CI_Controller
                 $this->db->insert('teacher', $data);
                 $teacher_id = $this->db->insert_id();
                 move_uploaded_file($_FILES['userfile']['tmp_name'], 'uploads/teacher_image/' . $teacher_id . '.jpg');
-                $this->session->set_flashdata('flash_message' , get_phrase('data_added_successfully'));
+                $this->session->set_flashdata('flash_message' , get_phrase('data_berhasil_ditambahkan'));
                 $this->email_model->account_opening_email('teacher', $data['email']); //SEND EMAIL ACCOUNT OPENING EMAIL
             }
             else{
-                $this->session->set_flashdata('error_message' , get_phrase('this_email_id_is_not_available'));
+                $this->session->set_flashdata('error_message' , get_phrase('id_email_ini_tidak_tersedia'));
             }
 
             redirect(site_url('admin/teacher'), 'refresh');
@@ -657,10 +657,10 @@ class Admin extends CI_Controller
                 $this->db->where('teacher_id', $param2);
                 $this->db->update('teacher', $data);
                 move_uploaded_file($_FILES['userfile']['tmp_name'], 'uploads/teacher_image/' . $param2 . '.jpg');
-                $this->session->set_flashdata('flash_message' , get_phrase('data_updated'));
+                $this->session->set_flashdata('flash_message' , get_phrase('data_diperbarui'));
             }
             else{
-                $this->session->set_flashdata('error_message' , get_phrase('this_email_id_is_not_available'));
+                $this->session->set_flashdata('error_message' , get_phrase('id_email_ini_tidak_tersedia'));
             }
 
             redirect(site_url('admin/teacher'), 'refresh');
@@ -677,12 +677,12 @@ class Admin extends CI_Controller
         if ($param1 == 'delete') {
             $this->db->where('teacher_id', $param2);
             $this->db->delete('teacher');
-            $this->session->set_flashdata('flash_message' , get_phrase('data_deleted'));
+            $this->session->set_flashdata('flash_message' , get_phrase('data_dihapus'));
             redirect(site_url('admin/teacher'), 'refresh');
         }
         $page_data['teachers']   = $this->db->get('teacher')->result_array();
         $page_data['page_name']  = 'teacher';
-        $page_data['page_title'] = get_phrase('Master Data Guru');
+        $page_data['page_title'] = get_phrase('master_data_guru');
         $this->load->view('backend/index', $page_data);
     }
 
@@ -761,7 +761,7 @@ class Admin extends CI_Controller
             }
 
             $this->db->insert('subject', $data);
-            $this->session->set_flashdata('flash_message' , get_phrase('data_added_successfully'));
+            $this->session->set_flashdata('flash_message' , get_phrase('data_berhasil_ditambahkan'));
             redirect(site_url('admin/subject/' . $data['class_id']), 'refresh');
         }
         if ($param1 == 'do_update') {
@@ -772,7 +772,7 @@ class Admin extends CI_Controller
 
             $this->db->where('subject_id', $param2);
             $this->db->update('subject', $data);
-            $this->session->set_flashdata('flash_message' , get_phrase('data_updated'));
+            $this->session->set_flashdata('flash_message' , get_phrase('data_diperbarui'));
             redirect(site_url('admin/subject/' . $data['class_id']), 'refresh');
         } else if ($param1 == 'edit') {
             $page_data['edit_data'] = $this->db->get_where('subject', array(
@@ -782,14 +782,14 @@ class Admin extends CI_Controller
         if ($param1 == 'delete') {
             $this->db->where('subject_id', $param2);
             $this->db->delete('subject');
-            $this->session->set_flashdata('flash_message' , get_phrase('data_deleted'));
+            $this->session->set_flashdata('flash_message' , get_phrase('data_dihapus'));
             redirect(site_url('admin/subject/' . $param3), 'refresh');
         }
         $running_year = $this->db->get_where('settings', array('type' => 'running_year'))->row()->description;
 		    $page_data['class_id']   = $param1;
         $page_data['subjects']   = $this->db->get_where('subject' , array('class_id' => $param1, 'year' => $running_year))->result_array();
         $page_data['page_name']  = 'subject';
-        $page_data['page_title'] = get_phrase('Mata Pelajaran');
+        $page_data['page_title'] = get_phrase('mata_pelajaran');
         $this->load->view('backend/index', $page_data);
     }
 
@@ -813,7 +813,7 @@ class Admin extends CI_Controller
             $data2['teacher_id']=$data['teacher_id'];
             $this->db->insert('section' , $data2);
 
-            $this->session->set_flashdata('flash_message' , get_phrase('data_added_successfully'));
+            $this->session->set_flashdata('flash_message' , get_phrase('data_berhasil_ditambahkan'));
             redirect(site_url('admin/classes'), 'refresh');
         }
         if ($param1 == 'do_update') {
@@ -827,7 +827,7 @@ class Admin extends CI_Controller
             }
             $this->db->where('class_id', $param2);
             $this->db->update('class', $data);
-            $this->session->set_flashdata('flash_message' , get_phrase('data_updated'));
+            $this->session->set_flashdata('flash_message' , get_phrase('data_diperbarui'));
             redirect(site_url('admin/classes'), 'refresh');
         } else if ($param1 == 'edit') {
             $page_data['edit_data'] = $this->db->get_where('class', array(
@@ -837,12 +837,12 @@ class Admin extends CI_Controller
         if ($param1 == 'delete') {
             $this->db->where('class_id', $param2);
             $this->db->delete('class');
-            $this->session->set_flashdata('flash_message' , get_phrase('data_deleted'));
+            $this->session->set_flashdata('flash_message' , get_phrase('data_dihapus'));
             redirect(site_url('admin/classes'), 'refresh');
         }
         $page_data['classes']    = $this->db->get('class')->result_array();
         $page_data['page_name']  = 'class';
-        $page_data['page_title'] = get_phrase('Pengaturan Kelas');
+        $page_data['page_title'] = get_phrase('pengaturan_kelas');
         $this->load->view('backend/index', $page_data);
     }
      function get_subject($class_id)
@@ -864,7 +864,7 @@ class Admin extends CI_Controller
             $class_id           =   $this->db->get('class')->first_row()->class_id;
 
         $page_data['page_name']  = 'academic_syllabus';
-        $page_data['page_title'] = get_phrase('silabus akademik');
+        $page_data['page_title'] = get_phrase('silabus_akademik');
         $page_data['class_id']   = $class_id;
         $this->load->view('backend/index', $page_data);
     }
@@ -897,7 +897,7 @@ class Admin extends CI_Controller
         $data['file_name'] = $_FILES['file_name']['name'];
 
         $this->db->insert('academic_syllabus', $data);
-        $this->session->set_flashdata('flash_message' , get_phrase('syllabus_uploaded'));
+        $this->session->set_flashdata('flash_message' , get_phrase('silabus_diunggah'));
         redirect(site_url('admin/academic_syllabus/' . $data['class_id']), 'refresh');
 
     }
@@ -924,7 +924,7 @@ class Admin extends CI_Controller
       $this->db->where('academic_syllabus_code', $academic_syllabus_code);
       $this->db->delete('academic_syllabus');
 
-      $this->session->set_flashdata('flash_message' , get_phrase('data_deleted'));
+      $this->session->set_flashdata('flash_message' , get_phrase('data_dihapus'));
       redirect(site_url('admin/academic_syllabus'), 'refresh');
 
     }
@@ -939,7 +939,7 @@ class Admin extends CI_Controller
             $class_id           =   $this->db->get('class')->first_row()->class_id;
 
         $page_data['page_name']  = 'section';
-        $page_data['page_title'] = get_phrase('Pembagian kelas');
+        $page_data['page_title'] = get_phrase('pembagian_kelas');
         $page_data['class_id']   = $class_id;
         $this->load->view('backend/index', $page_data);
     }
@@ -958,10 +958,10 @@ class Admin extends CI_Controller
             $validation = duplication_of_section_on_create($data['class_id'], $data['name']);
             if($validation == 1){
                 $this->db->insert('section' , $data);
-                $this->session->set_flashdata('flash_message' , get_phrase('data_added_successfully'));
+                $this->session->set_flashdata('flash_message' , get_phrase('data_berhasil_ditambahkan'));
             }
             else{
-                $this->session->set_flashdata('error_message' , get_phrase('duplicate_name_of_section_is_not_allowed'));
+                $this->session->set_flashdata('error_message' , get_phrase('sesi_nama_yang_sama_tidak_diizinkan'));
             }
 
             redirect(site_url('admin/section/' . $data['class_id']), 'refresh');
@@ -981,10 +981,10 @@ class Admin extends CI_Controller
             if ($validation == 1) {
                $this->db->where('section_id' , $param2);
                $this->db->update('section' , $data);
-               $this->session->set_flashdata('flash_message' , get_phrase('data_updated'));
+               $this->session->set_flashdata('flash_message' , get_phrase('data_diperbarui'));
             }
             else{
-               $this->session->set_flashdata('error_message' , get_phrase('duplicate_name_of_section_is_not_allowed'));
+               $this->session->set_flashdata('error_message' , get_phrase('sesi_nama_yang_sama_tidak_diizinkan'));
             }
 
             redirect(site_url('admin/section/' . $data['class_id']), 'refresh');
@@ -993,7 +993,7 @@ class Admin extends CI_Controller
         if ($param1 == 'delete') {
             $this->db->where('section_id' , $param2);
             $this->db->delete('section');
-            $this->session->set_flashdata('flash_message' , get_phrase('data_deleted'));
+            $this->session->set_flashdata('flash_message' , get_phrase('data_dihapus'));
             redirect(site_url('admin/section'), 'refresh');
         }
     }
@@ -1045,7 +1045,7 @@ class Admin extends CI_Controller
             'class_id' => $class_id , 'year' => $this->db->get_where('settings' , array('type' => 'running_year'))->row()->description
         ))->result_array();
         echo '<div class="form-group">
-                <label class="col-sm-3 control-label">' . get_phrase('students') . '</label>
+                <label class="col-sm-3 control-label">' . get_phrase('siswa') . '</label>
                 <div class="col-sm-9">';
         foreach ($students as $row) {
              $name = $this->db->get_where('student' , array('student_id' => $row['student_id']))->row()->name;
@@ -1053,8 +1053,8 @@ class Admin extends CI_Controller
                     <label><input type="checkbox" class="check" name="student_id[]" value="' . $row['student_id'] . '">' . $name .'</label>
                 </div>';
         }
-        echo '<br><button type="button" class="btn btn-default" onClick="select()">'.get_phrase('select_all').'</button>';
-        echo '<button style="margin-left: 5px;" type="button" class="btn btn-default" onClick="unselect()"> '.get_phrase('select_none').' </button>';
+        echo '<br><button type="button" class="btn btn-default" onClick="select()">'.get_phrase('pilih_semua').'</button>';
+        echo '<button style="margin-left: 5px;" type="button" class="btn btn-default" onClick="unselect()"> '.get_phrase('pilih_tidak_ada').' </button>';
         echo '</div></div>';
     }
 
@@ -1073,7 +1073,7 @@ class Admin extends CI_Controller
                 $data['comment'] = html_escape($this->input->post('comment'));
             }
             $this->db->insert('exam', $data);
-            $this->session->set_flashdata('flash_message' , get_phrase('data_added_successfully'));
+            $this->session->set_flashdata('flash_message' , get_phrase('data_berhasil_ditambahkan'));
             redirect(site_url('admin/exam'), 'refresh');
         }
         if ($param1 == 'edit' && $param2 == 'do_update') {
@@ -1089,7 +1089,7 @@ class Admin extends CI_Controller
 
             $this->db->where('exam_id', $param3);
             $this->db->update('exam', $data);
-            $this->session->set_flashdata('flash_message' , get_phrase('data_updated'));
+            $this->session->set_flashdata('flash_message' , get_phrase('data_diperbarui'));
             redirect(site_url('admin/exam'), 'refresh');
         }
         else if ($param1 == 'edit') {
@@ -1100,13 +1100,13 @@ class Admin extends CI_Controller
         if ($param1 == 'delete') {
             $this->db->where('exam_id', $param2);
             $this->db->delete('exam');
-            $this->session->set_flashdata('flash_message' , get_phrase('data_deleted'));
+            $this->session->set_flashdata('flash_message' , get_phrase('data_dihapus'));
             redirect(site_url('admin/exam'), 'refresh');
         }
         $running_year = $this->db->get_where('settings', array('type' => 'running_year'))->row()->description;
         $page_data['exams']      = $this->db->get_where('exam', array('year' => $running_year))->result_array();
         $page_data['page_name']  = 'exam';
-        $page_data['page_title'] = get_phrase('Pengaturan Ujian');
+        $page_data['page_title'] = get_phrase('Pengaturan_Ujian');
         $this->load->view('backend/index', $page_data);
     }
 
@@ -1136,7 +1136,7 @@ class Admin extends CI_Controller
                     if($parent_id != '' || $parent_id != null) {
                         $receiver_phone = $this->db->get_where('parent' , array('parent_id' => $row['parent_id']))->row()->phone;
                         if($receiver_phone == null){
-                          $this->session->set_flashdata('error_message' , get_phrase('parent_phone_number_is_not_found'));
+                          $this->session->set_flashdata('error_message' , get_phrase('nomor_wali_murid_tidak_ditemukan'));
                         }
                     }
                 }
@@ -1156,16 +1156,16 @@ class Admin extends CI_Controller
                 // send sms
                 $this->sms_model->send_sms( $message , $receiver_phone );
             }
-            $this->session->set_flashdata('flash_message' , get_phrase('message_sent'));
+            $this->session->set_flashdata('flash_message' , get_phrase('pesan_terkirim'));
           }
           else{
-            $this->session->set_flashdata('error_message' , get_phrase('select_all_the_fields'));
+            $this->session->set_flashdata('error_message' , get_phrase('pilih_semua_field'));
           }
             redirect(site_url('admin/exam_marks_sms'), 'refresh');
         }
 
         $page_data['page_name']  = 'exam_marks_sms';
-        $page_data['page_title'] = get_phrase('send_marks_by_sms');
+        $page_data['page_title'] = get_phrase('kirim_nilai_via_sms');
         $this->load->view('backend/index', $page_data);
     }
 
@@ -1174,7 +1174,7 @@ class Admin extends CI_Controller
         if ($this->session->userdata('admin_login') != 1)
             redirect(site_url('login'), 'refresh');
         $page_data['page_name']  =   'marks_manage';
-        $page_data['page_title'] = get_phrase('Pengaturan Pengingat Ujian');
+        $page_data['page_title'] = get_phrase('Pengaturan_Pengingat_Ujian');
         $this->load->view('backend/index', $page_data);
     }
 
@@ -1187,7 +1187,7 @@ class Admin extends CI_Controller
         $page_data['subject_id'] =   $subject_id;
         $page_data['section_id'] =   $section_id;
         $page_data['page_name']  =   'marks_manage_view';
-        $page_data['page_title'] = get_phrase('Pengaturan Pengingat Ujian');
+        $page_data['page_title'] = get_phrase('Pengaturan_Pengingat_Ujian');
         $this->load->view('backend/index', $page_data);
     }
 
@@ -1221,9 +1221,9 @@ class Admin extends CI_Controller
         redirect(site_url('admin/marks_manage_view/' . $data['exam_id'] . '/' . $data['class_id'] . '/' . $data['section_id'] . '/' . $data['subject_id']), 'refresh');
     }
     else{
-        $this->session->set_flashdata('error_message' , get_phrase('select_all_the_fields'));
+        $this->session->set_flashdata('error_message' , get_phrase('pilih_semua_field'));
         $page_data['page_name']  =   'marks_manage';
-        $page_data['page_title'] = get_phrase('Pengaturan Pengingat Ujian');
+        $page_data['page_title'] = get_phrase('Pengaturan_Pengingat_Ujian');
         $this->load->view('backend/index', $page_data);
     }
 }
@@ -1245,13 +1245,13 @@ class Admin extends CI_Controller
             $this->db->where('mark_id' , $row['mark_id']);
             $this->db->update('mark' , array('mark_obtained' => $obtained_marks , 'comment' => $comment));
         }
-        $this->session->set_flashdata('flash_message' , get_phrase('marks_updated'));
+        $this->session->set_flashdata('flash_message' , get_phrase('nilai_diperbarui'));
         redirect(site_url('admin/marks_manage_view/' . $exam_id . '/' . $class_id . '/' . $section_id . '/' . $subject_id), 'refresh');
     }
     else{
-        $this->session->set_flashdata('error_message' , get_phrase('select_all_the_fields'));
+        $this->session->set_flashdata('error_message' , get_phrase('pilih_semua_field'));
         $page_data['page_name']  =   'marks_manage';
-        $page_data['page_title'] = get_phrase('Pengaturan Pengingat Ujian');
+        $page_data['page_title'] = get_phrase('Pengaturan_Pengingat_Ujian');
         $this->load->view('backend/index', $page_data);
     }
 }
@@ -1283,7 +1283,7 @@ class Admin extends CI_Controller
         $page_data['page_info'] = 'Exam marks';
 
         $page_data['page_name']  = 'tabulation_sheet';
-        $page_data['page_title'] = get_phrase('tabulation_sheet');
+        $page_data['page_title'] = get_phrase('lembar_tabulasi');
         $this->load->view('backend/index', $page_data);
 
     }
@@ -1312,7 +1312,7 @@ class Admin extends CI_Controller
             }
 
             $this->db->insert('grade', $data);
-            $this->session->set_flashdata('flash_message' , get_phrase('data_added_successfully'));
+            $this->session->set_flashdata('flash_message' , get_phrase('data_berhasil_ditambahkan'));
             redirect(site_url('admin/grade'), 'refresh');
         }
         if ($param1 == 'do_update') {
@@ -1329,7 +1329,7 @@ class Admin extends CI_Controller
 
             $this->db->where('grade_id', $param2);
             $this->db->update('grade', $data);
-            $this->session->set_flashdata('flash_message' , get_phrase('data_updated'));
+            $this->session->set_flashdata('flash_message' , get_phrase('data_diperbarui'));
             redirect(site_url('admin/grade'), 'refresh');
         } else if ($param1 == 'edit') {
             $page_data['edit_data'] = $this->db->get_where('grade', array(
@@ -1339,12 +1339,12 @@ class Admin extends CI_Controller
         if ($param1 == 'delete') {
             $this->db->where('grade_id', $param2);
             $this->db->delete('grade');
-            $this->session->set_flashdata('flash_message' , get_phrase('data_deleted'));
+            $this->session->set_flashdata('flash_message' , get_phrase('data_dihapus'));
             redirect(site_url('admin/grade'), 'refresh');
         }
         $page_data['grades']     = $this->db->get('grade')->result_array();
         $page_data['page_name']  = 'grade';
-        $page_data['page_title'] = get_phrase('Master Grade Ujian');
+        $page_data['page_title'] = get_phrase('Master_Grade_Ujian');
         $this->load->view('backend/index', $page_data);
     }
 
@@ -1405,10 +1405,10 @@ class Admin extends CI_Controller
             $validation = duplication_of_class_routine_on_create($array);
             if ($validation == 1) {
                 $this->db->insert('class_routine', $data);
-                $this->session->set_flashdata('flash_message' , get_phrase('data_added_successfully'));
+                $this->session->set_flashdata('flash_message' , get_phrase('data_berhasil_ditambahkan'));
             }
             else{
-                $this->session->set_flashdata('error_message' , get_phrase('time_conflicts'));
+                $this->session->set_flashdata('error_message' , get_phrase('konflik_waktu'));
             }
 
             redirect(site_url('admin/class_routine_add'), 'refresh');
@@ -1466,14 +1466,14 @@ class Admin extends CI_Controller
             if ($validation == 1) {
                 $this->db->where('class_routine_id', $param2);
                 $this->db->update('class_routine', $data);
-                $this->session->set_flashdata('flash_message' , get_phrase('data_updated'));
+                $this->session->set_flashdata('flash_message' , get_phrase('data_diperbarui'));
             }
             else{
-                $this->session->set_flashdata('error_message' , get_phrase('time_conflicts'));
+                $this->session->set_flashdata('error_message' , get_phrase('konflik_waktu'));
             }
           }
           else{
-            $this->session->set_flashdata('error_message' , get_phrase('subject_is_not_found'));
+            $this->session->set_flashdata('error_message' , get_phrase('subjek_tidak_ditemukan'));
           }
 
             redirect(site_url('admin/class_routine_view/' . $data['class_id']), 'refresh');
@@ -1487,7 +1487,7 @@ class Admin extends CI_Controller
             $class_id = $this->db->get_where('class_routine' , array('class_routine_id' => $param2))->row()->class_id;
             $this->db->where('class_routine_id', $param2);
             $this->db->delete('class_routine');
-            $this->session->set_flashdata('flash_message' , get_phrase('data_deleted'));
+            $this->session->set_flashdata('flash_message' , get_phrase('data_dihapus'));
             redirect(site_url('admin/class_routine_view/' . $class_id), 'refresh');
         }
 
@@ -1508,7 +1508,7 @@ class Admin extends CI_Controller
             redirect(site_url('login'), 'refresh');
         $page_data['page_name']  = 'class_routine_view';
         $page_data['class_id']  =   $class_id;
-        $page_data['page_title'] = get_phrase('class_routine');
+        $page_data['page_title'] = get_phrase('rutinitas_kelas');
         $this->load->view('backend/index', $page_data);
     }
 
@@ -1540,7 +1540,7 @@ class Admin extends CI_Controller
             redirect(site_url('login'), 'refresh');
 
         $page_data['page_name']  =  'manage_attendance';
-        $page_data['page_title'] =  get_phrase('Daftar Hadir Kelas');
+        $page_data['page_title'] =  get_phrase('Daftar_Hadir_Kelas');
         $this->load->view('backend/index', $page_data);
     }
 
@@ -1559,7 +1559,7 @@ class Admin extends CI_Controller
             'section_id' => $section_id
         ))->row()->name;
         $page_data['section_id'] = $section_id;
-        $page_data['page_title'] = get_phrase('Daftar Hadir Kelas') . ' ' . $class_name . ' : ' . get_phrase('sesi') . ' ' . $section_name;
+        $page_data['page_title'] = get_phrase('Daftar_Hadir_Kelas') . ' ' . $class_name . ' : ' . get_phrase('sesi') . ' ' . $section_name;
         $this->load->view('backend/index', $page_data);
     }
     function get_section($class_id) {
@@ -1620,16 +1620,16 @@ class Admin extends CI_Controller
                             $this->sms_model->send_sms($message,$receiver_phone);
                         }
                         else{
-                            $this->session->set_flashdata('error_message' , get_phrase('parent_phone_number_is_not_found'));
+                            $this->session->set_flashdata('error_message' , get_phrase('nomor_wali_murid_tidak_ditemukan'));
                         }
                     }
                     else{
-                        $this->session->set_flashdata('error_message' , get_phrase('parent_phone_number_is_not_found'));
+                        $this->session->set_flashdata('error_message' , get_phrase('nomor_wali_murid_tidak_ditemukan'));
                     }
                 }
             }
         }
-        $this->session->set_flashdata('flash_message' , get_phrase('attendance_updated'));
+        $this->session->set_flashdata('flash_message' , get_phrase('kehadiran_diperbarui'));
         redirect(site_url('admin/manage_attendance_view/'.$class_id.'/'.$section_id.'/'.$timestamp) , 'refresh');
     }
 
@@ -1681,7 +1681,7 @@ class Admin extends CI_Controller
 
             }
 
-			$this->session->set_flashdata('flash_message' , get_phrase('data_updated'));
+			$this->session->set_flashdata('flash_message' , get_phrase('data_diperbarui'));
 			redirect(site_url('admin/manage_attendance/'.$date.'/'.$month.'/'.$year.'/'.$class_id.'/'.$section_id.'/'.$session) , 'refresh');
 		}
         $page_data['date']       =	$date;
@@ -1692,7 +1692,7 @@ class Admin extends CI_Controller
         $page_data['session']    =  $session;
 
         $page_data['page_name']  =	'manage_attendance';
-        $page_data['page_title'] =	get_phrase('manage_daily_attendance');
+        $page_data['page_title'] =	get_phrase('kelola_kehadiran_harian');
 		$this->load->view('backend/index', $page_data);
 	}
 	function attendance_selector2()
@@ -1710,7 +1710,7 @@ class Admin extends CI_Controller
      function attendance_report() {
          $page_data['month']        = date('m');
          $page_data['page_name']    = 'attendance_report';
-         $page_data['page_title']   = get_phrase('attendance_report');
+         $page_data['page_title']   = get_phrase('laporan_kehadiran');
          $this->load->view('backend/index',$page_data);
      }
      function attendance_report_view($class_id = '', $section_id = '', $month = '', $sessional_year = '')
@@ -1725,7 +1725,7 @@ class Admin extends CI_Controller
         $page_data['month']             = $month;
         $page_data['sessional_year']    = $sessional_year;
         $page_data['page_name']         = 'attendance_report_view';
-        $page_data['page_title']        = get_phrase('attendance_report_of_class') . ' ' . $class_name . ' : ' . get_phrase('section') . ' ' . $section_name;
+        $page_data['page_title']        = get_phrase('laporan_kehadiran_kelas') . ' ' . $class_name . ' : ' . get_phrase('sesi') . ' ' . $section_name;
         $this->load->view('backend/index', $page_data);
      }
      function attendance_report_print_view($class_id ='' , $section_id = '' , $month = '', $sessional_year = '') {
@@ -1741,7 +1741,7 @@ class Admin extends CI_Controller
 
     function attendance_report_selector()
     {   if($this->input->post('class_id') == '' || $this->input->post('sessional_year') == '') {
-            $this->session->set_flashdata('error_message' , get_phrase('please_make_sure_class_and_sessional_year_are_selected'));
+            $this->session->set_flashdata('error_message' , get_phrase('pastikan_kelas_dan_sesi_tahun_dipilih'));
             redirect(site_url('admin/attendance_report'), 'refresh');
         }
         $data['class_id']       = $this->input->post('class_id');
@@ -1786,7 +1786,7 @@ class Admin extends CI_Controller
             }
             $this->db->insert('payment' , $data2);
 
-            $this->session->set_flashdata('flash_message' , get_phrase('data_added_successfully'));
+            $this->session->set_flashdata('flash_message' , get_phrase('data_berhasil_ditambahkan'));
             redirect(site_url('admin/student_payment'), 'refresh');
         }
 
@@ -1819,7 +1819,7 @@ class Admin extends CI_Controller
                 $this->db->insert('payment' , $data2);
             }
 
-            $this->session->set_flashdata('flash_message' , get_phrase('data_added_successfully'));
+            $this->session->set_flashdata('flash_message' , get_phrase('data_berhasil_ditambahkan'));
             redirect(site_url('admin/student_payment'), 'refresh');
         }
 
@@ -1833,7 +1833,7 @@ class Admin extends CI_Controller
 
             $this->db->where('invoice_id', $param2);
             $this->db->update('invoice', $data);
-            $this->session->set_flashdata('flash_message' , get_phrase('data_updated'));
+            $this->session->set_flashdata('flash_message' , get_phrase('data_diperbarui'));
             redirect(site_url('admin/income'), 'refresh');
         } else if ($param1 == 'edit') {
             $page_data['edit_data'] = $this->db->get_where('invoice', array(
@@ -1863,18 +1863,18 @@ class Admin extends CI_Controller
             $this->db->set('due', 'due - ' . $data2['amount_paid'], FALSE);
             $this->db->update('invoice');
 
-            $this->session->set_flashdata('flash_message' , get_phrase('payment_successfull'));
+            $this->session->set_flashdata('flash_message' , get_phrase('pembayaran_berhasil'));
             redirect(site_url('admin/income'), 'refresh');
         }
 
         if ($param1 == 'delete') {
             $this->db->where('invoice_id', $param2);
             $this->db->delete('invoice');
-            $this->session->set_flashdata('flash_message' , get_phrase('data_deleted'));
+            $this->session->set_flashdata('flash_message' , get_phrase('data_dihapus'));
             redirect(site_url('admin/income'), 'refresh');
         }
         $page_data['page_name']  = 'invoice';
-        $page_data['page_title'] = get_phrase('manage_invoice/payment');
+        $page_data['page_title'] = get_phrase('kelola_faktur/pembayaran');
         $this->db->order_by('creation_timestamp', 'desc');
         $page_data['invoices'] = $this->db->get('invoice')->result_array();
         $this->load->view('backend/index', $page_data);
@@ -1886,7 +1886,7 @@ class Admin extends CI_Controller
 
         $page_data['page_name'] = 'income';
         $page_data['inner'] = $param1;
-        $page_data['page_title'] = get_phrase('SPP siswa');
+        $page_data['page_title'] = get_phrase('SPP_siswa');
         $this->load->view('backend/index', $page_data);
     }
 
@@ -1928,16 +1928,16 @@ class Admin extends CI_Controller
             foreach ($invoices as $row) {
 
                 if ($row->due == 0) {
-                    $status = '<button class="btn btn-success btn-xs">'.get_phrase('paid').'</button>';
+                    $status = '<button class="btn btn-success btn-xs">'.get_phrase('telah_dibayar').'</button>';
                     $payment_option = '';
                 } else {
-                    $status = '<button class="btn btn-danger btn-xs">'.get_phrase('unpaid').'</button>';
-                    $payment_option = '<li><a href="#" onclick="invoice_pay_modal('.$row->invoice_id.')"><i class="entypo-bookmarks"></i>&nbsp;'.get_phrase('take_payment').'</a></li><li class="divider"></li>';
+                    $status = '<button class="btn btn-danger btn-xs">'.get_phrase('belum_dibayar').'</button>';
+                    $payment_option = '<li><a href="#" onclick="invoice_pay_modal('.$row->invoice_id.')"><i class="entypo-bookmarks"></i>&nbsp;'.get_phrase('ambil_pembayaran').'</a></li><li class="divider"></li>';
                 }
 
 
                 $options = '<div class="btn-group"><button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown">
-                                    Action <span class="caret"></span></button><ul class="dropdown-menu dropdown-default pull-right" role="menu">'.$payment_option.'<li><a href="#" onclick="invoice_view_modal('.$row->invoice_id.')"><i class="entypo-credit-card"></i>&nbsp;'.get_phrase('view_invoice').'</a></li><li class="divider"></li><li><a href="#" onclick="invoice_edit_modal('.$row->invoice_id.')"><i class="entypo-pencil"></i>&nbsp;'.get_phrase('edit').'</a></li><li class="divider"></li><li><a href="#" onclick="invoice_delete_confirm('.$row->invoice_id.')"><i class="entypo-trash"></i>&nbsp;'.get_phrase('delete').'</a></li></ul></div>';
+                                    Action <span class="caret"></span></button><ul class="dropdown-menu dropdown-default pull-right" role="menu">'.$payment_option.'<li><a href="#" onclick="invoice_view_modal('.$row->invoice_id.')"><i class="entypo-credit-card"></i>&nbsp;'.get_phrase('lihat_faktur').'</a></li><li class="divider"></li><li><a href="#" onclick="invoice_edit_modal('.$row->invoice_id.')"><i class="entypo-pencil"></i>&nbsp;'.get_phrase('edit').'</a></li><li class="divider"></li><li><a href="#" onclick="invoice_delete_confirm('.$row->invoice_id.')"><i class="entypo-trash"></i>&nbsp;'.get_phrase('delete').'</a></li></ul></div>';
 
                 $nestedData['invoice_id'] = $row->invoice_id;
                 $nestedData['student'] = $this->crud_model->get_type_name_by_id('student',$row->student_id);
@@ -2000,7 +2000,7 @@ class Admin extends CI_Controller
             foreach ($payments as $row) {
 
                 if ($row->method == 1)
-                    $method = get_phrase('cash');
+                    $method = get_phrase('tunai');
                 else if ($row->method == 2)
                     $method = get_phrase('cheque');
                 else if ($row->method == 3)
@@ -2011,7 +2011,7 @@ class Admin extends CI_Controller
                     $method = 'Stripe';
 
 
-                $options = '<a href="#" onclick="invoice_view_modal('.$row->invoice_id.')"><i class="entypo-credit-card"></i>&nbsp;'.get_phrase('view_invoice').'</a>';
+                $options = '<a href="#" onclick="invoice_view_modal('.$row->invoice_id.')"><i class="entypo-credit-card"></i>&nbsp;'.get_phrase('lihat_faktur').'</a>';
 
                 $nestedData['payment_id'] = $row->payment_id;
                 $nestedData['title'] = $row->title;
@@ -2061,7 +2061,7 @@ class Admin extends CI_Controller
                 $data['description']     =   html_escape($this->input->post('description'));
             }
             $this->db->insert('payment' , $data);
-            $this->session->set_flashdata('flash_message' , get_phrase('data_added_successfully'));
+            $this->session->set_flashdata('flash_message' , get_phrase('data_berhasil_ditambahkan'));
             redirect(site_url('admin/expense'), 'refresh');
         }
 
@@ -2081,14 +2081,14 @@ class Admin extends CI_Controller
             }
             $this->db->where('payment_id' , $param2);
             $this->db->update('payment' , $data);
-            $this->session->set_flashdata('flash_message' , get_phrase('data_updated'));
+            $this->session->set_flashdata('flash_message' , get_phrase('data_diperbarui'));
             redirect(site_url('admin/expense'), 'refresh');
         }
 
         if ($param1 == 'delete') {
             $this->db->where('payment_id' , $param2);
             $this->db->delete('payment');
-            $this->session->set_flashdata('flash_message' , get_phrase('data_deleted'));
+            $this->session->set_flashdata('flash_message' , get_phrase('data_dihapus'));
             redirect(site_url('admin/expense'), 'refresh');
         }
 
@@ -2134,7 +2134,7 @@ class Admin extends CI_Controller
             foreach ($expenses as $row) {
                 $category = $this->db->get_where('expense_category', array('expense_category_id' => $row->expense_category_id))->row()->name;
                 if ($row->method == 1)
-                    $method = get_phrase('cash');
+                    $method = get_phrase('tunai');
                 else if ($row->method == 2)
                     $method = get_phrase('cheque');
                 else
@@ -2171,20 +2171,20 @@ class Admin extends CI_Controller
         if ($param1 == 'create') {
             $data['name']   =   html_escape($this->input->post('name'));
             $this->db->insert('expense_category' , $data);
-            $this->session->set_flashdata('flash_message' , get_phrase('data_added_successfully'));
+            $this->session->set_flashdata('flash_message' , get_phrase('data_berhasil_ditambahkan'));
             redirect(site_url('admin/expense_category'), 'refresh');
         }
         if ($param1 == 'edit') {
             $data['name']   =   html_escape($this->input->post('name'));
             $this->db->where('expense_category_id' , $param2);
             $this->db->update('expense_category' , $data);
-            $this->session->set_flashdata('flash_message' , get_phrase('data_updated'));
+            $this->session->set_flashdata('flash_message' , get_phrase('data_diperbarui'));
             redirect(site_url('admin/expense_category'), 'refresh');
         }
         if ($param1 == 'delete') {
             $this->db->where('expense_category_id' , $param2);
             $this->db->delete('expense_category');
-            $this->session->set_flashdata('flash_message' , get_phrase('data_deleted'));
+            $this->session->set_flashdata('flash_message' , get_phrase('data_dihapus'));
             redirect(site_url('admin/expense_category'), 'refresh');
         }
 
@@ -2220,7 +2220,7 @@ class Admin extends CI_Controller
                 move_uploaded_file($_FILES["file_name"]["tmp_name"], "uploads/document/" . $_FILES["file_name"]["name"]);
             }
 
-            $this->session->set_flashdata('flash_message' , get_phrase('data_added_successfully'));
+            $this->session->set_flashdata('flash_message' , get_phrase('data_berhasil_ditambahkan'));
             redirect(site_url('admin/book'), 'refresh');
         }
         if ($param1 == 'do_update') {
@@ -2256,7 +2256,7 @@ class Admin extends CI_Controller
                 move_uploaded_file($_FILES["file_name"]["tmp_name"], "uploads/document/" . $_FILES["file_name"]["name"]);
             }
 
-            $this->session->set_flashdata('flash_message' , get_phrase('data_updated'));
+            $this->session->set_flashdata('flash_message' , get_phrase('data_diperbarui'));
             redirect(site_url('admin/book'), 'refresh');
         } else if ($param1 == 'edit') {
             $page_data['edit_data'] = $this->db->get_where('book', array(
@@ -2266,11 +2266,11 @@ class Admin extends CI_Controller
         if ($param1 == 'delete') {
             $this->db->where('book_id', $param2);
             $this->db->delete('book');
-            $this->session->set_flashdata('flash_message' , get_phrase('data_deleted'));
+            $this->session->set_flashdata('flash_message' , get_phrase('data_dihapus'));
             redirect(site_url('admin/book'), 'refresh');
         }
         $page_data['page_name']  = 'book';
-        $page_data['page_title'] = get_phrase('manage_library_books');
+        $page_data['page_title'] = get_phrase('kelola_buku_pustaka');
         $this->load->view('backend/index', $page_data);
 
     }
@@ -2314,7 +2314,7 @@ class Admin extends CI_Controller
                 if ($row->file_name == null)
                     $download = '';
                 else
-                    $download = '<a href="'.site_url("uploads/document/$row->file_name").'" class="btn btn-blue btn-icon icon-left"><i class="entypo-download"></i>'.get_phrase('download').'</a>';
+                    $download = '<a href="'.site_url("uploads/document/$row->file_name").'" class="btn btn-blue btn-icon icon-left"><i class="entypo-download"></i>'.get_phrase('unduh').'</a>';
 
                 $options = '<div class="btn-group"><button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown">
                                     Action <span class="caret"></span></button><ul class="dropdown-menu dropdown-default pull-right" role="menu"><li><a href="#" onclick="book_edit_modal('.$row->book_id.')"><i class="entypo-pencil"></i>&nbsp;'.get_phrase('edit').'</a></li><li class="divider"></li><li><a href="#" onclick="book_delete_confirm('.$row->book_id.')"><i class="entypo-trash"></i>&nbsp;'.get_phrase('delete').'</a></li></ul></div>';
@@ -2357,7 +2357,7 @@ class Admin extends CI_Controller
             }
 
             $this->db->insert('transport', $data);
-            $this->session->set_flashdata('flash_message' , get_phrase('data_added_successfully'));
+            $this->session->set_flashdata('flash_message' , get_phrase('data_berhasil_ditambahkan'));
             redirect(site_url('admin/transport'), 'refresh');
         }
         if ($param1 == 'do_update') {
@@ -2378,7 +2378,7 @@ class Admin extends CI_Controller
 
             $this->db->where('transport_id', $param2);
             $this->db->update('transport', $data);
-            $this->session->set_flashdata('flash_message' , get_phrase('data_updated'));
+            $this->session->set_flashdata('flash_message' , get_phrase('data_diperbarui'));
             redirect(site_url('admin/transport'), 'refresh');
         } else if ($param1 == 'edit') {
             $page_data['edit_data'] = $this->db->get_where('transport', array(
@@ -2388,12 +2388,12 @@ class Admin extends CI_Controller
         if ($param1 == 'delete') {
             $this->db->where('transport_id', $param2);
             $this->db->delete('transport');
-            $this->session->set_flashdata('flash_message' , get_phrase('data_deleted'));
+            $this->session->set_flashdata('flash_message' , get_phrase('data_dihapus'));
             redirect(site_url('admin/transport'), 'refresh');
         }
         $page_data['transports'] = $this->db->get('transport')->result_array();
         $page_data['page_name']  = 'transport';
-        $page_data['page_title'] = get_phrase('Perjalanan Dinas');
+        $page_data['page_title'] = get_phrase('Perjalanan_Dinas');
         $this->load->view('backend/index', $page_data);
 
     }
@@ -2410,7 +2410,7 @@ class Admin extends CI_Controller
             }
 
             $this->db->insert('dormitory', $data);
-            $this->session->set_flashdata('flash_message' , get_phrase('data_added_successfully'));
+            $this->session->set_flashdata('flash_message' , get_phrase('data_berhasil_ditambahkan'));
             redirect(site_url('admin/dormitory'), 'refresh');
         }
         if ($param1 == 'do_update') {
@@ -2424,7 +2424,7 @@ class Admin extends CI_Controller
             }
             $this->db->where('dormitory_id', $param2);
             $this->db->update('dormitory', $data);
-            $this->session->set_flashdata('flash_message' , get_phrase('data_updated'));
+            $this->session->set_flashdata('flash_message' , get_phrase('data_diperbarui'));
             redirect(site_url('admin/dormitory'), 'refresh');
         } else if ($param1 == 'edit') {
             $page_data['edit_data'] = $this->db->get_where('dormitory', array(
@@ -2434,12 +2434,12 @@ class Admin extends CI_Controller
         if ($param1 == 'delete') {
             $this->db->where('dormitory_id', $param2);
             $this->db->delete('dormitory');
-            $this->session->set_flashdata('flash_message' , get_phrase('data_deleted'));
+            $this->session->set_flashdata('flash_message' , get_phrase('data_dihapus'));
             redirect(site_url('admin/dormitory'), 'refresh');
         }
         $page_data['dormitories'] = $this->db->get('dormitory')->result_array();
         $page_data['page_name']   = 'dormitory';
-        $page_data['page_title']  = get_phrase('pengaturan asrama');
+        $page_data['page_title']  = get_phrase('pengaturan_asrama');
         $this->load->view('backend/index', $page_data);
 
     }
@@ -2486,7 +2486,7 @@ class Admin extends CI_Controller
                 }
             }
 
-            $this->session->set_flashdata('flash_message' , get_phrase('data_added_successfully'));
+            $this->session->set_flashdata('flash_message' , get_phrase('data_berhasil_ditambahkan'));
             redirect(site_url('admin/noticeboard'), 'refresh');
         }
         if ($param1 == 'do_update') {
@@ -2530,7 +2530,7 @@ class Admin extends CI_Controller
                 }
             }
 
-            $this->session->set_flashdata('flash_message' , get_phrase('data_updated'));
+            $this->session->set_flashdata('flash_message' , get_phrase('data_diperbarui'));
             redirect(site_url('admin/noticeboard'), 'refresh');
         } else if ($param1 == 'edit') {
             $page_data['edit_data'] = $this->db->get_where('noticeboard', array(
@@ -2540,7 +2540,7 @@ class Admin extends CI_Controller
         if ($param1 == 'delete') {
             $this->db->where('notice_id', $param2);
             $this->db->delete('noticeboard');
-            $this->session->set_flashdata('flash_message' , get_phrase('data_deleted'));
+            $this->session->set_flashdata('flash_message' , get_phrase('data_dihapus'));
             redirect(site_url('admin/noticeboard'), 'refresh');
         }
         if ($param1 == 'mark_as_archive') {
@@ -2555,7 +2555,7 @@ class Admin extends CI_Controller
             redirect(site_url('admin/noticeboard'), 'refresh');
         }
         $page_data['page_name']  = 'noticeboard';
-        $page_data['page_title'] = get_phrase('manage_noticeboard');
+        $page_data['page_title'] = get_phrase('kelola_papan_pengumuman');
         $this->load->view('backend/index', $page_data);
     }
 
@@ -2565,7 +2565,7 @@ class Admin extends CI_Controller
 
       $page_data['page_name']  = 'noticeboard_edit';
       $page_data['notice_id'] = $notice_id;
-      $page_data['page_title'] = get_phrase('edit_notice');
+      $page_data['page_title'] = get_phrase('ubah_pengumuman');
       $this->load->view('backend/index', $page_data);
     }
 
@@ -2585,7 +2585,7 @@ class Admin extends CI_Controller
             }
             if ($_FILES['attached_file_on_messaging']['name'] != "") {
               if($_FILES['attached_file_on_messaging']['size'] > $max_size){
-                $this->session->set_flashdata('error_message' , get_phrase('file_size_can_not_be_larger_that_2_Megabyte'));
+                $this->session->set_flashdata('error_message' , get_phrase('ukuran_file_tidak_lebih_dari_2_megabyte'));
                 redirect(site_url('admin/message/message_new'), 'refresh');
               }
               else{
@@ -2595,7 +2595,7 @@ class Admin extends CI_Controller
             }
 
             $message_thread_code = $this->crud_model->send_new_private_message();
-            $this->session->set_flashdata('flash_message', get_phrase('message_sent!'));
+            $this->session->set_flashdata('flash_message', get_phrase('pesan_terkirim!'));
             redirect(site_url('admin/message/message_read/' . $message_thread_code), 'refresh');
         }
 
@@ -2607,7 +2607,7 @@ class Admin extends CI_Controller
             }
             if ($_FILES['attached_file_on_messaging']['name'] != "") {
               if($_FILES['attached_file_on_messaging']['size'] > $max_size){
-                $this->session->set_flashdata('error_message' , get_phrase('file_size_can_not_be_larger_that_2_Megabyte'));
+                $this->session->set_flashdata('error_message' , get_phrase('ukuran_file_tidak_lebih_dari_2_megabyte'));
                 redirect(site_url('admin/message/message_read/' . $param2), 'refresh');
               }
               else{
@@ -2617,7 +2617,7 @@ class Admin extends CI_Controller
             }
 
             $this->crud_model->send_reply_message($param2);  //$param2 = message_thread_code
-            $this->session->set_flashdata('flash_message', get_phrase('message_sent!'));
+            $this->session->set_flashdata('flash_message', get_phrase('pesan_terkirim!'));
             redirect(site_url('admin/message/message_read/' . $param2), 'refresh');
         }
 
@@ -2628,7 +2628,7 @@ class Admin extends CI_Controller
 
         $page_data['message_inner_page_name']   = $param1;
         $page_data['page_name']                 = 'message';
-        $page_data['page_title']                = get_phrase('Pesan Pribadi');
+        $page_data['page_title']                = get_phrase('Pesan_Pribadi');
         $this->load->view('backend/index', $page_data);
     }
 
@@ -2652,7 +2652,7 @@ class Admin extends CI_Controller
         }
         if ($_FILES['attached_file_on_messaging']['name'] != "") {
           if($_FILES['attached_file_on_messaging']['size'] > $max_size){
-            $this->session->set_flashdata('error_message' , get_phrase('file_size_can_not_be_larger_that_2_Megabyte'));
+            $this->session->set_flashdata('error_message' , get_phrase('ukuran_file_tidak_lebih_dari_2_megabyte'));
             redirect(site_url('admin/group_message/group_message_read/' . $param2), 'refresh');
           }
           else{
@@ -2662,12 +2662,12 @@ class Admin extends CI_Controller
         }
 
         $this->crud_model->send_reply_group_message($param2);  //$param2 = message_thread_code
-        $this->session->set_flashdata('flash_message', get_phrase('message_sent!'));
+        $this->session->set_flashdata('flash_message', get_phrase('pesan_terkirim!'));
         redirect(site_url('admin/group_message/group_message_read/' . $param2), 'refresh');
       }
       $page_data['message_inner_page_name']   = $param1;
       $page_data['page_name']                 = 'group_message';
-      $page_data['page_title']                = get_phrase('group_messaging');
+      $page_data['page_title']                = get_phrase('olahpesan_grup');
       $this->load->view('backend/index', $page_data);
     }
     /*****SITE/SYSTEM SETTINGS*********/
@@ -2739,24 +2739,24 @@ class Admin extends CI_Controller
             $this->db->where('type' , 'purchase_code');
             $this->db->update('settings' , $data);
 
-            $this->session->set_flashdata('flash_message' , get_phrase('data_updated'));
+            $this->session->set_flashdata('flash_message' , get_phrase('data_diperbarui'));
             redirect(site_url('admin/system_settings'), 'refresh');
         }
         if ($param1 == 'upload_logo') {
             move_uploaded_file($_FILES['userfile']['tmp_name'], 'uploads/logo.png');
-            $this->session->set_flashdata('flash_message', get_phrase('settings_updated'));
+            $this->session->set_flashdata('flash_message', get_phrase('pengaturan_diperbarui'));
             redirect(site_url('admin/system_settings'), 'refresh');
         }
         if ($param1 == 'change_skin') {
             $data['description'] = $param2;
             $this->db->where('type' , 'skin_colour');
             $this->db->update('settings' , $data);
-            $this->session->set_flashdata('flash_message' , get_phrase('theme_selected'));
+            $this->session->set_flashdata('flash_message' , get_phrase('tema_dipilih'));
             redirect(site_url('admin/system_settings'), 'refresh');
         }
         $page_data['languages']  = $this->get_all_languages();
         $page_data['page_name']  = 'system_settings';
-        $page_data['page_title'] = get_phrase('system_settings');
+        $page_data['page_title'] = get_phrase('pengaturan_sistem');
         $page_data['settings']   = $this->db->get('settings')->result_array();
         $this->load->view('backend/index', $page_data);
     }
@@ -2784,22 +2784,22 @@ class Admin extends CI_Controller
 
       if ($param1 == 'update_stripe_keys') {
             $this->crud_model->update_stripe_keys();
-            $this->session->set_flashdata('flash_message', get_phrase('payment_settings_updated'));
+            $this->session->set_flashdata('flash_message', get_phrase('pengaturan_pembayaran_diperbarui'));
             redirect(site_url('admin/payment_settings'), 'refresh');
       }
 
       if ($param1 == 'update_paypal_keys') {
           $this->crud_model->update_paypal_keys();
-          $this->session->set_flashdata('flash_message', get_phrase('payment_settings_updated'));
+          $this->session->set_flashdata('flash_message', get_phrase('pengaturan_pembayaran_diperbarui'));
           redirect(site_url('admin/payment_settings'), 'refresh');
       }
       if ($param1 == 'update_payumoney_keys') {
         $this->crud_model->update_payumoney_keys();
-        $this->session->set_flashdata('flash_message', get_phrase('payment_settings_updated'));
+        $this->session->set_flashdata('flash_message', get_phrase('pengaturan_pembayaran_diperbarui'));
         redirect(site_url('admin/payment_settings'), 'refresh');
       }
       $page_data['page_name']  = 'payment_settings';
-      $page_data['page_title'] = get_phrase('payment_settings');
+      $page_data['page_title'] = get_phrase('pengaturan_pembayaran');
       $page_data['settings']   = $this->db->get('settings')->result_array();
       $this->load->view('backend/index', $page_data);
     }
@@ -2811,12 +2811,12 @@ class Admin extends CI_Controller
 
         if($param1 == 'update'){
             $this->crud_model->update_smtp_settings();
-            $this->session->set_flashdata('flash_message', 'SMTP'.' '.get_phrase('settings_updated'));
+            $this->session->set_flashdata('flash_message', 'SMTP'.' '.get_phrase('pengaturan_diperbarui'));
             redirect(site_url('admin/smtp_settings'), 'refresh');
         }
 
         $page_data['page_name']  = 'smtp_settings';
-        $page_data['page_title'] = 'SMTP'.' '.get_phrase('settings');
+        $page_data['page_title'] = 'SMTP'.' '.get_phrase('pengaturan');
         $page_data['settings']   = $this->db->get('settings')->result_array();
         $this->load->view('backend/index', $page_data);
     }
@@ -2852,24 +2852,24 @@ class Admin extends CI_Controller
         $page_data['gallery_id']  = $param2;
       }
       $page_data['page_name'] = 'frontend_pages';
-      $page_data['page_title']  = get_phrase('pages');
+      $page_data['page_title']  = get_phrase('halaman');
       $this->load->view('backend/index', $page_data);
     }
 
     function frontend_events($param1 = '', $param2 = '') {
       if ($param1 == 'add_event') {
         $this->frontend_model->add_event();
-        $this->session->set_flashdata('flash_message' , get_phrase('event_added_successfully'));
+        $this->session->set_flashdata('flash_message' , get_phrase('kegiatan_berhasil_ditambahkan'));
         redirect(site_url('admin/frontend_pages/events'), 'refresh');
       }
       if ($param1 == 'edit_event') {
         $this->frontend_model->edit_event($param2);
-        $this->session->set_flashdata('flash_message' , get_phrase('event_updated_successfully'));
+        $this->session->set_flashdata('flash_message' , get_phrase('kegiatan_berhasil_diupdate'));
         redirect(site_url('admin/frontend_pages/events'), 'refresh');
       }
       if ($param1 == 'delete') {
         $this->frontend_model->delete_event($param2);
-        $this->session->set_flashdata('flash_message' , get_phrase('event_deleted'));
+        $this->session->set_flashdata('flash_message' , get_phrase('kegiatan_dihapus'));
         redirect(site_url('admin/frontend_pages/events'), 'refresh');
       }
     }
@@ -2877,22 +2877,22 @@ class Admin extends CI_Controller
     function frontend_gallery($param1 = '', $param2 = '', $param3 = '') {
       if ($param1 == 'add_gallery') {
         $this->frontend_model->add_gallery();
-        $this->session->set_flashdata('flash_message' , get_phrase('gallery_added_successfully'));
+        $this->session->set_flashdata('flash_message' , get_phrase('galeri_berhasil_ditambahkan'));
         redirect(site_url('admin/frontend_pages/gallery'), 'refresh');
       }
       if ($param1 == 'edit_gallery') {
         $this->frontend_model->edit_gallery($param2);
-        $this->session->set_flashdata('flash_message' , get_phrase('gallery_updated_successfully'));
+        $this->session->set_flashdata('flash_message' , get_phrase('galeri_berhasil_diperbarui'));
         redirect(site_url('admin/frontend_pages/gallery'), 'refresh');
       }
       if ($param1 == 'upload_images') {
         $this->frontend_model->add_gallery_images($param2);
-        $this->session->set_flashdata('flash_message' , get_phrase('images_uploaded'));
+        $this->session->set_flashdata('flash_message' , get_phrase('gambar_diunggah'));
         redirect(site_url('admin/frontend_pages/gallery_image/'.$param2), 'refresh');
       }
       if ($param1 == 'delete_image') {
         $this->frontend_model->delete_gallery_image($param2);
-        $this->session->set_flashdata('flash_message' , get_phrase('images_deleted'));
+        $this->session->set_flashdata('flash_message' , get_phrase('gambar_dihapus'));
         redirect(site_url('admin/frontend_pages/gallery_image/'.$param3), 'refresh');
       }
 
@@ -2964,7 +2964,7 @@ class Admin extends CI_Controller
         $data['description'] = $this->input->post('running_year');
         $this->db->where('type' , 'running_year');
         $this->db->update('settings' , $data);
-        $this->session->set_flashdata('flash_message' , get_phrase('session_changed'));
+        $this->session->set_flashdata('flash_message' , get_phrase('sesi_diubah'));
         redirect(site_url('admin/dashboard'), 'refresh');
     }
 
@@ -3038,7 +3038,7 @@ class Admin extends CI_Controller
             $this->db->where('type' , 'clickatell_api_id');
             $this->db->update('settings' , $data);
 
-            $this->session->set_flashdata('flash_message' , get_phrase('data_updated'));
+            $this->session->set_flashdata('flash_message' , get_phrase('data_diperbarui'));
             redirect(site_url('admin/sms_settings'), 'refresh');
         }
 
@@ -3056,7 +3056,7 @@ class Admin extends CI_Controller
             $this->db->where('type' , 'twilio_sender_phone_number');
             $this->db->update('settings' , $data);
 
-            $this->session->set_flashdata('flash_message' , get_phrase('data_updated'));
+            $this->session->set_flashdata('flash_message' , get_phrase('data_diperbarui'));
             redirect(site_url('admin/sms_settings'), 'refresh');
         }
         if ($param1 == 'msg91') {
@@ -3083,7 +3083,7 @@ class Admin extends CI_Controller
 
         if ($param1 == 'active_service') {
 
-            $data['description'] = html_escape($this->input->post('active_sms_service'));
+            $data['description'] = html_escape($this->input->post('layanan_sms_aktif'));
             $this->db->where('type' , 'active_sms_service');
             $this->db->update('settings' , $data);
 
@@ -3092,7 +3092,7 @@ class Admin extends CI_Controller
         }
 
         $page_data['page_name']  = 'sms_settings';
-        $page_data['page_title'] = get_phrase('sms_settings');
+        $page_data['page_title'] = get_phrase('pengaturan_sms');
         $page_data['settings']   = $this->db->get('settings')->result_array();
         $this->load->view('backend/index', $page_data);
     }
@@ -3168,21 +3168,21 @@ class Admin extends CI_Controller
 
         if ($param1 == 'add_language') {
             saveDefaultJSONFile($this->input->post('language'));
-            $this->session->set_flashdata('flash_message', get_phrase('language_added_successfully'));
+            $this->session->set_flashdata('flash_message', get_phrase('bahasa_berhasil_ditambahkan'));
             redirect(site_url('admin/manage_language'), 'refresh');
         }
 
         if ($param1 == 'delete_language') {
             if (file_exists('application/language/'.$param2.'.json')) {
                 unlink('application/language/'.$param2.'.json');
-                $this->session->set_flashdata('flash_message', get_phrase('language_deleted_successfully'));
+                $this->session->set_flashdata('flash_message', get_phrase('bahasa_berhasil_dihapus'));
                 redirect(site_url('admin/manage_language'), 'refresh');
             }
         }
 
         if ($param1 == 'add_phrase') {
             $new_phrase = get_phrase($this->input->post('phrase'));
-            $this->session->set_flashdata('flash_message', $new_phrase.' '.get_phrase('has_been_added_successfully'));
+            $this->session->set_flashdata('flash_message', $new_phrase.' '.get_phrase('telah_berhasil_ditambahkan'));
             redirect(site_url('admin/manage_language'), 'refresh');
         }
 
@@ -3192,7 +3192,7 @@ class Admin extends CI_Controller
 
         $page_data['languages']             = $this->get_all_languages();
         $page_data['page_name']             =   'manage_language';
-        $page_data['page_title']            =   get_phrase('multi_language_settings');
+        $page_data['page_title']            =   get_phrase('pengaturan_multi_bahasa');
         $this->load->view('backend/index', $page_data);
     }
 
@@ -3244,10 +3244,10 @@ class Admin extends CI_Controller
                 $this->db->where('admin_id', $this->session->userdata('admin_id'));
                 $this->db->update('admin', $data);
                 move_uploaded_file($_FILES['userfile']['tmp_name'], 'uploads/admin_image/' . $this->session->userdata('admin_id') . '.jpg');
-                $this->session->set_flashdata('flash_message', get_phrase('account_updated'));
+                $this->session->set_flashdata('flash_message', get_phrase('akun_diperbarui'));
             }
             else{
-                $this->session->set_flashdata('error_message', get_phrase('this_email_id_is_not_available'));
+                $this->session->set_flashdata('error_message', get_phrase('id_email_ini_tidak_tersedia'));
             }
             redirect(site_url('admin/manage_profile'), 'refresh');
         }
@@ -3264,14 +3264,14 @@ class Admin extends CI_Controller
                 $this->db->update('admin', array(
                     'password' => $data['new_password']
                 ));
-                $this->session->set_flashdata('flash_message', get_phrase('password_updated'));
+                $this->session->set_flashdata('flash_message', get_phrase('password_diperbarui'));
             } else {
-                $this->session->set_flashdata('error_message', get_phrase('password_mismatch'));
+                $this->session->set_flashdata('error_message', get_phrase('password_tidak_cocok'));
             }
             redirect(site_url('admin/manage_profile'), 'refresh');
         }
         $page_data['page_name']  = 'manage_profile';
-        $page_data['page_title'] = get_phrase('manage_profile');
+        $page_data['page_title'] = get_phrase('kelola_akun');
         $page_data['edit_data']  = $this->db->get_where('admin', array(
             'admin_id' => $this->session->userdata('admin_id')
         ))->result_array();
@@ -3302,11 +3302,11 @@ class Admin extends CI_Controller
             $validation = email_validation($data['email']);
             if ($validation == 1) {
                 $this->db->insert('librarian', $data);
-                $this->session->set_flashdata('flash_message' , get_phrase('data_added_successfully'));
+                $this->session->set_flashdata('flash_message' , get_phrase('data_berhasil_ditambahkan'));
                 $this->email_model->account_opening_email('librarian', $data['email'], $this->input->post('password')); //SEND EMAIL ACCOUNT OPENING EMAIL
             }
             else{
-                $this->session->set_flashdata('error_message' , get_phrase('this_email_id_is_not_available'));
+                $this->session->set_flashdata('error_message' , get_phrase('id_email_ini_tidak_tersedia'));
             }
             redirect(site_url('admin/librarian'), 'refresh');
         }
@@ -3318,10 +3318,10 @@ class Admin extends CI_Controller
             if ($validation == 1) {
                 $this->db->where('librarian_id' , $param2);
                 $this->db->update('librarian' , $data);
-                $this->session->set_flashdata('flash_message' , get_phrase('data_updated'));
+                $this->session->set_flashdata('flash_message' , get_phrase('data_diperbarui'));
             }
             else{
-                $this->session->set_flashdata('error_message' , get_phrase('this_email_id_is_not_available'));
+                $this->session->set_flashdata('error_message' , get_phrase('id_email_ini_tidak_tersedia'));
             }
 
             redirect(site_url('admin/librarian'), 'refresh');
@@ -3331,11 +3331,11 @@ class Admin extends CI_Controller
             $this->db->where('librarian_id' , $param2);
             $this->db->delete('librarian');
 
-            $this->session->set_flashdata('flash_message' , get_phrase('data_deleted'));
+            $this->session->set_flashdata('flash_message' , get_phrase('data_dihapus'));
             redirect(site_url('admin/librarian'), 'refresh');
         }
 
-        $page_data['page_title']    = get_phrase('Master Data Pustakawan');
+        $page_data['page_title']    = get_phrase('Master_Data_Pustakawan');
         $page_data['page_name']     = 'librarian';
         $this->load->view('backend/index', $page_data);
     }
@@ -3354,11 +3354,11 @@ class Admin extends CI_Controller
             $validation = email_validation($data['email']);
             if ($validation == 1) {
                 $this->db->insert('accountant', $data);
-                $this->session->set_flashdata('flash_message' , get_phrase('data_added_successfully'));
+                $this->session->set_flashdata('flash_message' , get_phrase('data_berhasil_ditambahkan'));
                 $this->email_model->account_opening_email('accountant', $data['email'], html_escape($this->input->post('password'))); //SEND EMAIL ACCOUNT OPENING EMAIL
             }
             else{
-                $this->session->set_flashdata('error_message' , get_phrase('this_email_id_is_not_available'));
+                $this->session->set_flashdata('error_message' , get_phrase('id_email_ini_tidak_tersedia'));
             }
 
             redirect(site_url('admin/accountant'), 'refresh');
@@ -3372,10 +3372,10 @@ class Admin extends CI_Controller
             if($validation == 1){
                 $this->db->where('accountant_id' , $param2);
                 $this->db->update('accountant' , $data);
-                $this->session->set_flashdata('flash_message' , get_phrase('data_updated'));
+                $this->session->set_flashdata('flash_message' , get_phrase('data_diperbarui'));
             }
             else{
-                $this->session->set_flashdata('error_message' , get_phrase('this_email_id_is_not_available'));
+                $this->session->set_flashdata('error_message' , get_phrase('id_email_ini_tidak_tersedia'));
             }
 
             redirect(site_url('admin/accountant'), 'refresh');
@@ -3385,11 +3385,11 @@ class Admin extends CI_Controller
             $this->db->where('accountant_id' , $param2);
             $this->db->delete('accountant');
 
-            $this->session->set_flashdata('flash_message' , get_phrase('data_deleted'));
+            $this->session->set_flashdata('flash_message' , get_phrase('data_dihapus'));
             redirect(site_url('admin/accountant'), 'refresh');
         }
 
-        $page_data['page_title']    = get_phrase('master data akuntan');
+        $page_data['page_title']    = get_phrase('master_data_akuntan');
         $page_data['page_name']     = 'accountant';
         $this->load->view('backend/index', $page_data);
     }
@@ -3442,7 +3442,7 @@ class Admin extends CI_Controller
                  //student id (code) validation
                  $code_validation = code_validation_insert($data['student_code']);
                  if(!$code_validation){
-                     $this->session->set_flashdata('error_message' , get_phrase('this_id_no_is_not_available'));
+                     $this->session->set_flashdata('error_message' , get_phrase('id_tidak_tersedia'));
                      redirect(site_url('admin/student_add'), 'refresh');
                  }
                  //student id validation ends
@@ -3463,27 +3463,27 @@ class Admin extends CI_Controller
                   }
                   else{
                     if ($array_size == 2) {
-                      $this->session->set_flashdata('error_message', get_phrase('this_email_id_"').$data['email'].get_phrase('"_is_not_available'));
+                      $this->session->set_flashdata('error_message', get_phrase('id_email"').$data['email'].get_phrase('"tidak_tersedia'));
                       redirect(site_url('admin/student_bulk_add'), 'refresh');
                     }
                     elseif($array_size > 2){
-                      $this->session->set_flashdata('error_message', get_phrase('some_email_IDs_are_not_available'));
+                      $this->session->set_flashdata('error_message', get_phrase('beberapa_ID_email_tidak_tersedia'));
                     }
                   }
 
               }
 
 
-              $this->session->set_flashdata('flash_message', get_phrase('student_imported'));
+              $this->session->set_flashdata('flash_message', get_phrase('siswa_diimpor'));
               redirect(site_url('admin/student_bulk_add'), 'refresh');
            }
            else{
-             $this->session->set_flashdata('error_message', get_phrase('please_make_sure_class_and_section_is_selected'));
+             $this->session->set_flashdata('error_message', get_phrase('pastikan_kelas_dan_sesi_terpilih'));
              redirect(site_url('admin/student_bulk_add'), 'refresh');
            }
         }
         $page_data['page_name']  = 'student_bulk_add';
-        $page_data['page_title'] = get_phrase('Tambah data siswa secara massal');
+        $page_data['page_title'] = get_phrase('Tambah_data_siswa_secara_massal');
         $this->load->view('backend/index', $page_data);
     }
 
@@ -3495,14 +3495,14 @@ class Admin extends CI_Controller
         if ($task == "create")
         {
             $this->crud_model->save_study_material_info();
-            $this->session->set_flashdata('flash_message' , get_phrase('study_material_info_saved_successfuly'));
+            $this->session->set_flashdata('flash_message' , get_phrase('info_bahan_ajar_berhasil_disimpan'));
             redirect(site_url('admin/study_material'), 'refresh');
         }
 
         if ($task == "update")
         {
             $this->crud_model->update_study_material_info($document_id);
-            $this->session->set_flashdata('flash_message' , get_phrase('study_material_info_updated_successfuly'));
+            $this->session->set_flashdata('flash_message' , get_phrase('info_bahan_ajar_berhasil_diperbarui'));
             redirect(site_url('admin/study_material'), 'refresh');
         }
 
@@ -3514,7 +3514,7 @@ class Admin extends CI_Controller
 
         $data['study_material_info']    = $this->crud_model->select_study_material_info();
         $data['page_name']              = 'study_material';
-        $data['page_title']             = get_phrase('Bahan Pengajaran');
+        $data['page_title']             = get_phrase('Bahan_Pengajaran');
         $this->load->view('backend/index', $data);
     }
 
@@ -3545,7 +3545,7 @@ class Admin extends CI_Controller
         $this->db->like('name', $student_identifier);
         $query_by_name = $this->db->get('student');
         if ($query_by_name->num_rows() == 0) {
-          $this->session->set_flashdata('error_message' , get_phrase('no_student_found'));
+          $this->session->set_flashdata('error_message' , get_phrase('tidak_ada_siswa_yang_ditemukan'));
           redirect(site_url('admin/dashboard'), 'refresh');
         }
         else{
@@ -3556,7 +3556,7 @@ class Admin extends CI_Controller
         $page_data['student_information'] = $query_by_code->result_array();
       }
       $page_data['page_name']  	= 'search_result';
-  		$page_data['page_title'] 	= get_phrase('search_result');
+  		$page_data['page_title'] 	= get_phrase('hasil_pencarian');
   		$this->load->view('backend/index', $page_data);
     }
 
@@ -3585,33 +3585,33 @@ class Admin extends CI_Controller
         if ($param1 == 'create') {
             if ($this->input->post('class_id') > 0 && $this->input->post('section_id') > 0 && $this->input->post('subject_id') > 0) {
                 $this->crud_model->create_online_exam();
-                $this->session->set_flashdata('flash_message' , get_phrase('data_added_successfully'));
+                $this->session->set_flashdata('flash_message' , get_phrase('data_berhasil_ditambahkan'));
                 redirect(site_url('admin/manage_online_exam'), 'refresh');
             }
             else {
-                $this->session->set_flashdata('error_message' , get_phrase('make_sure_to_select_valid_class_').','.get_phrase('_section_and_subject'));
+                $this->session->set_flashdata('error_message' , get_phrase('pastikan_pilih_kelas_yang_benar').','.get_phrase('_sesi_dan_subjek'));
                 redirect(site_url('admin/manage_online_exam'), 'refresh');
             }
         }
         if ($param1 == 'edit') {
             if ($this->input->post('class_id') > 0 && $this->input->post('section_id') > 0 && $this->input->post('subject_id') > 0) {
                 $this->crud_model->update_online_exam();
-                $this->session->set_flashdata('flash_message' , get_phrase('data_updated_successfully'));
+                $this->session->set_flashdata('flash_message' , get_phrase('data_berhasil_diperbarui'));
                 redirect(site_url('admin/manage_online_exam'), 'refresh');
             }
             else{
-                $this->session->set_flashdata('error_message' , get_phrase('make_sure_to_select_valid_class_').','.get_phrase('_section_and_subject'));
+                $this->session->set_flashdata('error_message' , get_phrase('pastikan_pilih_kelas_yang_benar').','.get_phrase('_sesi_dan_subjek'));
                 redirect(site_url('admin/manage_online_exam'), 'refresh');
             }
         }
         if ($param1 == 'delete') {
             $this->db->where('online_exam_id', $param2);
             $this->db->delete('online_exam');
-            $this->session->set_flashdata('flash_message' , get_phrase('data_deleted'));
+            $this->session->set_flashdata('flash_message' , get_phrase('data_dihapus'));
             redirect(site_url('admin/manage_online_exam'), 'refresh');
         }
         $page_data['page_name'] = 'manage_online_exam';
-        $page_data['page_title'] = get_phrase('Pengaturan Ujian Online');
+        $page_data['page_title'] = get_phrase('Pengaturan_Ujian_Online');
         $this->load->view('backend/index', $page_data);
     }
 
@@ -3627,14 +3627,14 @@ class Admin extends CI_Controller
 
     function create_online_exam(){
         $page_data['page_name'] = 'add_online_exam';
-        $page_data['page_title'] = get_phrase('Tambah Ujian Online');
+        $page_data['page_title'] = get_phrase('Tambah_Ujian_Online');
         $this->load->view('backend/index', $page_data);
     }
 
     function update_online_exam($param1 = ""){
         $page_data['online_exam_id'] = $param1;
         $page_data['page_name'] = 'edit_online_exam';
-        $page_data['page_title'] = get_phrase('update_online_exam');
+        $page_data['page_title'] = get_phrase('perbarui_ujian_online');
         $this->load->view('backend/index', $page_data);
     }
 
@@ -3691,14 +3691,14 @@ class Admin extends CI_Controller
         }
         $page_data['question_id'] = $question_id;
         $page_data['page_name'] = 'update_online_exam_question';
-        $page_data['page_title'] = get_phrase('update_question');
+        $page_data['page_title'] = get_phrase('perbarui_pertanyaan');
         $this->load->view('backend/index', $page_data);
     }
 
     function delete_question_from_online_exam($question_id){
         $online_exam_id = $this->db->get_where('question_bank', array('question_bank_id' => $question_id))->row()->online_exam_id;
         $this->crud_model->delete_question_from_online_exam($question_id);
-        $this->session->set_flashdata('flash_message' , get_phrase('question_deleted'));
+        $this->session->set_flashdata('flash_message' , get_phrase('pertanyaan_dihapus'));
         redirect(site_url('admin/manage_online_exam_question/'.$online_exam_id), 'refresh');
     }
 
@@ -3733,7 +3733,7 @@ class Admin extends CI_Controller
 
     function view_online_exam_result($online_exam_id){
         $page_data['page_name'] = 'view_online_exam_results';
-        $page_data['page_title'] = get_phrase('result');
+        $page_data['page_title'] = get_phrase('hasil');
         $page_data['online_exam_id'] = $online_exam_id;
         $this->load->view('backend/index',$page_data);
     }
