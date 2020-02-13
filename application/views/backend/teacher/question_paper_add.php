@@ -16,7 +16,7 @@
                         <label for="field-1" class="col-sm-3 control-label"><?php echo get_phrase('judul');?></label>
                         
                         <div class="col-sm-6">
-                            <input type="text" class="form-control" name="title" data-validate="required" data-message-required="<?php echo get_phrase('value_required');?>" value="" autofocus>
+                            <input type="text" class="form-control" name="title" data-validate="required" data-message-required="<?php echo get_phrase('filed_tidak_boleh_kosong');?>" value="" autofocus>
                         </div>
                     </div>
 

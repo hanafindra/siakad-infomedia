@@ -9,7 +9,7 @@
 
 			<div class="col-md-2">
 				<div class="form-group">
-				<label class="control-label" style="margin-bottom: 5px;"><?php echo get_phrase('exam');?></label>
+				<label class="control-label" style="margin-bottom: 5px;"><?php echo get_phrase('ujian');?></label>
 					<select name="exam_id" class="form-control selectboxit" required>
 						<?php
 							$exams = $this->db->get_where('exam' , array('year' => $running_year))->result_array();
@@ -24,7 +24,7 @@
 
 			<div class="col-md-2">
 				<div class="form-group">
-				<label class="control-label" style="margin-bottom: 5px;"><?php echo get_phrase('class');?></label>
+				<label class="control-label" style="margin-bottom: 5px;"><?php echo get_phrase('kelas');?></label>
 					<select name="class_id" class="form-control selectboxit" onchange="get_class_subject(this.value)">
 						<option value=""><?php echo get_phrase('pilih_kelas');?></option>
 						<?php
@@ -78,7 +78,7 @@
 				</div>
 				<div class="col-md-2" style="margin-top: 20px;">
 					<center>
-						<button type="submit" class="btn btn-info"><?php echo get_phrase('manage_marks');?></button>
+						<button type="submit" class="btn btn-info"><?php echo get_phrase('kelola_nilai');?></button>
 					</center>
 				</div>
 			</div>
@@ -95,13 +95,13 @@
 		<div class="tile-stats tile-gray">
 			<div class="icon"><i class="entypo-chart-bar"></i></div>
 
-			<h3 style="color: #696969;"><?php echo get_phrase('marks_for');?> <?php echo $this->db->get_where('exam' , array('exam_id' => $exam_id))->row()->name;?></h3>
+			<h3 style="color: #696969;"><?php echo get_phrase('nilai_dari');?> <?php echo $this->db->get_where('exam' , array('exam_id' => $exam_id))->row()->name;?></h3>
 			<h4 style="color: #696969;">
-				<?php echo get_phrase('class');?> <?php echo $this->db->get_where('class' , array('class_id' => $class_id))->row()->name;?> :
-				<?php echo get_phrase('section');?> <?php echo $this->db->get_where('section' , array('section_id' => $section_id))->row()->name;?>
+				<?php echo get_phrase('kelas');?> <?php echo $this->db->get_where('class' , array('class_id' => $class_id))->row()->name;?> :
+				<?php echo get_phrase('bagian');?> <?php echo $this->db->get_where('section' , array('section_id' => $section_id))->row()->name;?>
 			</h4>
 			<h4 style="color: #696969;">
-				<?php echo get_phrase('subject');?> : <?php echo $this->db->get_where('subject' , array('subject_id' => $subject_id))->row()->name;?>
+				<?php echo get_phrase('mata_pelajaran');?> : <?php echo $this->db->get_where('subject' , array('subject_id' => $subject_id))->row()->name;?>
 			</h4>
 		</div>
 	</div>
