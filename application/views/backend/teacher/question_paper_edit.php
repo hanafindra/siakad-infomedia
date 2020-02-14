@@ -18,10 +18,10 @@ foreach ($edit_data as $row) { ?>
                         'enctype' => 'multipart/form-data')); ?>
         
                         <div class="form-group">
-                            <label for="field-1" class="col-sm-3 control-label"><?php echo get_phrase('title');?></label>
+                            <label for="field-1" class="col-sm-3 control-label"><?php echo get_phrase('judul');?></label>
                             
                             <div class="col-sm-6">
-                                <input type="text" class="form-control" name="title" data-validate="required" data-message-required="<?php echo get_phrase('value_required');?>" 
+                                <input type="text" class="form-control" name="title" data-validate="required" data-message-required="<?php echo get_phrase('filed_tidak_boleh_kosong');?>" 
                                     value="<?php echo $row['title']; ?>" />
                             </div>
                         </div>

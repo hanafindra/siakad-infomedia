@@ -24,37 +24,37 @@
         <?php echo form_open(site_url('admin/update_online_exam_question/'.$param2.'/update'.'/'.$question_details['online_exam_id']) , array('class' => 'form-horizontal form-groups-bordered validate','target'=>'_top'));?>
 
         <div class="form-group">
-            <label class="col-sm-3 control-label"><?php echo get_phrase('mark');?></label>
+            <label class="col-sm-3 control-label"><?php echo get_phrase('nilai');?></label>
             <div class="col-sm-8">
-                <input type="number" class="form-control" name="mark" data-validate="required" data-message-required="<?php echo get_phrase('value_required');?>" min="0" value="<?php echo $question_details['mark']; ?>"/>
+                <input type="number" class="form-control" name="mark" data-validate="required" data-message-required="<?php echo get_phrase('nilai_dibutuhkan');?>" min="0" value="<?php echo $question_details['mark']; ?>"/>
             </div>
         </div>
 
         <div class="form-group">
-            <label class="col-sm-3 control-label"><?php echo get_phrase('question_title');?></label>
+            <label class="col-sm-3 control-label"><?php echo get_phrase('judul_pertanyaan');?></label>
                 <div class="col-sm-8">
-                    <textarea name="question_title" class = "form-control" id = "question_title" rows="8" cols="80" data-validate="required" data-message-required="<?php echo get_phrase('value_required');?>" <?php if($question_details['type'] == 'fill_in_the_blanks') echo "onkeyup='changeTheBlankColor()'"; ?>><?php echo $question_details['question_title']; ?></textarea>
+                    <textarea name="question_title" class = "form-control" id = "question_title" rows="8" cols="80" data-validate="required" data-message-required="<?php echo get_phrase('nilai_dibutuhkan');?>" <?php if($question_details['type'] == 'fill_in_the_blanks') echo "onkeyup='changeTheBlankColor()'"; ?>><?php echo $question_details['question_title']; ?></textarea>
                 </div>
         </div>
 
         <!-- Multiple choice question portion -->
         <?php if ($question_details['type'] == 'multiple_choice'): ?>
             <div class="form-group" id = 'multiple_choice_question'>
-                <label class="col-sm-3 control-label"><?php echo get_phrase('number_options');?></label>
+                <label class="col-sm-3 control-label"><?php echo get_phrase('opsi_nomor');?></label>
 
                 <div class="col-sm-8">
                     <div class="input-group">
-                      <input type="number" class="form-control" name="number_of_options" id = "number_of_options" data-validate="required" data-message-required="<?php echo get_phrase('value_required');?>" min="0" value="<?php echo $question_details['number_of_options']; ?>"/>
+                      <input type="number" class="form-control" name="number_of_options" id = "number_of_options" data-validate="required" data-message-required="<?php echo get_phrase('nilai_dibutuhkan');?>" min="0" value="<?php echo $question_details['number_of_options']; ?>"/>
                       <div class="input-group-addon" style="padding: 0px"><button type="button" class = 'btn btn-sm pull-right' name="button" onclick="showOptions(jQuery('#number_of_options').val())" style="border-radius: 0px; background-color: #eeeeee;"><i class="fa fa-check"></i></button></div>
                     </div>
                 </div>
             </div>
             <?php for ($i = 0; $i < $question_details['number_of_options']; $i++):?>
                 <div class="form-group options">
-                    <label class="col-sm-3 control-label"><?php echo get_phrase('option_').($i+1);?></label>
+                    <label class="col-sm-3 control-label"><?php echo get_phrase('opsi_').($i+1);?></label>
                     <div class="col-sm-8">
                         <div class="input-group">
-                          <input type="text" class="form-control" name = "options[]" id="option_<?php echo $i+1; ?>" placeholder="<?php echo get_phrase('option_').($i+1); ?>" required value="<?php echo $options[$i]; ?>">
+                          <input type="text" class="form-control" name = "options[]" id="option_<?php echo $i+1; ?>" placeholder="<?php echo get_phrase('opsi_').($i+1); ?>" required value="<?php echo $options[$i]; ?>">
                           <div class="input-group-addon"><input type = 'checkbox' name = "correct_answers[]" value = <?php echo ($i+1); ?> <?php if(in_array(($i+1), $correct_answers)) echo 'checked'; ?>></div>
                         </div>
                     </div>
@@ -68,13 +68,13 @@
                 <div class="col-sm-8 col-sm-offset-3">
                     <p>
                         <input type="radio" id="true" name="true_false_answer" value="true" <?php if($question_details['correct_answers'] == 'true') echo 'checked';  ?>>
-                        <label for="true"><?php echo get_phrase('true'); ?></label>
+                        <label for="true"><?php echo get_phrase('benar'); ?></label>
                     </p>
                 </div>
                 <div class="col-sm-8 col-sm-offset-3">
                     <p>
                         <input type="radio" id="false" name="true_false_answer" value="false" <?php if($question_details['correct_answers'] == 'false') echo 'checked';  ?>>
-                        <label for="false"><?php echo get_phrase('false'); ?></label>
+                        <label for="false"><?php echo get_phrase('salah'); ?></label>
                     </p>
                 </div>
 
@@ -85,23 +85,23 @@
         <?php if ($question_details['type'] == 'fill_in_the_blanks'): ?>
 
             <div class="form-group">
-                <label class="col-sm-3 control-label"><?php echo get_phrase('preview');?></label>
+                <label class="col-sm-3 control-label"><?php echo get_phrase('lihat');?></label>
                 <div class="col-sm-8">
                     <div class="" id = "preview"></div>
                 </div>
             </div>
 
             <div class="form-group">
-                <label class="col-sm-3 control-label"><?php echo get_phrase('suitable_words');?></label>
+                <label class="col-sm-3 control-label"><?php echo get_phrase('kalimat_yang_cocok');?></label>
                 <div class="col-sm-8">
-                    <textarea name="suitable_words" class = "form-control" rows="8" cols="80" data-validate="required" data-message-required="<?php echo get_phrase('value_required');?>" placeholder="<?php echo get_phrase('this_area_will_contain_suitable_words_for_the_blanks').'. '.get_phrase('please_write_down_the_suitable_words_side_by_side_with_a_comma').' \',\' '.get_phrase('delimiter').'...'; ?>" ><?php echo $suitable_words; ?></textarea>
+                    <textarea name="suitable_words" class = "form-control" rows="8" cols="80" data-validate="required" data-message-required="<?php echo get_phrase('nilai_dibutuhkan');?>" placeholder="<?php echo get_phrase('area_ini_akan_berisi_kata_kata_yang_cocok_untuk_mengisi_bagian_kosong').'. '.get_phrase('tulis_kata_kata_yang_cocok_berdampingan_dengan_koma').' \',\' '.get_phrase('pembatas').'...'; ?>" ><?php echo $suitable_words; ?></textarea>
                 </div>
             </div>
         <?php endif; ?>
 
         <div class="form-group">
             <div class="col-sm-12">
-                <button type="submit" class="btn btn-info btn-block"><?php echo get_phrase('update_question');?></button>
+                <button type="submit" class="btn btn-info btn-block"><?php echo get_phrase('perbarui_pertanyaan');?></button>
             </div>
         </div>
 

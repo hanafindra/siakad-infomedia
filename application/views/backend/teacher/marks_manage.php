@@ -10,6 +10,7 @@
 				<div class="form-group">
 				<label class="control-label" style="margin-bottom: 5px;"><?php echo get_phrase('ujian');?></label>
 					<select name="exam_id" class="form-control selectboxit">
+						<option value=""><?php echo get_phrase('pilih_ujian');?></option>
 						<?php
 							$exams = $this->db->get_where('exam' , array('year' => $running_year))->result_array();
 							foreach($exams as $row):
@@ -40,7 +41,7 @@
 					<div class="form-group">
 					<label class="control-label" style="margin-bottom: 5px;"><?php echo get_phrase('bagian');?></label>
 						<select name="" id="" class="form-control selectboxit" disabled="disabled">
-							<option value=""><?php echo get_phrase('pilih_kelas_terlebih_dahulu');?></option>		
+							<option value=""><?php echo get_phrase('pilih_kelas_dalu');?></option>		
 						</select>
 					</div>
 				</div>
@@ -48,7 +49,7 @@
 					<div class="form-group">
 					<label class="control-label" style="margin-bottom: 5px;"><?php echo get_phrase('mata_pelajaran');?></label>
 						<select name="" id="" class="form-control selectboxit" disabled="disabled">
-							<option value=""><?php echo get_phrase('pilih_kelas_dan_bagian_terlebih_dahulu');?></option>		
+							<option value=""><?php echo get_phrase('pilih_kelas_dalu');?></option>		
 						</select>
 					</div>
 				</div>

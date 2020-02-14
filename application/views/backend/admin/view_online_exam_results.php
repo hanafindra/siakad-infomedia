@@ -9,15 +9,15 @@
 <div class="" style="text-align: center;">
     <h3><?php echo $online_exam_details['title']; ?></h3>
     <?php foreach ($subject_info as $subject): ?>
-        <h4><?php echo get_phrase('subject').': '.$subject['name']; ?></h4>
+        <h4><?php echo get_phrase('subjek').': '.$subject['name']; ?></h4>
     <?php endforeach; ?>
-    <h4><?php echo get_phrase('total_mark').': '.$total_mark; ?></h4>
-    <h4><?php echo get_phrase('minimum_percentage').': '.$online_exam_details['minimum_percentage'].'%'; ?></h4>
+    <h4><?php echo get_phrase('total_nilai').': '.$total_mark; ?></h4>
+    <h4><?php echo get_phrase('persentase_terendah').': '.$online_exam_details['minimum_percentage'].'%'; ?></h4>
     <?php
         $current_time = time();
         $exam_end_time = strtotime(date('Y-m-d', $online_exam_details['exam_date']).' '.$online_exam_details['time_end']);
         if ($current_time < $exam_end_time):?>
-            <h4 style="color: #ef5350;"> <strong><?php echo get_phrase('exam_has_not_finished_yet'); ?></strong></h4>
+            <h4 style="color: #ef5350;"> <strong><?php echo get_phrase('ujian_belum_selesai'); ?></strong></h4>
     <?php endif ?>
 </div>
 <div class="row">
@@ -25,9 +25,9 @@
 		<table class="table table-bordered" id="table_export">
 			<thead>
                 <tr>
-                    <th><div><?php echo get_phrase('student_name');?></div></th>
-                    <th><div><?php echo get_phrase('obtained_marks');?></div></th>
-                    <th><div><?php echo get_phrase('result');?></div></th>
+                    <th><div><?php echo get_phrase('nama_siswa');?></div></th>
+                    <th><div><?php echo get_phrase('nilai_diperoleh');?></div></th>
+                    <th><div><?php echo get_phrase('hasil');?></div></th>
                 </tr>
             </thead>
             <tbody>
@@ -61,7 +61,7 @@
                                     echo get_phrase($query_result['result']);
                                 }
                                 else {
-                                    echo get_phrase('fail').' ( '.get_phrase('absent').' )';
+                                    echo get_phrase('gagal').' ( '.get_phrase('tidak_hadir').' )';
                                 }
                              ?>
                     	</td>

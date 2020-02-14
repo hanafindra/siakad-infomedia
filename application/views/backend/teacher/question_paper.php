@@ -44,13 +44,13 @@
                             <li>
                                 <a href="#" onclick="showAjaxModal('<?php echo site_url('modal/popup/question_paper_edit/'.$row['question_paper_id']);?>');">
                                     <i class="entypo-pencil"></i>
-                                    <?php echo get_phrase('edit');?>
+                                    <?php echo get_phrase('ubah');?>
                                 </a>
                             </li>
                             <li>
                                 <a href="#" onclick="showAjaxModal('<?php echo site_url('modal/popup/question_paper_view/'.$row['question_paper_id']);?>');">
                                     <i class="entypo-eye"></i>
-                                    <?php echo get_phrase('view_question_paper');?>
+                                    <?php echo get_phrase('lihat_lembar_pertanyaan');?>
                                 </a>
                             </li>
                             <li class="divider"></li>
@@ -58,7 +58,7 @@
                             <li>
                                 <a href="#" onclick="confirm_modal('<?php echo site_url('teacher/question_paper/delete/'.$row['question_paper_id']);?>');">
                                     <i class="entypo-trash"></i>
-                                    <?php echo get_phrase('delete');?>
+                                    <?php echo get_phrase('hapus');?>
                                 </a>
                             </li>
                         </ul>

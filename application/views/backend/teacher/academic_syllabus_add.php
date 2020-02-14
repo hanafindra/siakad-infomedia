@@ -5,7 +5,7 @@
             <div class="panel-heading">
                 <div class="panel-title" >
                     <i class="entypo-plus-circled"></i>
-                    <?php echo get_phrase('upload_academic_syllabus'); ?>
+                    <?php echo get_phrase('unggah_silabus_akademik'); ?>
                 </div>
             </div>
             <div class="panel-body">
@@ -20,7 +20,7 @@
                     <label class="col-sm-3 control-label"><?php echo get_phrase('judul'); ?></label>
                     <div class="col-sm-6">
                         <input type="text" class="form-control" name="title"
-                               data-validate="required" data-message-required="<?php echo get_phrase('nilai_benar'); ?>"/>
+                               data-validate="required" data-message-required="<?php echo get_phrase('field_tidak_boleh_kosong'); ?>"/>
                     </div>
                 </div>
 
@@ -35,7 +35,7 @@
                     <label class="col-sm-3 control-label"><?php echo get_phrase('kelas'); ?></label>
                     <div class="col-sm-6">
                         <select class="form-control selectboxit" name="class_id" id="class_id" onchange="return get_class_subject(this.value)">
-                            <option value=""><?php echo get_phrase('pilih'); ?></option>
+                            <option value=""><?php echo get_phrase('pilih_kelas'); ?></option>
                             <?php
                             $classes = $this->db->get('class')->result_array();
                             foreach ($classes as $row):

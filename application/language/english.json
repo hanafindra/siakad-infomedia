@@ -935,5 +935,16 @@
     "kirim_nilai": "Kirim nilai",
     "silahkan_pilih_penerima": "Silahkan pilih penerima",
     "kirim_nilai_via_sms": "Kirim nilai via sms",
-    "sesi_diubah": "Sesi diubah"
+    "sesi_diubah": "Sesi diubah",
+    "nama_pengguna": "Nama pengguna",
+    "pilihan": "Pilihan",
+    "lembar_penilaian": "Lembar penilaian",
+    "profil": "Profil",
+    "id_yang_dihasilkan": "Id yang dihasilkan",
+    "hasil": "Hasil",
+    "subjek": "Subjek",
+    "persentase_terendah": "Persentase terendah",
+    "nilai_diperoleh": "Nilai diperoleh",
+    "gagal": "Gagal",
+    "tidak_hadir": "Tidak hadir"
 }
