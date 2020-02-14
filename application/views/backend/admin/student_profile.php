@@ -33,7 +33,7 @@
             $class_name = $this->db->get_where('class', array(
               'class_id' => $enroll_info->row()->class_id
             ))->row()->name;
-            $section_name = $this->db->get_where('section', array(
+            $section_ = $this->db->get_where('section', array(
               'section_id' => $enroll_info->row()->section_id
             ))->row()->name;
           ?>
@@ -48,19 +48,19 @@
 		<ul class="nav nav-tabs">
 			<li class="active"><a href="#tab1" data-toggle="tab" class="btn btn-default">
 					<span class="visible-xs"><i class="entypo-home"></i></span>
-					<span class="hidden-xs"><?php echo get_phrase('basic_info'); ?></span>
+					<span class="hidden-xs"><?php echo get_phrase('info_dasar'); ?></span>
 				</a>
 			</li>
 			<li class="">
 				<a href="#tab2" data-toggle="tab" class="btn btn-default">
 					<span class="visible-xs"><i class="entypo-user"></i></span>
-					<span class="hidden-xs"><?php echo get_phrase('parent_info'); ?></span>
+					<span class="hidden-xs"><?php echo get_phrase('info_wali_murid'); ?></span>
 				</a>
 			</li>
 			<li class="">
 				<a href="#tab3" data-toggle="tab" class="btn btn-default">
 					<span class="visible-xs"><i class="entypo-mail"></i></span>
-					<span class="hidden-xs"><?php echo get_phrase('exam_marks'); ?></span>
+					<span class="hidden-xs"><?php echo get_phrase('nilai_ujian'); ?></span>
 				</a>
 			</li>
 			<!-- <li class="">
@@ -72,7 +72,7 @@
       <li class="">
 				<a href="#tab5" data-toggle="tab" class="btn btn-default">
 					<span class="visible-xs"><i class="entypo-cog"></i></span>
-					<span class="hidden-xs"><?php echo get_phrase('payments'); ?></span>
+					<span class="hidden-xs"><?php echo get_phrase('pembayaran'); ?></span>
 				</a>
 			</li>
 		</ul>
@@ -80,7 +80,7 @@
 		<div class="tab-content">
 			<div class="tab-pane active" id="tab1">
         <?php
-          $basic_info_titles = ['name','parent', 'class', 'section', 'email', 'phone', 'address', 'gender', 'birthday', 'transport', 'dormitory'];
+          $basic_info_titles = ['nama','wali_murid', 'kelas', 'bagian', 'email', 'telepon', 'alamat', 'jenis_kelamin', 'tanggal_lahir', 'transportasi', 'asrama'];
           $basic_info_values = [$row['name'], $row['parent_id'] == NULL ? '' : $this->db->get_where('parent', array('parent_id' => $row['parent_id']))->row()->name,
           $class_name, $section_name, $row['email'], $row['phone'] == NULL ? '' : $row['phone'], $row['address'] == NULL ? '' : $row['address'], $row['sex'] == NULL ? '' : $row['sex'], $row['birthday'],
           $row['transport_id'] == NULL ? '' : $this->db->get_where('transport', array('transport_id' => $row['transport_id']))->row()->route_name,
@@ -103,7 +103,7 @@
         <?php if ($row['parent_id'] == NULL) { ?>
           <div style="margin-top: 20px;">
             <center>
-              <?php echo get_phrase('parent_information_is_not_available'); ?>
+              <?php echo get_phrase('informasi_wali_murid_tidak_tersedia'); ?>
             </center>
           </div>
         <?php } else {
@@ -134,11 +134,11 @@
           <table class="table table-bordered">
               <thead>
                <tr>
-                   <td style="text-align: center;"><?php echo get_phrase('subject'); ?></td>
-                   <td style="text-align: center;"><?php echo get_phrase('obtained_mark'); ?></td>
-                   <td style="text-align: center;"><?php echo get_phrase('highest_mark'); ?></td>
-                   <td style="text-align: center;"><?php echo get_phrase('grade'); ?></td>
-                   <td style="text-align: center;"><?php echo get_phrase('comment'); ?></td>
+                   <td style="text-align: center;"><?php echo get_phrase('subyek'); ?></td>
+                   <td style="text-align: center;"><?php echo get_phrase('nilai_yang_diperoleh'); ?></td>
+                   <td style="text-align: center;"><?php echo get_phrase('nilai_tertinggi'); ?></td>
+                   <td style="text-align: center;"><?php echo get_phrase('kelas'); ?></td>
+                   <td style="text-align: center;"><?php echo get_phrase('komentar'); ?></td>
                </tr>
            </thead>
            <tbody>
@@ -231,10 +231,10 @@
            <thead>
              <tr>
                <th>#</th>
-               <th><?php echo get_phrase('title'); ?></th>
-               <th><?php echo get_phrase('amount'); ?></th>
-               <th><?php echo get_phrase('date'); ?></th>
-               <th><?php echo get_phrase('options'); ?></th>
+               <th><?php echo get_phrase('judul'); ?></th>
+               <th><?php echo get_phrase('jumlah'); ?></th>
+               <th><?php echo get_phrase('tanggal'); ?></th>
+               <th><?php echo get_phrase('pilihan'); ?></th>
              </tr>
            </thead>
            <tbody>

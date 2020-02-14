@@ -27,7 +27,7 @@
                    <table class="table table-bordered">
                        <thead>
                         <tr>
-                            <td style="text-align: center;"><?php echo get_phrase('subject');?></td>
+                            <td style="text-align: center;"><?php echo get_phrase('subject ');?></td>
                             <td style="text-align: center;"><?php echo get_phrase('obtained_marks');?></td>
                             <td style="text-align: center;"><?php echo get_phrase('highest_mark');?></td>
                             <td style="text-align: center;"><?php echo get_phrase('grade');?></td>
